@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_14_063216) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_14_070438) do
+  create_table "articles", force: :cascade do |t|
+    t.integer "course_id", null: false
+    t.integer "user_id", null: false
+    t.string "title"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_articles_on_course_id"
+    t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
   create_table "course_comments", force: :cascade do |t|
     t.integer "course_id", null: false
     t.text "content"
@@ -45,6 +56,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_14_063216) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "articles", "courses"
+  add_foreign_key "articles", "users"
   add_foreign_key "course_comments", "courses"
   add_foreign_key "course_comments", "users"
 end

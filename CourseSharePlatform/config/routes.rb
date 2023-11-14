@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   devise_for :users, controllers: { sessions: 'users/sessions' ,users: 'users'}, sign_out: :destroy
   resources :users do
     member do
@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   resources :courses do
     resources :course_comments
+    resources :articles
     member do
       get 'list_comments'
+      get 'list_articles'
     end
   end
 

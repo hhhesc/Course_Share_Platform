@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: %i[ show edit update destroy list_comments]
+  before_action :set_course, only: %i[ show edit update destroy list_comments list_articles]
 
   # GET /courses or /courses.json
   def index
@@ -58,6 +58,9 @@ class CoursesController < ApplicationController
   end
 
   def list_comments
+  end
+
+  def list_articles
   end
 
   private
