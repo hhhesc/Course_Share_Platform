@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   resources :courses do
     resources :course_comments
+    member do
+      get 'list_comments'
+    end
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

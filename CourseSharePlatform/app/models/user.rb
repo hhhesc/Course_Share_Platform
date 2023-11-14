@@ -6,5 +6,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username, uniqueness: true
 
+  has_many :course_comments
+
   # attr_accessor :username
 end

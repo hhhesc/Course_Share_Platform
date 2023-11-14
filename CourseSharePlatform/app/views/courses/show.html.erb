@@ -6,17 +6,6 @@
   <%= link_to "编辑课程", edit_course_path(@course) %> |
   <%= link_to "返回", courses_path %>
 
-  <h2>课程评论</h2>
-  <div id="comments">
-    <%= render @course.course_comments %>
-  </div>
-
-  <%= form_for [@course, CourseComment.new] do |f| %>
-    <p>
-      <%= f.label :content, "发表评论" %> <br />
-      <%= f.text_area :content, :rows => 5 %>
-    </p>
-    <p><%= f.submit "发布" %></p>
-  <% end %>
+  <%= link_to "课程评论", list_comments_course_path %>
 
 </div>

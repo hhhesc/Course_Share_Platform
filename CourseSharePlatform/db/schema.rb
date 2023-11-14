@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_13_134339) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_14_031628) do
   create_table "course_comments", force: :cascade do |t|
     t.integer "course_id", null: false
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
     t.index ["course_id"], name: "index_course_comments_on_course_id"
+    t.index ["user_id"], name: "index_course_comments_on_user_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -42,4 +44,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_13_134339) do
   end
 
   add_foreign_key "course_comments", "courses"
+  add_foreign_key "course_comments", "users"
 end

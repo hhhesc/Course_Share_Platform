@@ -24,6 +24,7 @@ class CourseCommentsController < ApplicationController
     @course = Course.find(params[:course_id])
     @course_comment = CourseComment.new(course_comment_params)
     @course_comment.course = @course
+    @course_comment.user = current_user
 
     respond_to do |format|
       if @course_comment.save

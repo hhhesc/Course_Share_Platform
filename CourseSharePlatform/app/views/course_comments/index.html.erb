@@ -2,13 +2,27 @@
 
 <h1>Course comments</h1>
 
-<div id="course_comments">
-  <% @course_comments.each do |course_comment| %>
-    <%= render course_comment %>
-    <p>
-      <%= link_to "Show this course comment", course_comment %>
-    </p>
-  <% end %>
-</div>
+<!--<div id="course_comments">-->
+  <%# @course_comments.each do |course_comment| %>
+    <%#= render course_comment %>
+<!--    <p>-->
+      <%#= link_to "Show this course comment", course_comment %>
+<!--    </p>-->
+  <%# end %>
+<!--</div>-->
 
-<%= link_to "New course comment", new_course_comment_path %>
+<%#=  link_to "发布评论", new_course_course_comment_path(@course_comments.course)%>
+
+
+<!--<div id="comments">-->
+  <%#= render @course.course_comments %>
+<!--</div>-->
+
+<%#= form_for [@course_comment.course , CourseComment.new] do |f| %>
+<!--  <p>-->
+<!--    <%#= f.label :content, "发表评论" %> <br />-->
+    <%#= f.text_area :content, :rows => 5 %>
+<!--  </p>-->
+<!--  <p><%#= f.submit "发布" %></p>-->
+<%# end %>
+
