@@ -1,17 +1,10 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: { sessions: 'users/sessions' ,users: 'users'}, sign_out: :destroy
+  resources :users
+
   resources :courses do
     resources :course_comments
-  end
-  devise_for :users
-  resources :users do
-    collection do
-      get 'login'
-      post 'do_login'
-      get 'logout'
-      get 'register'
-      post 'do_register'
-    end
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

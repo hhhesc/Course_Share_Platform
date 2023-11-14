@@ -4270,3 +4270,1687 @@ Completed 200 OK in 32ms (Views: 28.3ms | ActiveRecord: 1.9ms | Allocations: 360
   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
   [1m[36mCourse Load (9.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
   [1m[36mCourseComment Load (0.7ms)[0m  [1m[34mSELECT "course_comments".* FROM "course_comments" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2023-11-14 09:11:05 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (109.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1019.5ms | Allocations: 1254)
+  Rendered layout layouts/application.html.erb (Duration: 1502.4ms | Allocations: 3282)
+Completed 200 OK in 1687ms (Views: 1468.4ms | ActiveRecord: 158.2ms | Allocations: 3739)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 09:13:05 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 328.5ms | Allocations: 6151)
+  Rendered layout layouts/application.html.erb (Duration: 1029.8ms | Allocations: 19624)
+Completed 200 OK in 1091ms (Views: 1035.1ms | ActiveRecord: 19.2ms | Allocations: 21143)
+
+
+Started GET "/users/logout" for 127.0.0.1 at 2023-11-14 09:13:11 +0800
+  
+AbstractController::ActionNotFound (The action 'logout' could not be found for UsersController):
+  
+actionpack (7.1.2) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-11-14 09:13:16 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 17.2ms | Allocations: 818)
+  Rendered layout layouts/application.html.erb (Duration: 38.6ms | Allocations: 2875)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.3ms | Allocations: 3122)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 09:14:52 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 35.4ms | Allocations: 6135)
+  Rendered layout layouts/application.html.erb (Duration: 79.2ms | Allocations: 19597)
+Completed 200 OK in 94ms (Views: 75.4ms | ActiveRecord: 9.6ms | Allocations: 21116)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:14:56 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+Completed 404 Not Found in 28ms (ActiveRecord: 0.6ms | Allocations: 2771)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:65:in `set_user'
+Started GET "/" for 127.0.0.1 at 2023-11-14 09:17:14 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 803)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 2860)
+Completed 200 OK in 31ms (Views: 26.8ms | ActiveRecord: 0.2ms | Allocations: 3106)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-14 09:17:16 +0800
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 2.4ms | Allocations: 179)
+  Rendered courses/index.html.erb within layouts/application (Duration: 41.3ms | Allocations: 3821)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 58.3ms | Allocations: 6443)
+Completed 200 OK in 97ms (Views: 60.5ms | ActiveRecord: 1.8ms | Allocations: 7757)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 09:17:18 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 2.8ms | Allocations: 173)
+  Rendered users/index.html.erb within layouts/application (Duration: 15.8ms | Allocations: 1826)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 3858)
+Completed 200 OK in 42ms (Views: 26.4ms | ActiveRecord: 0.4ms | Allocations: 5618)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:17:19 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+Completed 404 Not Found in 18ms (ActiveRecord: 0.6ms | Allocations: 2120)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:65:in `set_user'
+Started GET "/users" for 127.0.0.1 at 2023-11-14 09:20:03 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.8ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 10.7ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 2644)
+Completed 200 OK in 38ms (Views: 29.6ms | ActiveRecord: 0.7ms | Allocations: 4194)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 09:20:59 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for 127.0.0.1 at 2023-11-14 09:22:08 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 2.4ms | Allocations: 179)
+  Rendered users/index.html.erb within layouts/application (Duration: 22.7ms | Allocations: 1881)
+  Rendered layout layouts/application.html.erb (Duration: 102.8ms | Allocations: 15317)
+Completed 200 OK in 222ms (Views: 112.2ms | ActiveRecord: 48.9ms | Allocations: 23533)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:22:10 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+Completed 404 Not Found in 25ms (ActiveRecord: 0.6ms | Allocations: 2673)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:65:in `set_user'
+Started GET "/users/" for 127.0.0.1 at 2023-11-14 09:24:54 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 592)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 2644)
+Completed 200 OK in 30ms (Views: 16.0ms | ActiveRecord: 0.4ms | Allocations: 4194)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:24:59 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+Completed 404 Not Found in 19ms (ActiveRecord: 0.4ms | Allocations: 2107)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:65:in `set_user'
+Started GET "/users/new" for 127.0.0.1 at 2023-11-14 09:27:44 +0800
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 29.5ms | Allocations: 1467)
+  Rendered users/new.html.erb within layouts/application (Duration: 36.6ms | Allocations: 1747)
+  Rendered layout layouts/application.html.erb (Duration: 61.2ms | Allocations: 3799)
+Completed 200 OK in 83ms (Views: 63.5ms | ActiveRecord: 0.3ms | Allocations: 5422)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2023-11-14 09:27:50 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 9.0ms | Allocations: 453)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 2472)
+Completed 200 OK in 56ms (Views: 29.2ms | ActiveRecord: 0.6ms | Allocations: 4491)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:27:56 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+Completed 404 Not Found in 26ms (ActiveRecord: 0.4ms | Allocations: 2116)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:65:in `set_user'
+Started GET "/users/" for 127.0.0.1 at 2023-11-14 09:29:38 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.8ms | Allocations: 212)
+  Rendered users/index.html.erb within layouts/application (Duration: 18.3ms | Allocations: 2344)
+  Rendered layout layouts/application.html.erb (Duration: 509.5ms | Allocations: 36535)
+Completed 200 OK in 856ms (Views: 535.3ms | ActiveRecord: 9.4ms | Allocations: 63622)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:29:48 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+Completed 404 Not Found in 26ms (ActiveRecord: 0.6ms | Allocations: 2796)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:65:in `set_user'
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:32:31 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1204)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1296)
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 4.7ms | Allocations: 9510)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    1: <p style="color: green"><%= notice %></p>
+    2: 
+    3: <%= render @user %>
+    4: 
+    5: <div>
+    6:   <%= link_to "Edit this user", edit_user_path(@user) %> |
+  
+app/views/users/show.html.erb:3
+Started GET "/users/" for 127.0.0.1 at 2023-11-14 09:33:57 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.8ms | Allocations: 179)
+  Rendered users/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 1839)
+  Rendered layout layouts/application.html.erb (Duration: 57.0ms | Allocations: 15276)
+Completed 200 OK in 113ms (Views: 64.5ms | ActiveRecord: 6.3ms | Allocations: 23518)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:33:59 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:66:in `set_user'
+Completed 404 Not Found in 11ms (ActiveRecord: 0.5ms | Allocations: 2702)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:66:in `set_user'
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:45:55 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:66:in `set_user'
+Completed 404 Not Found in 44ms (ActiveRecord: 5.3ms | Allocations: 8057)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:66:in `set_user'
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:59:28 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.9ms | Allocations: 179)
+  Rendered users/show.html.erb within layouts/application (Duration: 22.8ms | Allocations: 823)
+  Rendered layout layouts/application.html.erb (Duration: 88.4ms | Allocations: 14235)
+Completed 200 OK in 155ms (Views: 94.1ms | ActiveRecord: 9.2ms | Allocations: 23060)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:59:32 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 2279)
+Completed 200 OK in 33ms (Views: 19.0ms | ActiveRecord: 0.4ms | Allocations: 4507)
+
+
+Started GET "/users.13" for 127.0.0.1 at 2023-11-14 09:59:34 +0800
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 15.1ms | Allocations: 1550)
+  Rendered layout layouts/application.html.erb (Duration: 25.3ms | Allocations: 3602)
+Completed 200 OK in 33ms (Views: 26.7ms | ActiveRecord: 0.6ms | Allocations: 5346)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 09:59:39 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 1005)
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 3069)
+Completed 200 OK in 32ms (Views: 30.1ms | ActiveRecord: 0.2ms | Allocations: 3527)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:59:41 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 2289)
+Completed 200 OK in 25ms (Views: 14.3ms | ActiveRecord: 0.4ms | Allocations: 4533)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 09:59:44 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 2609)
+Completed 200 OK in 25ms (Views: 14.7ms | ActiveRecord: 1.0ms | Allocations: 4157)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 09:59:47 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 2279)
+Completed 200 OK in 28ms (Views: 14.9ms | ActiveRecord: 0.4ms | Allocations: 4535)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:01:13 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:70:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 2.8ms | Allocations: 179)
+  Rendered users/show.html.erb within layouts/application (Duration: 10.8ms | Allocations: 808)
+  Rendered layout layouts/application.html.erb (Duration: 62.6ms | Allocations: 14221)
+Completed 200 OK in 159ms (Views: 69.5ms | ActiveRecord: 14.8ms | Allocations: 23643)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:01:14 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:70:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 2.6ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 2279)
+Completed 200 OK in 31ms (Views: 12.4ms | ActiveRecord: 0.4ms | Allocations: 4512)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:01:16 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 15.8ms | Allocations: 1521)
+  Rendered layout layouts/application.html.erb (Duration: 31.0ms | Allocations: 3539)
+Completed 200 OK in 55ms (Views: 33.5ms | ActiveRecord: 0.7ms | Allocations: 5171)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:01:17 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:70:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 2279)
+Completed 200 OK in 32ms (Views: 18.6ms | ActiveRecord: 0.3ms | Allocations: 4544)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:01:18 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 2609)
+Completed 200 OK in 40ms (Views: 28.5ms | ActiveRecord: 0.5ms | Allocations: 4148)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:01:21 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:70:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 2279)
+Completed 200 OK in 41ms (Views: 16.2ms | ActiveRecord: 0.4ms | Allocations: 4538)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:04:39 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+Completed 404 Not Found in 129ms (ActiveRecord: 5.8ms | Allocations: 8634)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:65:in `set_user'
+Started GET "/users/" for 127.0.0.1 at 2023-11-14 10:04:48 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.3ms | Allocations: 179)
+  Rendered users/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 1853)
+  Rendered layout layouts/application.html.erb (Duration: 58.1ms | Allocations: 15291)
+Completed 200 OK in 74ms (Views: 62.8ms | ActiveRecord: 0.9ms | Allocations: 17472)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-14 10:04:51 +0800
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms | Allocations: 1925)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 10:04:51 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 987)
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 3063)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.2ms | Allocations: 3524)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 10:08:27 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 36.8ms | Allocations: 6186)
+  Rendered layout layouts/application.html.erb (Duration: 100.6ms | Allocations: 19686)
+Completed 200 OK in 113ms (Views: 99.0ms | ActiveRecord: 5.6ms | Allocations: 21205)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-14 10:08:28 +0800
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 18ms (ActiveRecord: 0.2ms | Allocations: 1675)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 10:08:28 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 820)
+  Rendered layout layouts/application.html.erb (Duration: 21.4ms | Allocations: 2862)
+Completed 200 OK in 23ms (Views: 22.4ms | ActiveRecord: 0.2ms | Allocations: 3111)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-14 10:08:30 +0800
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 28ms (ActiveRecord: 0.2ms | Allocations: 1474)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 10:08:30 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 28.0ms | Allocations: 820)
+  Rendered layout layouts/application.html.erb (Duration: 49.1ms | Allocations: 2843)
+Completed 200 OK in 54ms (Views: 46.6ms | ActiveRecord: 5.2ms | Allocations: 3092)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-14 10:08:30 +0800
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms | Allocations: 1477)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 10:08:30 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 11.1ms | Allocations: 832)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | Allocations: 2855)
+Completed 200 OK in 32ms (Views: 28.4ms | ActiveRecord: 0.3ms | Allocations: 3104)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 10:11:11 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 48.2ms | Allocations: 6166)
+  Rendered layout layouts/application.html.erb (Duration: 145.3ms | Allocations: 19642)
+Completed 200 OK in 163ms (Views: 136.9ms | ActiveRecord: 15.7ms | Allocations: 21162)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:11:16 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:65:in `set_user'
+Completed 404 Not Found in 20ms (ActiveRecord: 5.6ms | Allocations: 2789)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:65:in `set_user'
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:15:11 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 4.5ms | Allocations: 179)
+  Rendered users/show.html.erb within layouts/application (Duration: 14.2ms | Allocations: 805)
+  Rendered layout layouts/application.html.erb (Duration: 97.0ms | Allocations: 14226)
+Completed 200 OK in 239ms (Views: 125.6ms | ActiveRecord: 28.6ms | Allocations: 22476)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:15:15 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 10.3ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 2299)
+Completed 200 OK in 49ms (Views: 37.3ms | ActiveRecord: 0.3ms | Allocations: 3852)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:15:17 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 1547)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 3572)
+Completed 200 OK in 25ms (Views: 17.8ms | ActiveRecord: 0.5ms | Allocations: 5216)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:15:19 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 2284)
+Completed 200 OK in 35ms (Views: 23.5ms | ActiveRecord: 0.2ms | Allocations: 3840)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:15:20 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 6.2ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 2614)
+Completed 200 OK in 33ms (Views: 20.2ms | ActiveRecord: 0.6ms | Allocations: 4138)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:15:22 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 2284)
+Completed 200 OK in 36ms (Views: 21.9ms | ActiveRecord: 0.2ms | Allocations: 3852)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 10:16:05 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 12.4ms | Allocations: 989)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | Allocations: 3036)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.3ms | Allocations: 3493)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:16:11 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 2614)
+Completed 200 OK in 44ms (Views: 15.8ms | ActiveRecord: 0.4ms | Allocations: 4159)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:16:12 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 2285)
+Completed 200 OK in 53ms (Views: 12.9ms | ActiveRecord: 1.2ms | Allocations: 3839)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:16:17 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 2650)
+Completed 200 OK in 32ms (Views: 20.6ms | ActiveRecord: 0.5ms | Allocations: 4196)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:19:00 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 1.1ms | Allocations: 179)
+  Rendered users/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 809)
+  Rendered layout layouts/application.html.erb (Duration: 51.4ms | Allocations: 14201)
+Completed 200 OK in 113ms (Views: 56.4ms | ActiveRecord: 29.2ms | Allocations: 22437)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-14 10:19:03 +0800
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (1.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 1.9ms | Allocations: 176)
+  Rendered courses/index.html.erb within layouts/application (Duration: 41.6ms | Allocations: 5550)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 55.5ms | Allocations: 8178)
+Completed 200 OK in 82ms (Views: 55.5ms | ActiveRecord: 4.3ms | Allocations: 9754)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:19:04 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.5ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 2333)
+Completed 200 OK in 61ms (Views: 26.0ms | ActiveRecord: 0.2ms | Allocations: 3877)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:19:06 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 16.9ms | Allocations: 1553)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 3595)
+Completed 200 OK in 47ms (Views: 32.6ms | ActiveRecord: 0.9ms | Allocations: 5239)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:19:07 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 2287)
+Completed 200 OK in 45ms (Views: 30.2ms | ActiveRecord: 0.2ms | Allocations: 3828)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-14 10:21:54 +0800
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.7ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 6.2ms | Allocations: 179)
+  Rendered courses/index.html.erb within layouts/application (Duration: 33.0ms | Allocations: 4183)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 108.5ms | Allocations: 22927)
+Completed 200 OK in 129ms (Views: 105.9ms | ActiveRecord: 8.6ms | Allocations: 25435)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:21:56 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.9ms | Allocations: 173)
+  Rendered users/index.html.erb within layouts/application (Duration: 20.5ms | Allocations: 1849)
+  Rendered layout layouts/application.html.erb (Duration: 36.4ms | Allocations: 3910)
+Completed 200 OK in 57ms (Views: 39.5ms | ActiveRecord: 0.7ms | Allocations: 5785)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:21:58 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 9.5ms | Allocations: 461)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 2480)
+Completed 200 OK in 39ms (Views: 23.3ms | ActiveRecord: 2.2ms | Allocations: 4149)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:22:00 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 11.6ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 2614)
+Completed 200 OK in 37ms (Views: 23.7ms | ActiveRecord: 0.6ms | Allocations: 4165)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-14 10:22:00 +0800
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.2ms | Allocations: 18)
+  Rendered courses/index.html.erb within layouts/application (Duration: 13.9ms | Allocations: 760)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 39.0ms | Allocations: 3369)
+Completed 200 OK in 43ms (Views: 40.8ms | ActiveRecord: 0.4ms | Allocations: 3631)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:22:01 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 2284)
+Completed 200 OK in 34ms (Views: 21.9ms | ActiveRecord: 0.2ms | Allocations: 3847)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:22:02 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.6ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 10.6ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | Allocations: 2614)
+Completed 200 OK in 42ms (Views: 33.8ms | ActiveRecord: 0.4ms | Allocations: 4159)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:25:29 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 2.5ms | Allocations: 179)
+  Rendered users/index.html.erb within layouts/application (Duration: 14.5ms | Allocations: 1897)
+  Rendered layout layouts/application.html.erb (Duration: 66.7ms | Allocations: 15345)
+Completed 200 OK in 187ms (Views: 73.2ms | ActiveRecord: 21.1ms | Allocations: 23553)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:25:31 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 461)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 2477)
+Completed 200 OK in 23ms (Views: 16.5ms | ActiveRecord: 0.2ms | Allocations: 4107)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:25:32 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 2284)
+Completed 200 OK in 25ms (Views: 13.7ms | ActiveRecord: 0.2ms | Allocations: 3846)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:25:33 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 2284)
+Completed 200 OK in 24ms (Views: 13.3ms | ActiveRecord: 0.2ms | Allocations: 3846)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:25:33 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 2285)
+Completed 200 OK in 33ms (Views: 23.4ms | ActiveRecord: 0.2ms | Allocations: 3844)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:25:33 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 28.9ms | Allocations: 2284)
+Completed 200 OK in 48ms (Views: 38.4ms | ActiveRecord: 0.3ms | Allocations: 3843)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:25:33 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 6.0ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 2318)
+Completed 200 OK in 37ms (Views: 28.2ms | ActiveRecord: 0.2ms | Allocations: 3878)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:25:34 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.4ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 6.4ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 2305)
+Completed 200 OK in 35ms (Views: 23.0ms | ActiveRecord: 0.2ms | Allocations: 3855)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:25:34 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 2298)
+Completed 200 OK in 35ms (Views: 21.4ms | ActiveRecord: 0.2ms | Allocations: 3848)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:25:34 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 2284)
+Completed 200 OK in 30ms (Views: 18.2ms | ActiveRecord: 0.2ms | Allocations: 3840)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:25:35 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 2284)
+Completed 200 OK in 30ms (Views: 21.3ms | ActiveRecord: 0.2ms | Allocations: 3834)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:29:49 +0800
+  
+NameError (undefined local variable or method `resource_name' for ApplicationController:Class):
+  
+app/controllers/application_controller.rb:11:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:29:50 +0800
+  
+NameError (undefined local variable or method `resource_name' for ApplicationController:Class):
+  
+app/controllers/application_controller.rb:11:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:29:51 +0800
+  
+NameError (undefined local variable or method `resource_name' for ApplicationController:Class):
+  
+app/controllers/application_controller.rb:11:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:52:13 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.2ms | Allocations: 179)
+  Rendered users/index.html.erb within layouts/application (Duration: 12.4ms | Allocations: 1909)
+  Rendered layout layouts/application.html.erb (Duration: 42.3ms | Allocations: 15354)
+Completed 200 OK in 82ms (Views: 46.4ms | ActiveRecord: 7.2ms | Allocations: 23577)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:52:15 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 461)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 2477)
+Completed 200 OK in 27ms (Views: 13.7ms | ActiveRecord: 1.7ms | Allocations: 4116)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:52:16 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (17.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2318)
+Completed 200 OK in 36ms (Views: 10.6ms | ActiveRecord: 17.5ms | Allocations: 3866)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:52:17 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 2303)
+Completed 200 OK in 35ms (Views: 22.9ms | ActiveRecord: 0.2ms | Allocations: 3859)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:52:17 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 24.2ms | Allocations: 2300)
+Completed 200 OK in 34ms (Views: 27.6ms | ActiveRecord: 0.2ms | Allocations: 3850)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:52:17 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 2286)
+Completed 200 OK in 28ms (Views: 17.6ms | ActiveRecord: 0.5ms | Allocations: 3845)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:52:17 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 5.3ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 2284)
+Completed 200 OK in 33ms (Views: 18.7ms | ActiveRecord: 0.3ms | Allocations: 3840)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:52:18 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | Allocations: 2285)
+Completed 200 OK in 43ms (Views: 29.3ms | ActiveRecord: 0.2ms | Allocations: 3844)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:52:18 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 2284)
+Completed 200 OK in 26ms (Views: 16.8ms | ActiveRecord: 0.2ms | Allocations: 3864)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2023-11-14 10:52:59 +0800
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 97.8ms | Allocations: 7847)
+  Rendered users/new.html.erb within layouts/application (Duration: 106.9ms | Allocations: 8126)
+  Rendered layout layouts/application.html.erb (Duration: 120.3ms | Allocations: 10148)
+Completed 200 OK in 157ms (Views: 122.0ms | ActiveRecord: 0.2ms | Allocations: 11792)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:55:37 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:57:47 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.3ms | Allocations: 179)
+  Rendered users/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 2066)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 2158)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 9.3ms | Allocations: 10363)
+
+
+  
+ActionView::Template::Error (undefined method `user_path' for #<ActionView::Base:0x0000000006be40>):
+     6:   <% @users.each do |user| %>
+     7:     <%= render user %>
+     8:     <p>
+     9:       <%= link_to "详细信息", user %>
+    10:     </p>
+    11:   <% end %>
+    12: </div>
+  
+app/views/users/index.html.erb:9
+app/views/users/index.html.erb:6
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:58:15 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.1ms | Allocations: 179)
+  Rendered users/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1927)
+  Rendered layout layouts/application.html.erb (Duration: 41.1ms | Allocations: 15373)
+Completed 200 OK in 78ms (Views: 44.6ms | ActiveRecord: 4.8ms | Allocations: 23602)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-14 10:58:18 +0800
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 3.4ms | Allocations: 173)
+  Rendered courses/index.html.erb within layouts/application (Duration: 15.4ms | Allocations: 3733)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 28.4ms | Allocations: 6360)
+Completed 200 OK in 41ms (Views: 29.5ms | ActiveRecord: 1.2ms | Allocations: 7675)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:58:19 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 14.3ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 30.3ms | Allocations: 2614)
+Completed 200 OK in 42ms (Views: 32.7ms | ActiveRecord: 0.4ms | Allocations: 4162)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:58:20 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 463)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 2513)
+Completed 200 OK in 42ms (Views: 11.4ms | ActiveRecord: 0.2ms | Allocations: 4162)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 10:58:22 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 2632)
+Completed 200 OK in 25ms (Views: 12.0ms | ActiveRecord: 0.6ms | Allocations: 4192)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 10:58:23 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 27.7ms | Allocations: 2298)
+Completed 200 OK in 42ms (Views: 30.6ms | ActiveRecord: 0.2ms | Allocations: 3869)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 11:04:09 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (3.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 3.2ms | Allocations: 179)
+  Rendered users/show.html.erb within layouts/application (Duration: 11.5ms | Allocations: 807)
+  Rendered layout layouts/application.html.erb (Duration: 62.3ms | Allocations: 14232)
+Completed 200 OK in 1153ms (Views: 69.4ms | ActiveRecord: 5.1ms | Allocations: 21874)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-14 11:04:13 +0800
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (1.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 1.0ms | Allocations: 173)
+  Rendered courses/index.html.erb within layouts/application (Duration: 16.6ms | Allocations: 3393)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 26.0ms | Allocations: 6037)
+Completed 200 OK in 36ms (Views: 27.8ms | ActiveRecord: 1.2ms | Allocations: 7353)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 11:04:14 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 2284)
+Completed 200 OK in 33ms (Views: 20.9ms | ActiveRecord: 0.2ms | Allocations: 3864)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 11:04:15 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 26.8ms | Allocations: 2284)
+Completed 200 OK in 35ms (Views: 28.2ms | ActiveRecord: 0.2ms | Allocations: 3828)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 11:04:46 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  
+Started GET "/users/" for 127.0.0.1 at 2023-11-14 11:05:19 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/" for 127.0.0.1 at 2023-11-14 11:05:37 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.0ms | Allocations: 179)
+  Rendered users/index.html.erb within layouts/application (Duration: 11.7ms | Allocations: 1945)
+  Rendered layout layouts/application.html.erb (Duration: 45.2ms | Allocations: 15390)
+Completed 200 OK in 87ms (Views: 49.5ms | ActiveRecord: 5.0ms | Allocations: 23625)
+
+
+Started GET "/users/jk" for 127.0.0.1 at 2023-11-14 11:05:42 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"jk"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+Completed 404 Not Found in 22ms (ActiveRecord: 1.8ms | Allocations: 2705)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=jk):
+  
+app/controllers/users_controller.rb:68:in `set_user'
+Started GET "/jk" for 127.0.0.1 at 2023-11-14 11:05:48 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/jk"):
+  
+Started GET "/" for 127.0.0.1 at 2023-11-14 11:06:11 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 12.2ms | Allocations: 1001)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 3082)
+Completed 200 OK in 27ms (Views: 26.3ms | ActiveRecord: 0.2ms | Allocations: 3539)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-14 11:06:12 +0800
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 2.3ms | Allocations: 173)
+  Rendered courses/index.html.erb within layouts/application (Duration: 24.4ms | Allocations: 3785)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 38.9ms | Allocations: 6412)
+Completed 200 OK in 59ms (Views: 44.1ms | ActiveRecord: 1.3ms | Allocations: 7727)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 11:06:13 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.6ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 2614)
+Completed 200 OK in 24ms (Views: 17.4ms | ActiveRecord: 0.3ms | Allocations: 4173)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 11:06:14 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 461)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 2477)
+Completed 200 OK in 21ms (Views: 11.1ms | ActiveRecord: 0.5ms | Allocations: 4114)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 11:06:37 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 269)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 2284)
+Completed 200 OK in 24ms (Views: 13.9ms | ActiveRecord: 0.2ms | Allocations: 3830)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 11:07:07 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+Completed 404 Not Found in 38ms (ActiveRecord: 4.9ms | Allocations: 8589)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:68:in `set_user'
+Started GET "/users" for 127.0.0.1 at 2023-11-14 11:11:09 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 3.5ms | Allocations: 179)
+  Rendered users/index.html.erb within layouts/application (Duration: 19.0ms | Allocations: 1943)
+  Rendered layout layouts/application.html.erb (Duration: 243.7ms | Allocations: 17776)
+Completed 200 OK in 275ms (Views: 254.9ms | ActiveRecord: 2.7ms | Allocations: 19956)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-14 11:11:11 +0800
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 1.0ms | Allocations: 173)
+  Rendered courses/index.html.erb within layouts/application (Duration: 21.3ms | Allocations: 3791)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 35.7ms | Allocations: 6418)
+Completed 200 OK in 60ms (Views: 41.0ms | ActiveRecord: 1.1ms | Allocations: 7733)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 11:11:12 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 2614)
+Completed 200 OK in 33ms (Views: 25.9ms | ActiveRecord: 0.3ms | Allocations: 4145)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 11:11:13 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"sign_out"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+Completed 404 Not Found in 10ms (ActiveRecord: 0.3ms | Allocations: 2109)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=sign_out):
+  
+app/controllers/users_controller.rb:68:in `set_user'
+Started GET "/users" for 127.0.0.1 at 2023-11-14 11:11:57 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 33.8ms | Allocations: 212)
+  Rendered users/index.html.erb within layouts/application (Duration: 76.6ms | Allocations: 2344)
+  Rendered layout layouts/application.html.erb (Duration: 570.9ms | Allocations: 40906)
+Completed 200 OK in 839ms (Views: 605.8ms | ActiveRecord: 6.5ms | Allocations: 67993)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-14 11:12:00 +0800
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.9ms | Allocations: 176)
+  Rendered courses/index.html.erb within layouts/application (Duration: 25.5ms | Allocations: 5579)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 48.9ms | Allocations: 8206)
+Completed 200 OK in 69ms (Views: 50.4ms | ActiveRecord: 1.2ms | Allocations: 9796)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 11:12:01 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 8.8ms | Allocations: 591)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 2614)
+Completed 200 OK in 42ms (Views: 27.2ms | ActiveRecord: 0.4ms | Allocations: 4181)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 11:12:02 +0800
+Processing by Users::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 21ms (ActiveRecord: 0.3ms | Allocations: 3227)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 11:12:02 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 579)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 2548)
+Completed 200 OK in 19ms (Views: 17.8ms | ActiveRecord: 0.0ms | Allocations: 3008)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-11-14 11:12:06 +0800
+Processing by Users::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 4.3ms | Allocations: 689)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 38.7ms | Allocations: 3089)
+  Rendered layout layouts/application.html.erb (Duration: 46.8ms | Allocations: 5125)
+Completed 200 OK in 61ms (Views: 53.4ms | ActiveRecord: 0.0ms | Allocations: 6558)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-11-14 11:12:14 +0800
+Processing by Users::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"zzzz", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["username", "zzzz"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 1144ms (ActiveRecord: 0.5ms | Allocations: 3921)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 11:12:15 +0800
+Processing by WelcomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/welcome/index.html.erb:2
+  Rendered welcome/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 827)
+  Rendered layout layouts/application.html.erb (Duration: 29.2ms | Allocations: 2892)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.3ms | Allocations: 3190)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-14 11:12:18 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (13.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 19)
+  Rendered users/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 595)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 2637)
+Completed 200 OK in 53ms (Views: 29.6ms | ActiveRecord: 14.0ms | Allocations: 4184)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-14 11:12:18 +0800
+Processing by CoursesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.2ms | Allocations: 18)
+  Rendered courses/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 751)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:14
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 3360)
+Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 0.4ms | Allocations: 3622)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2023-11-14 11:12:20 +0800
+Processing by Users::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 303 See Other in 16ms (ActiveRecord: 0.3ms | Allocations: 1715)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-14 11:12:20 +0800
+Processing by WelcomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 291)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 2239)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 2488)
+
+

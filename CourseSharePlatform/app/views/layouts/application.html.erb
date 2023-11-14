@@ -15,6 +15,7 @@
   <%= link_to "用户首页", users_url(@user) %>
   <p></p>
   <%= link_to "课程列表", courses_path %>
+  <%= link_to "用户登出", destroy_user_session_path, method: :delete %>
 <% end %>
 <%= yield %>
 </body>
