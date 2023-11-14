@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Course comments</h1>
+
+<div id="course_comments">
+  <% @course_comments.each do |course_comment| %>
+    <%= render course_comment %>
+    <p>
+      <%= link_to "Show this course comment", course_comment %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New course comment", new_course_comment_path %>

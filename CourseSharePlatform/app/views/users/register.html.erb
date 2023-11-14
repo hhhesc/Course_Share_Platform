@@ -1,0 +1,17 @@
+<h1>请注册</h1>
+
+<%= form_with url: do_register_users_path do %>
+  <p>
+    用户名: <%= text_field_tag :username %>
+  </p>
+  <p>
+    密码: <%= password_field_tag :password %>
+  </p>
+  <p>
+    邮箱: <%= email_field_tag :email %>
+  </p>
+  <%= submit_tag '注册' %>
+<% end %>
+
+<br>
+<%= link_to "直接登录", login_users_path %>

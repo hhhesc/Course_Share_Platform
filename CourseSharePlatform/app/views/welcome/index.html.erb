@@ -1,0 +1,10 @@
+<h1>欢迎访问北航课程资料共享平台</h1>
+<% if user_signed_in? %>
+
+<% else %>
+  <p>请
+    <%= link_to "登录", new_user_session_path %>
+    或
+    <%= link_to "注册", new_user_registration_path %>
+  </p>
+<% end %>

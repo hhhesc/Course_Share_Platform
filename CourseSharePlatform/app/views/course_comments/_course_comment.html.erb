@@ -1,0 +1,9 @@
+<div id="course_comment_<%= course_comment.id %>">
+  <p>
+
+    <strong>发布于
+      <%= time_ago_in_words(course_comment.created_at) %>
+    </strong><br />
+    <%= course_comment.content %>
+  </p>
+</div>
