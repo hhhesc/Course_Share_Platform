@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ show edit update destroy student_certificate]
 
   # GET /users or /users.json
   def index
@@ -58,6 +58,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def student_certificate
+    @user.realname = params[:realname]
+    @user.studentcode = params[:studentcode]
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -71,7 +76,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:username, :password, :email, :img_path)
+    params.require(:user).permit(:username, :password, :email, :img_path, :realname, :studentcode)
   end
 
   # def authenticate

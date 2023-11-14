@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'users/sessions' ,users: 'users'}, sign_out: :destroy
-  resources :users
+  resources :users do
+    member do
+      get 'student_certificate'
+    end
+  end
 
   resources :courses do
     resources :course_comments

@@ -6,3 +6,10 @@
   <%= link_to "Edit this user", edit_user_path(@user) %> |
   <%= link_to "Back to users", users_path %>
 </div>
+
+<% if @user.realname != nil %>
+  <p>姓名：<%= @user.realname %></p>
+  <p>密码：<%= @user.studentcode %></p>
+<% else %>
+  <%= link_to "学生认证", student_certificate_user_path %>
+<% end %>
