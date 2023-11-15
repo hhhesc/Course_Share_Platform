@@ -13,5 +13,6 @@ class User < ApplicationRecord
   has_many :followings, through: :followships
   has_many :followers, through: :reverse_followships
 
-  # attr_accessor :username
+  has_many :course_scores
+  has_many :courses, through: :course_scores
 end

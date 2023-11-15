@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :courses do
     resources :course_comments
+    resources :course_scores
     resources :articles
     member do
       get 'list_comments'

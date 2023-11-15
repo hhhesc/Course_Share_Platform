@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_14_152553) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_15_011120) do
   create_table "articles", force: :cascade do |t|
     t.integer "course_id", null: false
     t.integer "user_id", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_14_152553) do
     t.integer "user_id", null: false
     t.index ["course_id"], name: "index_course_comments_on_course_id"
     t.index ["user_id"], name: "index_course_comments_on_user_id"
+  end
+
+  create_table "course_scores", force: :cascade do |t|
+    t.float "course_score"
+    t.integer "course_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_course_scores_on_course_id"
+    t.index ["user_id"], name: "index_course_scores_on_user_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -69,6 +79,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_14_152553) do
   add_foreign_key "articles", "users"
   add_foreign_key "course_comments", "courses"
   add_foreign_key "course_comments", "users"
+  add_foreign_key "course_scores", "courses"
+  add_foreign_key "course_scores", "users"
   add_foreign_key "followships", "users"
   add_foreign_key "followships", "users", column: "following_user_id"
 end

@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: %i[ show edit update destroy list_comments list_articles]
+  before_action :set_course, only: %i[ show edit update destroy list_comments list_articles add_score]
 
   # GET /courses or /courses.json
   def index
@@ -61,6 +61,13 @@ class CoursesController < ApplicationController
   end
 
   def list_articles
+  end
+
+  def add_score
+    @course_score = CourseScore.new(@course,current_user,params[:value])
+    @course.course_scores << @course_score
+    current_user.scored_courses << @course
+    redirect_to @course, notice: "评分完成"
   end
 
   private

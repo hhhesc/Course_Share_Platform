@@ -9,4 +9,36 @@
   <%= link_to "课程评论", list_comments_course_path %>
   <%= link_to "课程文章", list_articles_course_path %>
 
+  <p>课程评分：
+    <%ave=0%>
+    <%n=0%>
+    <% @course.course_scores.each do |score|%>
+      <%ave=ave+score.course_score%>
+      <%n=n+1%>
+    <% end%> 
+    <%if n==0 %>
+      目前无人进行过评分
+    <%else%>
+      <p><%=ave/n%>(共有<%=n%>位用户进行了评分)</p>
+    <%end%>
+  </p>
+
+
+  <% if not current_user.courses.include? @course%> 
+    <p>我要评分
+    <%= form_for [@course,CourseScore.new] do |f| %>
+       <p>
+      <div>
+        <%= f.label :分数, "分数" %> <br />
+        <%= f.number_field :course_score %>  
+      </p>
+      <p><%= f.submit "提交" %></p>
+    <% end %>
+
+    </p>
+  <%else%>
+    <%my_score = current_user.course_scores.where(course_id: @course.id).first.course_score%>
+    <p>您的评分：<%=my_score%></p>
+  <%end%>
+
 </div>
