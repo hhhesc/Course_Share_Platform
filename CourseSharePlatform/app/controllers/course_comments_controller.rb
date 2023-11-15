@@ -28,7 +28,7 @@ class CourseCommentsController < ApplicationController
 
     respond_to do |format|
       if @course_comment.save
-        format.html { redirect_to @course, notice: "评论发表成功" }
+        format.html { redirect_to list_comments_course_path(@course), notice: "评论发表成功" }
         format.json { render :show, status: :created, location: @course_comment }
       else
         format.html { render :new, status: :unprocessable_entity }

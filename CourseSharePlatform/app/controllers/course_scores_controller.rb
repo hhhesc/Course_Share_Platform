@@ -9,7 +9,10 @@ class CourseScoresController < ApplicationController
         @course_score.user = current_user
 
         respond_to do |format|
-            if @course_score.save
+            if @course_score.course_score<0 or @course_score.course_score>10
+                format.html {redirect_to @course, notice: "分数需在0-10之间"}
+                format.json { render :show, status: :created, location: @course_score }
+            elsif @course_score.save
               format.html { redirect_to @course, notice: "评分成功" }
               format.json { render :show, status: :created, location: @course_score }
             else
