@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_14_070438) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_14_152553) do
   create_table "articles", force: :cascade do |t|
     t.integer "course_id", null: false
     t.integer "user_id", null: false
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_14_070438) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "followships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "following_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["following_user_id"], name: "index_followships_on_following_user_id"
+    t.index ["user_id"], name: "index_followships_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
@@ -60,4 +69,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_14_070438) do
   add_foreign_key "articles", "users"
   add_foreign_key "course_comments", "courses"
   add_foreign_key "course_comments", "users"
+  add_foreign_key "followships", "users"
+  add_foreign_key "followships", "users", column: "following_user_id"
 end

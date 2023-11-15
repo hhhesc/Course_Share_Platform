@@ -3,9 +3,20 @@
 <%= render @user %>
 
 <div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
+  <%= link_to "Edit this user", edit_user_path(@user) %> 
 </div>
+
+<% if current_user!=@user%>  
+  <% if current_user.followings.include? @user %>
+    <%= link_to 'Unfollow', unfollow_user_path(@user), class: "btn btn-danger" %>
+  <% else %>
+    <%= link_to 'Follow', follow_user_path(@user), class: "btn btn-success" %>
+  <% end %>
+<%end%>
+
+<%= link_to "我的关注", list_followers_user_path(current_user)%>
+<%= link_to "关注我的", list_followings_user_path(current_user)%>
+
 
 <% if @user.realname != nil %>
 <p> 个人认证信息</p>

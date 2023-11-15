@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: %i[ show edit update destroy student_certificate]
+  before_action :set_user, only: %i[ show edit update destroy student_certificate follow unfollow
+  list_followers list_followings]
 
   # GET /users or /users.json
   def index
@@ -61,6 +62,22 @@ class UsersController < ApplicationController
   def student_certificate
     @user.realname = params[:realname]
     @user.studentcode = params[:studentcode]
+  end
+
+  def follow
+    current_user.followings << @user
+    redirect_to @user, notice: "关注成功"
+  end
+
+  def unfollow
+    current_user.followings.delete(@user)
+    redirect_to @user, notice: "取消关注成功"
+  end
+
+  def list_followers
+  end
+
+  def list_followings
   end
 
   private

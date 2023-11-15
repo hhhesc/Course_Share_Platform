@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get 'student_certificate'
+      get 'follow'
+      get 'unfollow'
+      get 'list_followers'
+      get 'list_followings'
     end
   end
 
