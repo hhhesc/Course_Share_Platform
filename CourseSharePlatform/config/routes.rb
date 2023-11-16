@@ -12,9 +12,19 @@ Rails.application.routes.draw do
   end
 
   resources :courses do
-    resources :course_comments
+    resources :course_comments do
+      member do
+        get 'beLiked'
+        get 'beUnliked'
+      end
+    end
     resources :course_scores
-    resources :articles
+    resources :articles do
+      member do
+        get 'beLiked'
+        get 'beUnliked'
+      end
+    end
     member do
       get 'list_comments'
       get 'list_articles'

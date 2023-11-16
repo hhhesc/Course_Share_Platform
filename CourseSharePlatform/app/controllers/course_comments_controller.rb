@@ -1,5 +1,5 @@
 class CourseCommentsController < ApplicationController
-  before_action :set_course_comment, only: %i[ show edit update destroy ]
+  before_action :set_course_comment, only: %i[ show edit update destroy beLiked beUnliked]
 
   # GET /course_comments or /course_comments.json
   def index
@@ -57,6 +57,20 @@ class CourseCommentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to course_comments_url, notice: "Course comment was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def beLiked
+    if not @course_comment.like_users.include? current_user
+      @course_comment.like_users << current_user
+      redirect_to list_comments_course_path(@course_comment.course)
+    end 
+  end
+
+  def beUnliked
+    if @course_comment.like_users.include? current_user
+      @course_comment.like_users.delete(current_user)
+      redirect_to list_comments_course_path(@course_comment.course)
     end
   end
 

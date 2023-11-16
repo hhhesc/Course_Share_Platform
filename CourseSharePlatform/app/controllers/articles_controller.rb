@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :set_article, only: %i[ show edit update destroy beLiked beUnliked]
 
   # GET /articles or /articles.json
   def index
@@ -58,6 +58,20 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def beLiked
+    if not @article.like_users.include? current_user
+      @article.like_users << current_user
+      redirect_to list_articles_course_path(@article.course)
+    end
+  end
+
+  def beUnliked
+    if @article.like_users.include? current_user
+      @article.like_users.delete(current_user)
+      redirect_to list_articles_course_path(@article.course)
     end
   end
 

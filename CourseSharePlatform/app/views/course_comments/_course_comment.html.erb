@@ -6,5 +6,11 @@
       <%= time_ago_in_words(course_comment.created_at) %>前
     </strong><br/>
     <%= course_comment.content %>
+    <%if not course_comment.like_users.include? current_user%>
+      <%= link_to "点赞",beLiked_course_course_comment_path(@course,course_comment)%>
+    <%else%>
+      <%=link_to "取消点赞",beUnliked_course_course_comment_path(@course,course_comment)%>
+    <%end%>
+    <%= course_comment.like_users.length%>
   </p>
 </div>

@@ -15,4 +15,11 @@
     <%= article.content %>
   </p>
 
+  <%if not article.like_users.include? current_user%>
+    <%= link_to "点赞",beLiked_course_article_path(@course,article)%>
+  <%else%>
+    <%=link_to "取消点赞",beUnliked_course_article_path(@course,article)%>
+  <%end%>
+  <%= article.like_users.length%>
+
 </div>

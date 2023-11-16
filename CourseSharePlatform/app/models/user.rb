@@ -15,4 +15,10 @@ class User < ApplicationRecord
 
   has_many :course_scores
   has_many :courses, through: :course_scores
+
+  has_many :course_comment_likes, foreign_key: "like_user_id"
+  has_many :like_course_comments, through: :course_comment_likes
+
+  has_many :article_likes, foreign_key: "like_user_id"
+  has_many :like_articles, through: :article_likes
 end

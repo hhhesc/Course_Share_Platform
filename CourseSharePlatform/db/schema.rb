@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_15_011120) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_16_034928) do
+  create_table "article_likes", force: :cascade do |t|
+    t.integer "like_user_id", null: false
+    t.integer "like_article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["like_article_id"], name: "index_article_likes_on_like_article_id"
+    t.index ["like_user_id"], name: "index_article_likes_on_like_user_id"
+  end
+
   create_table "articles", force: :cascade do |t|
     t.integer "course_id", null: false
     t.integer "user_id", null: false
@@ -20,6 +29,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_15_011120) do
     t.datetime "updated_at", null: false
     t.index ["course_id"], name: "index_articles_on_course_id"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "course_comment_likes", force: :cascade do |t|
+    t.integer "like_user_id", null: false
+    t.integer "like_course_comment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["like_course_comment_id"], name: "index_course_comment_likes_on_like_course_comment_id"
+    t.index ["like_user_id"], name: "index_course_comment_likes_on_like_user_id"
   end
 
   create_table "course_comments", force: :cascade do |t|
@@ -75,8 +93,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_15_011120) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "article_likes", "articles", column: "like_article_id"
+  add_foreign_key "article_likes", "users", column: "like_user_id"
   add_foreign_key "articles", "courses"
   add_foreign_key "articles", "users"
+  add_foreign_key "course_comment_likes", "course_comments", column: "like_course_comment_id"
+  add_foreign_key "course_comment_likes", "users", column: "like_user_id"
   add_foreign_key "course_comments", "courses"
   add_foreign_key "course_comments", "users"
   add_foreign_key "course_scores", "courses"
