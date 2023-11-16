@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_16_034928) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_16_041241) do
+  create_table "article_favors", force: :cascade do |t|
+    t.integer "favor_user_id", null: false
+    t.integer "favor_article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favor_article_id"], name: "index_article_favors_on_favor_article_id"
+    t.index ["favor_user_id"], name: "index_article_favors_on_favor_user_id"
+  end
+
   create_table "article_likes", force: :cascade do |t|
     t.integer "like_user_id", null: false
     t.integer "like_article_id", null: false
@@ -93,6 +102,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_034928) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "article_favors", "articles", column: "favor_article_id"
+  add_foreign_key "article_favors", "users", column: "favor_user_id"
   add_foreign_key "article_likes", "articles", column: "like_article_id"
   add_foreign_key "article_likes", "users", column: "like_user_id"
   add_foreign_key "articles", "courses"

@@ -1,0 +1,9 @@
+<h3>收藏的文章</h3>
+<div class="container-fluid">
+  <div id="users" class="row">
+    <%@user.favor_articles.each do |article|%>
+        <%=link_to article.user.username<<" "<<article.title, list_articles_course_path(article.course)%>
+    <%end%>
+  </div>
+</div>
+<hr>

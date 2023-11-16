@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'unfollow'
       get 'list_followers'
       get 'list_followings'
+      get 'list_favor_articles'
     end
   end
 
@@ -23,6 +24,8 @@ Rails.application.routes.draw do
       member do
         get 'beLiked'
         get 'beUnliked'
+        get 'beFavored'
+        get 'beUnfavored'
       end
     end
     member do

@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[ show edit update destroy beLiked beUnliked]
+  before_action :set_article, only: %i[ show edit update destroy beLiked beUnliked beFavored beUnfavored]
 
   # GET /articles or /articles.json
   def index
@@ -71,6 +71,20 @@ class ArticlesController < ApplicationController
   def beUnliked
     if @article.like_users.include? current_user
       @article.like_users.delete(current_user)
+      redirect_to list_articles_course_path(@article.course)
+    end
+  end
+
+  def beFavored
+    if not @article.favor_users.include? current_user
+      @article.favor_users << current_user
+      redirect_to list_articles_course_path(@article.course)
+    end
+  end
+
+  def beUnfavored
+    if @article.favor_users.include? current_user
+      @article.favor_users.delete(current_user)
       redirect_to list_articles_course_path(@article.course)
     end
   end

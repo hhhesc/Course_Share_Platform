@@ -16,13 +16,14 @@
 
 <%= link_to "我的关注", list_followers_user_path(current_user)%>
 <%= link_to "关注我的", list_followings_user_path(current_user)%>
+<%= link_to "我的收藏", list_favor_articles_user_path(current_user)%>
 
 
 <% if @user.realname != nil %>
-<p> 个人认证信息</p>
+  <p> 个人认证信息</p>
   <p>姓名：<%= @user.realname %></p>
   <p>密码：<%= @user.studentcode %></p>
 <% else %>
-
   <%= link_to "学生认证", student_certificate_user_path %>
 <% end %>
+

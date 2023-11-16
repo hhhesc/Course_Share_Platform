@@ -22,4 +22,11 @@
   <%end%>
   <%= article.like_users.length%>
 
+  <%if not article.favor_users.include? current_user%>
+    <%= link_to "收藏",beFavored_course_article_path(@course,article)%>
+  <%else%>
+    <%=link_to "取消收藏",beUnfavored_course_article_path(@course,article)%>
+  <%end%>
+  <%= article.favor_users.length%>
+
 </div>

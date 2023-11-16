@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: %i[ show edit update destroy student_certificate follow unfollow
-  list_followers list_followings]
+  list_followers list_followings list_favor_articles]
 
   # GET /users or /users.json
   def index
@@ -78,6 +78,9 @@ class UsersController < ApplicationController
   end
 
   def list_followings
+  end
+
+  def list_favor_articles
   end
 
   private
