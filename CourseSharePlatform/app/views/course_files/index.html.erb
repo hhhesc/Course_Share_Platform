@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Course files</h1>
+
+<div id="course_files">
+  <% @course_files.each do |course_file| %>
+    <%= render course_file %>
+  <% end %>
+</div>
+

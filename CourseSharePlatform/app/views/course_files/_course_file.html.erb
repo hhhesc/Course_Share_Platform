@@ -1,0 +1,17 @@
+<div id="<%= dom_id course_file %>">
+
+  <p>
+    <strong>Title:</strong>
+    <%= course_file.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= course_file.description %>
+  </p>
+
+  <p>
+    <%= link_to "文件下载",url_for(course_file.file)%>
+  </p>
+
+</div>

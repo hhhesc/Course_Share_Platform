@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+  resources :course_files
+
   devise_for :users, controllers: { sessions: 'users/sessions' ,users: 'users'}, sign_out: :destroy
   resources :users do
     member do
@@ -28,9 +29,11 @@ Rails.application.routes.draw do
         get 'beUnfavored'
       end
     end
+    resources :course_files
     member do
       get 'list_comments'
       get 'list_articles'
+      get 'list_course_files'
     end
   end
 
