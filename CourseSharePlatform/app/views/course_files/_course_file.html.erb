@@ -14,4 +14,8 @@
     <%= link_to "文件下载",url_for(course_file.file)%>
   </p>
 
+  <%if current_user.admin==1%>
+    <%= button_to "删除文件", @course_file, method: :delete %>
+  <%end%>
+
 </div>

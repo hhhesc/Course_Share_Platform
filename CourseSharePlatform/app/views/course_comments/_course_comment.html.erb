@@ -12,5 +12,8 @@
       <%=link_to "取消点赞",beUnliked_course_course_comment_path(@course,course_comment)%>
     <%end%>
     <%= course_comment.like_users.length%>
+    <%if current_user.admin==1%>
+    <%= button_to "删除评论", @course_comment, method: :delete %>
+  <%end%>
   </p>
 </div>

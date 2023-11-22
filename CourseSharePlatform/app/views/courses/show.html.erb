@@ -3,8 +3,12 @@
 <%= render @course %>
 
 <div>
-  <%= link_to "编辑课程", edit_course_path(@course) %> |
+  <%= link_to "编辑课程", edit_course_path(@course) %> 
+  |
   <%= link_to "返回", courses_path %>
+  <%if current_user.admin==1%>
+    <%= button_to "删除课程", @course, method: :delete %>
+  <%end%>
 
   <%= link_to "课程评论", list_comments_course_path %>
   <%= link_to "课程文章", list_articles_course_path %>

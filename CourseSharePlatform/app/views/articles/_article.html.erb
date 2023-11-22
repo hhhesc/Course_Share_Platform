@@ -28,5 +28,8 @@
     <%=link_to "取消收藏",beUnfavored_course_article_path(@course,article)%>
   <%end%>
   <%= article.favor_users.length%>
+  <%if current_user.admin==1%>
+    <%= button_to "删除文章", @article, method: :delete %>
+  <%end%>
 
 </div>

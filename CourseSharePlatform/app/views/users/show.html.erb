@@ -2,21 +2,35 @@
 
 <%= render @user %>
 
+
+<% if current_user==@user|| current_user.admin==1%> 
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> 
 </div>
+<%end%>
 
-<% if current_user!=@user%>  
+<% if current_user!=@user|| current_user.admin==1%>  
   <% if current_user.followings.include? @user %>
     <%= link_to 'Unfollow', unfollow_user_path(@user), class: "btn btn-danger" %>
   <% else %>
     <%= link_to 'Follow', follow_user_path(@user), class: "btn btn-success" %>
   <% end %>
 <%end%>
-
+<% if current_user==@user|| current_user.admin==1%> 
 <%= link_to "我的关注", list_followers_user_path(current_user)%>
 <%= link_to "关注我的", list_followings_user_path(current_user)%>
 <%= link_to "我的收藏", list_favor_articles_user_path(current_user)%>
+<%end%>
+
+<p>个性签名：
+  <%if @user.personal_sign!=nil %>
+    <%=@user.personal_sign%>
+  <%else%>
+    <p>暂无个性签名</p>
+  <%end%>
+<% if current_user==@user|| current_user.admin==1%> 
+</p><%=link_to "编辑个性签名", edit_personal_sign_user_path%>
+<%end%>
 
 
 <% if @user.realname != nil %>
@@ -24,6 +38,8 @@
   <p>姓名：<%= @user.realname %></p>
   <p>密码：<%= @user.studentcode %></p>
 <% else %>
+<% if current_user==@user%> 
   <%= link_to "学生认证", student_certificate_user_path %>
+  <%end%>
 <% end %>
 

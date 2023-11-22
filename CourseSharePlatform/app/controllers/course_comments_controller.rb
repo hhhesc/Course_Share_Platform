@@ -1,4 +1,5 @@
 class CourseCommentsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_course_comment, only: %i[ show edit update destroy beLiked beUnliked]
 
   # GET /course_comments or /course_comments.json
@@ -64,7 +65,7 @@ class CourseCommentsController < ApplicationController
     if not @course_comment.like_users.include? current_user
       @course_comment.like_users << current_user
       redirect_to list_comments_course_path(@course_comment.course)
-    end 
+    end
   end
 
   def beUnliked

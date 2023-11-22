@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_course, only: %i[ show edit update destroy list_comments list_articles add_score
   list_course_files]
 

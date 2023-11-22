@@ -1,4 +1,5 @@
 class CourseFilesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_course_file, only: %i[ show edit update destroy ]
 
   # GET /course_files or /course_files.json

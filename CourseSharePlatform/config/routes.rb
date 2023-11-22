@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get 'list_followers'
       get 'list_followings'
       get 'list_favor_articles'
+      get 'edit_personal_sign'
     end
   end
 

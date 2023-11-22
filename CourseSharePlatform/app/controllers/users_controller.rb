@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: %i[ show edit update destroy student_certificate follow unfollow
-  list_followers list_followings list_favor_articles]
+  list_followers list_followings list_favor_articles edit_personal_sign]
 
   # GET /users or /users.json
   def index
@@ -38,14 +38,18 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+    if @user==current_user || current_user.admin==1
+      respond_to do |format|
+        if @user.update(user_params)
+          format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
+          format.json { render :show, status: :ok, location: @user }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to user_url(@user), notice: "无权限"
     end
   end
 
@@ -60,8 +64,10 @@ class UsersController < ApplicationController
   end
 
   def student_certificate
-    @user.realname = params[:realname]
-    @user.studentcode = params[:studentcode]
+    if @user==current_user || current_user.admin==1
+      @user.realname = params[:realname]
+      @user.studentcode = params[:studentcode]
+    end
   end
 
   def follow
@@ -83,6 +89,12 @@ class UsersController < ApplicationController
   def list_favor_articles
   end
 
+  def edit_personal_sign
+    if @user==current_user || current_user.admin==1
+    @user.personal_sign = params[ :personal_sign]
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -96,7 +108,8 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:username, :password, :email, :img_path, :realname, :studentcode)
+    params.require(:user).permit(:username, :password, :email, :img_path, :realname,
+    :studentcode, :personal_sign)
   end
 
   # def authenticate

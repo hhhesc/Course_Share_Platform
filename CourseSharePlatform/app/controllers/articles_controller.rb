@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_article, only: %i[ show edit update destroy beLiked beUnliked beFavored beUnfavored]
 
   # GET /articles or /articles.json
@@ -53,12 +54,16 @@ class ArticlesController < ApplicationController
 
   # DELETE /articles/1 or /articles/1.json
   def destroy
+    if current_user==@article.user || current_user.admin==1
     @article.destroy!
 
     respond_to do |format|
       format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
       format.json { head :no_content }
     end
+  else
+    redirect_to articles_url, notice: "无权限"
+  end
   end
 
   def beLiked

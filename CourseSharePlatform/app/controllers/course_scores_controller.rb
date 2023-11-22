@@ -1,4 +1,5 @@
 class CourseScoresController < ApplicationController
+    before_action :authenticate_user!
     def new
         @course_score = CourseScore.new
     end
@@ -22,8 +23,8 @@ class CourseScoresController < ApplicationController
         end
     end
 
-    private 
-    
+    private
+
     def course_score_params
         params.require(:course_score).permit(:course_id,:user_id,:course_score)
     end

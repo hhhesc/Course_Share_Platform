@@ -16,6 +16,10 @@
   <p></p>
   <%= link_to "课程列表", courses_path %>
   <%= link_to "用户登出", destroy_user_session_path, method: :delete %>
+  <%if current_user.admin==1%>
+    <%= link_to "用户列表", users_path%>
+    <h3> 您是管理员</h3>
+  <%end%>
 <% end %>
 <%= yield %>
 </body>
