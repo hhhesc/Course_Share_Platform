@@ -7,4 +7,6 @@ class Article < ApplicationRecord
 
   has_many :article_favors, foreign_key: "favor_article_id"
   has_many :favor_users, through: :article_favors
+
+  has_many :article_tags
 end

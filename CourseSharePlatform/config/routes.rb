@@ -23,11 +23,13 @@ Rails.application.routes.draw do
     end
     resources :course_scores
     resources :articles do
+      resources :article_tags
       member do
         get 'beLiked'
         get 'beUnliked'
         get 'beFavored'
         get 'beUnfavored'
+        get 'addTag'
       end
     end
     resources :course_files

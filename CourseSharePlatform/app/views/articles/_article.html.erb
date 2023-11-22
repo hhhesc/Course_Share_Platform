@@ -1,9 +1,6 @@
 <div id="<%= dom_id article %>">
 
-  <p>
-    <strong>用户:</strong>
-    <%= article.user.username %>
-  </p>
+
 
   <p>
     <strong>标题:</strong>
@@ -29,7 +26,18 @@
   <%end%>
   <%= article.favor_users.length%>
   <%if current_user.admin==1%>
-    <%= button_to "删除文章", @article, method: :delete %>
+    <%= button_to "删除文章", article, method: :delete %>
   <%end%>
+
+  <p>文章标签</p>
+  <%if article.article_tags ==nil || article.article_tags.length==0%>
+    <p>无标签</p>
+  <%else%>
+    <%article.article_tags.each do |tag|%>
+     <%=tag.content%>
+    <%end%>
+  <%end%>
+
+  <%=link_to "详细内容", course_article_path(@course,article)%>
 
 </div>

@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_article, only: %i[ show edit update destroy beLiked beUnliked beFavored beUnfavored]
+
+  before_action :set_article, only: %i[ show edit update destroy
+  beLiked beUnliked beFavored beUnfavored addTag]
+  before_action :set_course
 
   # GET /articles or /articles.json
   def index
@@ -94,10 +97,24 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def addTag
+    if current_user==@article.user || current_user.admin==1
+      @article_tag = ArticleTag.new(@article,params[:content])
+      @article.article_tags << @article_tag
+      redirect_to @article, notice: "标签添加成功"
+    else
+      redirect_to articles_url, notice: "无权限"
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+    end
+
+    def set_course
+      @course = Course.find(params[:course_id])
     end
 
     # Only allow a list of trusted parameters through.

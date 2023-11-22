@@ -1,10 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
+  <p>
+    <strong>用户:</strong>
+    <%= @article.user.username %>
+  </p>
+
 <%= render @article %>
 
-<div>
-  <%= link_to "Edit this article", edit_article_path(@article) %> |
-  <%= link_to "Back to articles", articles_path %>
 
-  <%= button_to "Destroy this article", @article, method: :delete %>
+  <%= form_for [@course, @article,ArticleTag.new] do |f| %>
+       <p>
+      <div>
+        <%= f.label :内容, "标签名" %> <br />
+        <%= f.text_field :content %>  
+      </p>
+      <p><%= f.submit "新增" %></p>
+    <% end %>
+    
+<div>
+  <%if current_user==@article.user|| current_user.admin==1%>
+  <%= link_to "Edit this article", edit_course_article_path(@course,@article) %> 
+  <%end%>|
+  <%= link_to "Back to articles", list_articles_course_path(@course) %>
+  <%if current_user.admin==1%>
+    <%= button_to "删除文章", @article, method: :delete %>
+  <%end%>
+
+
 </div>

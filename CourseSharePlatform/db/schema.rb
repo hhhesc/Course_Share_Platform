@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_22_003750) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_22_011820) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -55,6 +55,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_003750) do
     t.datetime "updated_at", null: false
     t.index ["like_article_id"], name: "index_article_likes_on_like_article_id"
     t.index ["like_user_id"], name: "index_article_likes_on_like_user_id"
+  end
+
+  create_table "article_tags", force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_tags_on_article_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -147,6 +155,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_003750) do
   add_foreign_key "article_favors", "users", column: "favor_user_id"
   add_foreign_key "article_likes", "articles", column: "like_article_id"
   add_foreign_key "article_likes", "users", column: "like_user_id"
+  add_foreign_key "article_tags", "articles"
   add_foreign_key "articles", "courses"
   add_foreign_key "articles", "users"
   add_foreign_key "course_comment_likes", "course_comments", column: "like_course_comment_id"
