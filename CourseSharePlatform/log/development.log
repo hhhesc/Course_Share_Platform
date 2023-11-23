@@ -34426,3 +34426,39 @@ Processing by ArticlesController#show as TURBO_STREAM
 Completed 200 OK in 62ms (Views: 45.0ms | ActiveRecord: 2.4ms | Allocations: 8426)
 
 
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-22 11:12:58 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:81:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/list_articles.html.erb:2
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 1], ["id", 15], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 1]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 1], ["id", 15], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 1]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.4ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 1]]
+  ↳ app/views/articles/_article.html.erb:33
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 3], ["id", 15], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 3]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 3], ["id", 15], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 3]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 3]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered collection of articles/_article.html.erb [2 times] (Duration: 115.5ms | Allocations: 20961)
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 147.7ms | Allocations: 30069)
+  Rendered layout layouts/application.html.erb (Duration: 327.3ms | Allocations: 43479)
+Completed 200 OK in 405ms (Views: 331.7ms | ActiveRecord: 18.2ms | Allocations: 58067)
+
+
