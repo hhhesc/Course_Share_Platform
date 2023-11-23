@@ -40813,3 +40813,1394 @@ Processing by UsersController#list_questions as HTML
 Completed 200 OK in 66ms (Views: 40.0ms | ActiveRecord: 0.8ms | Allocations: 4873)
 
 
+Started GET "/courses" for 127.0.0.1 at 2023-11-23 15:40:13 +0800
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.7ms | Allocations: 179)
+  Rendered courses/_course.html.erb (Duration: 0.4ms | Allocations: 17)
+  Rendered courses/index.html.erb within layouts/application (Duration: 10.6ms | Allocations: 3351)
+  Rendered layout layouts/application.html.erb (Duration: 297.3ms | Allocations: 16820)
+Completed 200 OK in 318ms (Views: 298.8ms | ActiveRecord: 1.5ms | Allocations: 27599)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-23 15:40:15 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.7ms | Allocations: 209)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 37)
+  Rendered users/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 3183)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 5233)
+Completed 200 OK in 26ms (Views: 18.7ms | ActiveRecord: 0.3ms | Allocations: 7142)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2023-11-23 15:40:18 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:108:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 52)
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followships" ON "users"."id" = "followships"."following_user_id" WHERE "followships"."user_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 15.7ms | Allocations: 4417)
+  Rendered layout layouts/application.html.erb (Duration: 27.0ms | Allocations: 6452)
+Completed 200 OK in 39ms (Views: 28.7ms | ActiveRecord: 0.6ms | Allocations: 9110)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2023-11-23 16:18:37 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (23.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:108:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 2.1ms | Allocations: 52)
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followships" ON "users"."id" = "followships"."following_user_id" WHERE "followships"."user_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 19.0ms | Allocations: 1071)
+  Rendered layout layouts/application.html.erb (Duration: 39.5ms | Allocations: 3075)
+Completed 200 OK in 172ms (Views: 72.7ms | ActiveRecord: 33.6ms | Allocations: 5408)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2023-11-23 16:18:39 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:108:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 52)
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followships" ON "users"."id" = "followships"."following_user_id" WHERE "followships"."user_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1068)
+  Rendered layout layouts/application.html.erb (Duration: 70.0ms | Allocations: 3071)
+Completed 200 OK in 92ms (Views: 72.4ms | ActiveRecord: 0.8ms | Allocations: 4990)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-23 16:18:41 +0800
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (5.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.4ms | Allocations: 18)
+  Rendered courses/_course.html.erb (Duration: 3.7ms | Allocations: 17)
+  Rendered courses/index.html.erb within layouts/application (Duration: 24.3ms | Allocations: 696)
+  Rendered layout layouts/application.html.erb (Duration: 39.9ms | Allocations: 2712)
+Completed 200 OK in 65ms (Views: 51.0ms | ActiveRecord: 1.7ms | Allocations: 4263)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2023-11-23 16:22:32 +0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:84:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mCourseScore Load (0.1ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:21
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" INNER JOIN "course_scores" ON "courses"."id" = "course_scores"."course_id" WHERE "course_scores"."user_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:33
+  [1m[36mCourseScore Load (0.1ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."user_id" = ? AND "course_scores"."course_id" = ? ORDER BY "course_scores"."id" ASC LIMIT ?[0m  [["user_id", 13], ["course_id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:45
+  Rendered courses/show.html.erb within layouts/application (Duration: 54.6ms | Allocations: 16137)
+  Rendered layout layouts/application.html.erb (Duration: 62.5ms | Allocations: 18139)
+Completed 200 OK in 85ms (Views: 62.1ms | ActiveRecord: 2.1ms | Allocations: 20764)
+
+
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 16:22:33 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:84:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/list_articles.html.erb:2
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.2ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered collection of articles/_article.html.erb [1 times] (Duration: 53.6ms | Allocations: 15036)
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 83.6ms | Allocations: 24286)
+  Rendered layout layouts/application.html.erb (Duration: 95.3ms | Allocations: 26288)
+Completed 200 OK in 128ms (Views: 102.1ms | ActiveRecord: 6.1ms | Allocations: 28255)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2023-11-23 16:23:09 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:108:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.4ms | Allocations: 52)
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followships" ON "users"."id" = "followships"."following_user_id" WHERE "followships"."user_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 20.2ms | Allocations: 1070)
+  Rendered layout layouts/application.html.erb (Duration: 38.9ms | Allocations: 3073)
+Completed 200 OK in 66ms (Views: 41.1ms | ActiveRecord: 1.3ms | Allocations: 4985)
+
+
+Started GET "/users/13/list_favor_articles" for 127.0.0.1 at 2023-11-23 16:23:10 +0800
+Processing by UsersController#list_favor_articles as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:108:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/list_favor_articles.html.erb within layouts/application
+  [1m[36mArticle Load (2.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_favors" ON "articles"."id" = "article_favors"."favor_article_id" WHERE "article_favors"."favor_user_id" = ?[0m  [["favor_user_id", 13]]
+  ↳ app/views/users/list_favor_articles.html.erb:4
+  Rendered users/list_favor_articles.html.erb within layouts/application (Duration: 12.4ms | Allocations: 2807)
+  Rendered layout layouts/application.html.erb (Duration: 27.2ms | Allocations: 4833)
+Completed 200 OK in 47ms (Views: 27.7ms | ActiveRecord: 2.5ms | Allocations: 6832)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2023-11-23 16:23:11 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:108:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 52)
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followships" ON "users"."id" = "followships"."following_user_id" WHERE "followships"."user_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 20.5ms | Allocations: 1068)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 3071)
+Completed 200 OK in 51ms (Views: 34.1ms | ActiveRecord: 1.8ms | Allocations: 4981)
+
+
+Started GET "/users/13/list_followings" for 127.0.0.1 at 2023-11-23 16:23:13 +0800
+Processing by UsersController#list_followings as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:108:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/list_followings.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "followships" ON "users"."id" = "followships"."user_id" WHERE "followships"."following_user_id" = ?[0m  [["following_user_id", 13]]
+  ↳ app/views/users/list_followings.html.erb:4
+  Rendered collection of users/_user.html.erb [1 times] (Duration: 0.9ms | Allocations: 324)
+  Rendered users/list_followings.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2366)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 4379)
+Completed 200 OK in 45ms (Views: 12.3ms | ActiveRecord: 1.1ms | Allocations: 6357)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2023-11-23 16:23:14 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:108:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 1.3ms | Allocations: 52)
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followships" ON "users"."id" = "followships"."following_user_id" WHERE "followships"."user_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 24.7ms | Allocations: 1068)
+  Rendered layout layouts/application.html.erb (Duration: 42.4ms | Allocations: 3105)
+Completed 200 OK in 78ms (Views: 51.4ms | ActiveRecord: 2.3ms | Allocations: 5031)
+
+
+Started GET "/users/13/list_questions" for 127.0.0.1 at 2023-11-23 16:23:15 +0800
+Processing by UsersController#list_questions as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:108:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/list_questions.html.erb within layouts/application
+  [1m[36mQuestion Load (3.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."user_id" = ?[0m  [["user_id", 13]]
+  ↳ app/views/users/list_questions.html.erb:4
+  Rendered collection of questions/_question.html.erb [3 times] (Duration: 5.2ms | Allocations: 533)
+  Rendered users/list_questions.html.erb within layouts/application (Duration: 89.1ms | Allocations: 13296)
+  Rendered layout layouts/application.html.erb (Duration: 108.6ms | Allocations: 15332)
+Completed 200 OK in 147ms (Views: 112.4ms | ActiveRecord: 3.4ms | Allocations: 17323)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2023-11-23 16:23:16 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:108:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 52)
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followships" ON "users"."id" = "followships"."following_user_id" WHERE "followships"."user_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 13.2ms | Allocations: 1070)
+  Rendered layout layouts/application.html.erb (Duration: 31.5ms | Allocations: 3087)
+Completed 200 OK in 68ms (Views: 35.3ms | ActiveRecord: 3.1ms | Allocations: 5014)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-23 16:23:20 +0800
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.2ms | Allocations: 18)
+  Rendered courses/_course.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered courses/index.html.erb within layouts/application (Duration: 16.3ms | Allocations: 671)
+  Rendered layout layouts/application.html.erb (Duration: 32.0ms | Allocations: 2687)
+Completed 200 OK in 52ms (Views: 32.4ms | ActiveRecord: 0.7ms | Allocations: 4250)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2023-11-23 16:23:21 +0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:84:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 0.5ms | Allocations: 18)
+  [1m[36mCourseScore Load (0.3ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:21
+  [1m[36mCourse Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" INNER JOIN "course_scores" ON "courses"."id" = "course_scores"."course_id" WHERE "course_scores"."user_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:33
+  [1m[36mCourseScore Load (0.1ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."user_id" = ? AND "course_scores"."course_id" = ? ORDER BY "course_scores"."id" ASC LIMIT ?[0m  [["user_id", 13], ["course_id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:45
+  Rendered courses/show.html.erb within layouts/application (Duration: 29.3ms | Allocations: 2356)
+  Rendered layout layouts/application.html.erb (Duration: 42.8ms | Allocations: 4359)
+Completed 200 OK in 52ms (Views: 43.3ms | ActiveRecord: 1.1ms | Allocations: 6265)
+
+
+Started GET "/courses/1/list_questions" for 127.0.0.1 at 2023-11-23 16:23:22 +0800
+Processing by CoursesController#list_questions as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:84:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_questions.html.erb within layouts/application
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/list_questions.html.erb:2
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/questions/_question.html.erb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/questions/_question.html.erb:5
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/questions/_question.html.erb:5
+  Rendered collection of questions/_question.html.erb [3 times] (Duration: 29.8ms | Allocations: 2437)
+  Rendered courses/list_questions.html.erb within layouts/application (Duration: 48.3ms | Allocations: 5626)
+  Rendered layout layouts/application.html.erb (Duration: 53.2ms | Allocations: 7637)
+Completed 200 OK in 84ms (Views: 62.5ms | ActiveRecord: 0.8ms | Allocations: 9597)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2023-11-23 16:23:27 +0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:84:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mCourseScore Load (0.2ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:21
+  [1m[36mCourse Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" INNER JOIN "course_scores" ON "courses"."id" = "course_scores"."course_id" WHERE "course_scores"."user_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:33
+  [1m[36mCourseScore Load (0.2ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."user_id" = ? AND "course_scores"."course_id" = ? ORDER BY "course_scores"."id" ASC LIMIT ?[0m  [["user_id", 13], ["course_id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:45
+  Rendered courses/show.html.erb within layouts/application (Duration: 38.7ms | Allocations: 2351)
+  Rendered layout layouts/application.html.erb (Duration: 51.2ms | Allocations: 4353)
+Completed 200 OK in 65ms (Views: 51.7ms | ActiveRecord: 1.1ms | Allocations: 6252)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-23 16:23:28 +0800
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered courses/_course.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered courses/index.html.erb within layouts/application (Duration: 18.4ms | Allocations: 670)
+  Rendered layout layouts/application.html.erb (Duration: 33.9ms | Allocations: 2686)
+Completed 200 OK in 41ms (Views: 35.2ms | ActiveRecord: 0.2ms | Allocations: 4239)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-23 16:35:57 +0800
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.9ms | Allocations: 179)
+  Rendered courses/_course.html.erb (Duration: 0.1ms | Allocations: 17)
+  Rendered courses/index.html.erb within layouts/application (Duration: 11.9ms | Allocations: 3353)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | Allocations: 16843)
+Completed 200 OK in 85ms (Views: 34.1ms | ActiveRecord: 17.9ms | Allocations: 27694)
+
+
+Started GET "/courses/1" for 127.0.0.1 at 2023-11-23 16:35:59 +0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 0.2ms | Allocations: 18)
+  [1m[36mCourseScore Load (0.2ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:21
+  [1m[36mCourse Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" INNER JOIN "course_scores" ON "courses"."id" = "course_scores"."course_id" WHERE "course_scores"."user_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:33
+  [1m[36mCourseScore Load (0.2ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."user_id" = ? AND "course_scores"."course_id" = ? ORDER BY "course_scores"."id" ASC LIMIT ?[0m  [["user_id", 13], ["course_id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:45
+  Rendered courses/show.html.erb within layouts/application (Duration: 48.2ms | Allocations: 10163)
+  Rendered layout layouts/application.html.erb (Duration: 66.5ms | Allocations: 12190)
+Completed 200 OK in 83ms (Views: 66.9ms | ActiveRecord: 1.4ms | Allocations: 14837)
+
+
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 16:36:00 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (1.9ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 17.0ms | Allocations: 1357)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 1459)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 2.0ms | Allocations: 3424)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <%= form_for [@course] action="/search_by_tag" method="post" do |f| %>
+  <div>
+    <%= f.label :tag, "标签" %> <br />
+    <%= f.text_area :tag, :rows => 1 %>
+  </div>
+  <p><%= f.submit "发布" %></p>
+<%end%>
+
+
+<div id="articles">
+<%= render @course.articles %>
+</div>
+
+<%= form_for [@course,@user , Article.new] do |f| %>
+  <p>
+  <div>
+    <%= f.label :title, "标题" %> <br />
+    <%= f.text_area :title, :rows => 1 %>
+  </div>
+  <div>
+    <%= f.label :content, "内容" %> <br />
+    <%= f.text_area :content, :rows => 5 %>
+  </p>
+  <p><%= f.submit "发布" %></p>
+<% end %>
+
+
+<%= link_to "返回课程页面",course_path(@course) %>
+):
+1:    <%= form_for [@course] action="/search_by_tag" method="post" do |f| %>
+2:      <div>
+3:        <%= f.label :tag, "标签" %> <br />
+4:        <%= f.text_area :tag, :rows => 1 %>
+5:      </div>
+6:      <p><%= f.submit "发布" %></p>
+7:    <%end%>
+8:    
+9:    
+10:    <div id="articles">
+11:    <%= render @course.articles %>
+12:    </div>
+13:    
+14:    <%= form_for [@course,@user , Article.new] do |f| %>
+15:      <p>
+16:      <div>
+17:        <%= f.label :title, "标题" %> <br />
+18:        <%= f.text_area :title, :rows => 1 %>
+19:      </div>
+20:      <div>
+21:        <%= f.label :content, "内容" %> <br />
+22:        <%= f.text_area :content, :rows => 5 %>
+23:      </p>
+24:      <p><%= f.submit "发布" %></p>
+25:    <% end %>
+26:    
+27:    
+28:    <%= link_to "返回课程页面",course_path(@course) %>
+  
+app/views/courses/list_articles.html.erb:1: syntax error, unexpected local variable or method, expecting `end' or dummy end
+app/views/courses/list_articles.html.erb:30: syntax error, unexpected `end'
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 16:37:00 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1374)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | Allocations: 1466)
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 10.7ms | Allocations: 16404)
+
+
+  
+ActionView::Template::Error (undefined method `search_by_tag' for #<Course id: 1, course_name: "DataBase", course_description: "sb", created_at: "2023-11-13 12:48:08.121371000 +0000", updated_at: "2023-11-20 10:44:44.883424000 +0000">):
+    1: <%= form_for [@course.search_by_tag] do |f| %>
+    2:   <div>
+    3:     <%= f.label :tag, "标签" %> <br />
+    4:     <%= f.text_area :tag, :rows => 1 %>
+  
+app/views/courses/list_articles.html.erb:1
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 16:40:14 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1793)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 1885)
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 4.4ms | Allocations: 16823)
+
+
+  
+ActionView::Template::Error (undefined method `tag' for #<Course id: 1, course_name: "DataBase", course_description: "sb", created_at: "2023-11-13 12:48:08.121371000 +0000", updated_at: "2023-11-20 10:44:44.883424000 +0000">):
+    1: 
+    2: 
+    3: <%= form_for(@course, url: course_path(@course, :tag), method: :get) do |f| %>  
+    4:   <%= f.hidden_field :tag %>  
+    5:   <%= f.submit "Search by Tag" %>  
+    6: <% end %>
+    7: 
+  
+app/views/courses/list_articles.html.erb:4
+app/views/courses/list_articles.html.erb:3
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 16:42:42 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  [1m[36mArticle Load (1.7ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/list_articles.html.erb:9
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.5ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered collection of articles/_article.html.erb [1 times] (Duration: 97.3ms | Allocations: 15271)
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 173.2ms | Allocations: 24696)
+  Rendered layout layouts/application.html.erb (Duration: 223.8ms | Allocations: 38143)
+Completed 200 OK in 302ms (Views: 224.6ms | ActiveRecord: 15.6ms | Allocations: 53104)
+
+
+Started GET "/search?q=22&commit=Search" for 127.0.0.1 at 2023-11-23 16:42:45 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 16:42:46 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/list_articles.html.erb:9
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered collection of articles/_article.html.erb [1 times] (Duration: 42.2ms | Allocations: 3241)
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 47.3ms | Allocations: 4292)
+  Rendered layout layouts/application.html.erb (Duration: 56.3ms | Allocations: 6294)
+Completed 200 OK in 90ms (Views: 59.8ms | ActiveRecord: 1.6ms | Allocations: 8200)
+
+
+Started GET "/search?q=33&commit=Search" for 127.0.0.1 at 2023-11-23 16:42:58 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/search"):
+  
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 16:42:59 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/list_articles.html.erb:9
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.2ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered collection of articles/_article.html.erb [1 times] (Duration: 86.8ms | Allocations: 15268)
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 152.5ms | Allocations: 24681)
+  Rendered layout layouts/application.html.erb (Duration: 179.6ms | Allocations: 38128)
+Completed 200 OK in 271ms (Views: 173.3ms | ActiveRecord: 30.4ms | Allocations: 53124)
+
+
+Started GET "/search_by_tag?q=333&commit=Search" for 127.0.0.1 at 2023-11-23 16:43:31 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/search_by_tag"):
+  
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 16:43:31 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/list_articles.html.erb:9
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered collection of articles/_article.html.erb [1 times] (Duration: 34.9ms | Allocations: 3240)
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 51.9ms | Allocations: 4291)
+  Rendered layout layouts/application.html.erb (Duration: 62.1ms | Allocations: 6327)
+Completed 200 OK in 88ms (Views: 62.7ms | ActiveRecord: 2.8ms | Allocations: 8223)
+
+
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 16:48:04 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1294)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1397)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 8.8ms | Allocations: 16426)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<%= form_tag({controller: "course",id:@course.id action: "search_by_tag"}, 
+  method: "get", class: "search_form") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<div id="articles">
+<%= render @course.articles %>
+</div>
+
+<%= form_for [@course,@user , Article.new] do |f| %>
+  <p>
+  <div>
+    <%= f.label :title, "标题" %> <br />
+    <%= f.text_area :title, :rows => 1 %>
+  </div>
+  <div>
+    <%= f.label :content, "内容" %> <br />
+    <%= f.text_area :content, :rows => 5 %>
+  </p>
+  <p><%= f.submit "发布" %></p>
+<% end %>
+
+
+<%= link_to "返回课程页面",course_path(@course) %>
+):
+1:    
+2:    <%= form_tag({controller: "course",id:@course.id action: "search_by_tag"}, 
+3:      method: "get", class: "search_form") do %>
+4:      <%= label_tag(:q, "Search for:") %>
+5:      <%= text_field_tag(:q) %>
+6:      <%= submit_tag("Search") %>
+7:    <% end %>
+8:    
+9:    <div id="articles">
+10:    <%= render @course.articles %>
+11:    </div>
+12:    
+13:    <%= form_for [@course,@user , Article.new] do |f| %>
+14:      <p>
+15:      <div>
+16:        <%= f.label :title, "标题" %> <br />
+17:        <%= f.text_area :title, :rows => 1 %>
+18:      </div>
+19:      <div>
+20:        <%= f.label :content, "内容" %> <br />
+21:        <%= f.text_area :content, :rows => 5 %>
+22:      </p>
+23:      <p><%= f.submit "发布" %></p>
+24:    <% end %>
+25:    
+26:    
+27:    <%= link_to "返回课程页面",course_path(@course) %>
+  
+app/views/courses/list_articles.html.erb:2: syntax error, unexpected label, expecting '}'
+app/views/courses/list_articles.html.erb:29: syntax error, unexpected `end'
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 16:48:18 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 5.6ms | Allocations: 3210)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 3302)
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 6.2ms | Allocations: 18329)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search_by_tag", :controller=>"course", :id=>1}):
+    1: 
+    2: <%= form_tag({controller: "course",id:@course.id, action: "search_by_tag"}, 
+    3:   method: "get", class: "search_form") do %>
+    4:   <%= label_tag(:q, "Search for:") %>
+    5:   <%= text_field_tag(:q) %>
+  
+app/views/courses/list_articles.html.erb:2
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 16:48:55 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1127)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 1218)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 1.4ms | Allocations: 3130)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search_by_tag", :controller=>"course", :id=>1}):
+    1: 
+    2: <%= form_tag({controller: "course",id:@course.id, action: "search_by_tag"}, 
+    3:   method: "get", class: "search_form") do %>
+    4:   <%= label_tag(:q, "Search for:") %>
+    5:   <%= text_field_tag(:q) %>
+  
+app/views/courses/list_articles.html.erb:2
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 17:01:23 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1595)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 1687)
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 5.4ms | Allocations: 15550)
+
+
+  
+ActionView::Template::Error (undefined method `content' for #<Course id: 1, course_name: "DataBase", course_description: "sb", created_at: "2023-11-13 12:48:08.121371000 +0000", updated_at: "2023-11-20 10:44:44.883424000 +0000">):
+    1: 
+    2: <%= form_for @course, url: {action: "serach_by_tag"} do |f| %>
+    3:   <%= f.text_field :content %>
+    4:   <%= f.text_area :body, size: "60x12" %>
+    5:   <%= f.submit "Create" %>
+    6: <% end %>
+  
+app/views/courses/list_articles.html.erb:3
+app/views/courses/list_articles.html.erb:2
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 17:06:41 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 7.6ms | Allocations: 3206)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 3298)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 5.5ms | Allocations: 18287)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search_by_tag", :controller=>"course", :id=>1}):
+    1: 
+    2: <%= form_tag({controller: "course",id:@course.id, action: "search_by_tag"}, 
+    3:   method: "get", class: "search_form") do %>
+    4:   <%= label_tag(:q, "Search for:") %>
+    5:   <%= text_field_tag(:q) %>
+  
+app/views/courses/list_articles.html.erb:2
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 17:09:47 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 4.3ms | Allocations: 3218)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3310)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 7.5ms | Allocations: 18300)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"search_by_tag", :controller=>"course", :id=>1}):
+    1: 
+    2: <%= form_tag({controller: "course",id:@course.id, action: "search_by_tag"}, 
+    3:   method: "get", class: "search_form") do %>
+    4:   <%= label_tag(:q, "Search for:") %>
+    5:   <%= text_field_tag(:q) %>
+  
+app/views/courses/list_articles.html.erb:2
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 17:13:45 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/list_articles.html.erb:7
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (6.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered collection of articles/_article.html.erb [1 times] (Duration: 90.7ms | Allocations: 15238)
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 147.5ms | Allocations: 24659)
+  Rendered layout layouts/application.html.erb (Duration: 197.6ms | Allocations: 38106)
+Completed 200 OK in 279ms (Views: 193.6ms | ActiveRecord: 13.2ms | Allocations: 53133)
+
+
+Started GET "/courses/1/search_by_tag?query=44" for 127.0.0.1 at 2023-11-23 17:14:04 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"44", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:87:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 1.9ms | Allocations: 80)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 2106)
+Completed 200 OK in 26ms (Views: 14.2ms | ActiveRecord: 0.2ms | Allocations: 4083)
+
+
+Started GET "/courses/1/search_by_tag?query=44" for 127.0.0.1 at 2023-11-23 17:14:58 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"44", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 6.3ms | Allocations: 14411)
+
+
+  
+NameError (uninitialized constant CoursesController::Tag):
+  
+app/controllers/courses_controller.rb:83:in `search_by_tag'
+Started GET "/courses/1" for 127.0.0.1 at 2023-11-23 17:15:23 +0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 4.7ms | Allocations: 179)
+  [1m[36mCourseScore Load (1.3ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/show.html.erb:21
+  [1m[36mCourse Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" INNER JOIN "course_scores" ON "courses"."id" = "course_scores"."course_id" WHERE "course_scores"."user_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:33
+  [1m[36mCourseScore Load (0.3ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."user_id" = ? AND "course_scores"."course_id" = ? ORDER BY "course_scores"."id" ASC LIMIT ?[0m  [["user_id", 13], ["course_id", 1], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:45
+  Rendered courses/show.html.erb within layouts/application (Duration: 72.9ms | Allocations: 10899)
+  Rendered layout layouts/application.html.erb (Duration: 91.6ms | Allocations: 24344)
+Completed 200 OK in 157ms (Views: 97.5ms | ActiveRecord: 19.6ms | Allocations: 39393)
+
+
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 17:15:26 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.8ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/list_articles.html.erb:7
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered collection of articles/_article.html.erb [1 times] (Duration: 66.5ms | Allocations: 15192)
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 103.0ms | Allocations: 24614)
+  Rendered layout layouts/application.html.erb (Duration: 106.0ms | Allocations: 26616)
+Completed 200 OK in 120ms (Views: 103.6ms | ActiveRecord: 4.0ms | Allocations: 28603)
+
+
+Started GET "/courses/1/search_by_tag?query=33" for 127.0.0.1 at 2023-11-23 17:15:28 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"33", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  [1m[36mArticleTag Load (6.7ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE (content LIKE '%33%')[0m
+  ↳ app/controllers/courses_controller.rb:84:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 0.4ms | Allocations: 79)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2105)
+Completed 200 OK in 18ms (Views: 6.8ms | ActiveRecord: 6.8ms | Allocations: 4687)
+
+
+Started GET "/courses/1/articles/4" for 127.0.0.1 at 2023-11-23 17:15:38 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"course_id"=>"1", "id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mArticle Load (2.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:114:in `set_article'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:118:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.erb:5
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.7ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered articles/_article.html.erb (Duration: 32.6ms | Allocations: 3727)
+  Rendered articles/show.html.erb within layouts/application (Duration: 54.4ms | Allocations: 8747)
+  Rendered layout layouts/application.html.erb (Duration: 55.1ms | Allocations: 8838)
+Completed 500 Internal Server Error in 73ms (ActiveRecord: 4.7ms | Allocations: 12015)
+
+
+  
+ActionView::Template::Error (undefined method `article_path' for #<ActionView::Base:0x00000000446bc8>):
+    23:   <%end%>|
+    24:   <%= link_to "Back to articles", list_articles_course_path(@course) %>
+    25:   <%if current_user.admin==1%>
+    26:     <%= button_to "删除文章", @article, method: :delete %>
+    27:   <%end%>
+    28: 
+    29: 
+  
+app/views/articles/show.html.erb:26
+Started GET "/courses/1/articles/4" for 127.0.0.1 at 2023-11-23 17:16:55 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"course_id"=>"1", "id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:114:in `set_article'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:118:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.erb:5
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.2ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered articles/_article.html.erb (Duration: 52.7ms | Allocations: 14400)
+  Rendered articles/show.html.erb within layouts/application (Duration: 64.6ms | Allocations: 19315)
+  Rendered layout layouts/application.html.erb (Duration: 81.9ms | Allocations: 32760)
+Completed 200 OK in 158ms (Views: 81.3ms | ActiveRecord: 7.0ms | Allocations: 54615)
+
+
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 17:16:58 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  [1m[36mArticle Load (1.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/list_articles.html.erb:7
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered collection of articles/_article.html.erb [1 times] (Duration: 18.2ms | Allocations: 3753)
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 50.1ms | Allocations: 7204)
+  Rendered layout layouts/application.html.erb (Duration: 54.5ms | Allocations: 9210)
+Completed 200 OK in 70ms (Views: 57.4ms | ActiveRecord: 2.4ms | Allocations: 11444)
+
+
+Started GET "/courses/1/articles/4" for 127.0.0.1 at 2023-11-23 17:17:00 +0800
+Processing by ArticlesController#show as HTML
+  Parameters: {"course_id"=>"1", "id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:114:in `set_article'
+  [1m[36mCourse Load (0.0ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:118:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.erb:5
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.2ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered articles/_article.html.erb (Duration: 31.9ms | Allocations: 3172)
+  Rendered articles/show.html.erb within layouts/application (Duration: 38.9ms | Allocations: 4180)
+  Rendered layout layouts/application.html.erb (Duration: 46.3ms | Allocations: 6182)
+Completed 200 OK in 63ms (Views: 51.3ms | ActiveRecord: 1.4ms | Allocations: 8434)
+
+
+Started POST "/courses/1/articles/4/article_tags" for 127.0.0.1 at 2023-11-23 17:17:07 +0800
+Processing by ArticleTagsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "article_tag"=>{"content"=>"13333331"}, "commit"=>"新增", "course_id"=>"1", "article_id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/article_tags_controller.rb:25:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/article_tags_controller.rb:26:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/article_tags_controller.rb:31:in `block in create'
+  [1m[36mArticleTag Create (2.5ms)[0m  [1m[32mINSERT INTO "article_tags" ("article_id", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["article_id", 4], ["content", "13333331"], ["created_at", "2023-11-23 09:17:07.812389"], ["updated_at", "2023-11-23 09:17:07.812389"]]
+  ↳ app/controllers/article_tags_controller.rb:31:in `block in create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/article_tags_controller.rb:31:in `block in create'
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/article_tags_controller.rb:32:in `block (2 levels) in create'
+Redirected to http://localhost:3000/courses/1/articles/4
+Completed 302 Found in 50ms (ActiveRecord: 4.6ms | Allocations: 5748)
+
+
+Started GET "/courses/1/articles/4" for 127.0.0.1 at 2023-11-23 17:17:07 +0800
+Processing by ArticlesController#show as TURBO_STREAM
+  Parameters: {"course_id"=>"1", "id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:114:in `set_article'
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:118:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.erb:5
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered articles/_article.html.erb (Duration: 19.5ms | Allocations: 3214)
+  Rendered articles/show.html.erb within layouts/application (Duration: 26.7ms | Allocations: 4266)
+  Rendered layout layouts/application.html.erb (Duration: 31.7ms | Allocations: 6268)
+Completed 200 OK in 45ms (Views: 31.1ms | ActiveRecord: 1.7ms | Allocations: 8580)
+
+
+Started GET "/courses/1/list_articles" for 127.0.0.1 at 2023-11-23 17:17:09 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."course_id" = ?[0m  [["course_id", 1]]
+  ↳ app/views/courses/list_articles.html.erb:7
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:15
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:20
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:27
+  [1m[36mArticleTag Load (0.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:33
+  Rendered collection of articles/_article.html.erb [1 times] (Duration: 33.6ms | Allocations: 3247)
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 40.3ms | Allocations: 4314)
+  Rendered layout layouts/application.html.erb (Duration: 59.8ms | Allocations: 6316)
+Completed 200 OK in 67ms (Views: 59.8ms | ActiveRecord: 1.3ms | Allocations: 8209)
+
+
+Started GET "/courses/1/search_by_tag?query=33" for 127.0.0.1 at 2023-11-23 17:17:11 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"33", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  [1m[36mArticleTag Load (0.9ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE (content LIKE '%33%')[0m
+  ↳ app/controllers/courses_controller.rb:84:in `map'
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/courses_controller.rb:85:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 0.6ms | Allocations: 79)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 2105)
+Completed 200 OK in 44ms (Views: 12.2ms | ActiveRecord: 2.1ms | Allocations: 5188)
+
+
+Started GET "/courses/1/search_by_tag?query=33" for 127.0.0.1 at 2023-11-23 17:17:29 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"33", "id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  [1m[36mArticleTag Load (0.3ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE (content LIKE '%33%')[0m
+  ↳ app/controllers/courses_controller.rb:84:in `map'
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/courses_controller.rb:85:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 1.7ms | Allocations: 217)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 13738)
+Completed 200 OK in 138ms (Views: 40.3ms | ActiveRecord: 6.0ms | Allocations: 38854)
+
+
+Started GET "/courses/1/search_by_tag?query=33" for 127.0.0.1 at 2023-11-23 17:17:52 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"33", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  [1m[36mArticleTag Load (0.2ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE (content LIKE '%33%')[0m
+  ↳ app/controllers/courses_controller.rb:84:in `map'
+  [1m[36mArticle Load (1.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/courses_controller.rb:85:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 0.9ms | Allocations: 1268)
+  Rendered layout layouts/application.html.erb (Duration: 1.1ms | Allocations: 1360)
+Completed 500 Internal Server Error in 95ms (ActiveRecord: 10.9ms | Allocations: 26356)
+
+
+  
+ActionView::Template::Error (Missing partial courses/_{"id":4,"course_id":1,"user_id":13,"title":"ss","content":"ss","created_at":"2023-11-23T03:18:58.307Z","updated_at":"2023-11-23T03:18:58.307Z"}, application/_{"id":4,"course_id":1,"user_id":13,"title":"ss","content":"ss","created_at":"2023-11-23T03:18:58.307Z","updated_at":"2023-11-23T03:18:58.307Z"} with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/hhhssec/CourseSharePlatform_/CourseSharePlatform/app/views"
+  * "/home/hhhssec/.rvm/gems/ruby-3.2.2/gems/devise-4.9.3/app/views"
+  * "/home/hhhssec/.rvm/gems/ruby-3.2.2/gems/turbo-rails-1.5.0/app/views"
+  * "/home/hhhssec/.rvm/gems/ruby-3.2.2/gems/actiontext-7.1.2/app/views"
+  * "/home/hhhssec/.rvm/gems/ruby-3.2.2/gems/actionmailbox-7.1.2/app/views"
+):
+    1: <% if @articles.any? %>  
+    2:   <ul>  
+    3:     <% @articles.each do |article| %>  
+    4:       <%=render article%> 
+    5:     <% end %>  
+    6:   </ul>  
+    7: <% else %>  
+  
+app/views/courses/search_by_tag.html.erb:4
+app/views/courses/search_by_tag.html.erb:3:in `each'
+app/views/courses/search_by_tag.html.erb:3
+Started GET "/courses/1/search_by_tag?query=33" for 127.0.0.1 at 2023-11-23 17:19:23 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"33", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  [1m[36mArticleTag Load (1.4ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE (content LIKE '%33%')[0m
+  ↳ app/controllers/courses_controller.rb:84:in `map'
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/courses_controller.rb:85:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1268)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 1360)
+Completed 500 Internal Server Error in 182ms (ActiveRecord: 26.1ms | Allocations: 26465)
+
+
+  
+ActionView::Template::Error (Missing partial courses/_{"id":4,"course_id":1,"user_id":13,"title":"ss","content":"ss","created_at":"2023-11-23T03:18:58.307Z","updated_at":"2023-11-23T03:18:58.307Z"}, application/_{"id":4,"course_id":1,"user_id":13,"title":"ss","content":"ss","created_at":"2023-11-23T03:18:58.307Z","updated_at":"2023-11-23T03:18:58.307Z"} with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}.
+
+Searched in:
+  * "/home/hhhssec/CourseSharePlatform_/CourseSharePlatform/app/views"
+  * "/home/hhhssec/.rvm/gems/ruby-3.2.2/gems/devise-4.9.3/app/views"
+  * "/home/hhhssec/.rvm/gems/ruby-3.2.2/gems/turbo-rails-1.5.0/app/views"
+  * "/home/hhhssec/.rvm/gems/ruby-3.2.2/gems/actiontext-7.1.2/app/views"
+  * "/home/hhhssec/.rvm/gems/ruby-3.2.2/gems/actionmailbox-7.1.2/app/views"
+):
+    1: <% if @articles.any? %>  
+    2:   <ul>  
+    3:     <% @articles.each do |article| %>  
+    4:       <%= render article%> 
+    5:     <% end %>  
+    6:   </ul>  
+    7: <% else %>  
+  
+app/views/courses/search_by_tag.html.erb:4
+app/views/courses/search_by_tag.html.erb:3:in `each'
+app/views/courses/search_by_tag.html.erb:3
+Started GET "/courses/1/search_by_tag?query=33" for 127.0.0.1 at 2023-11-23 17:21:56 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"33", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  [1m[36mArticleTag Load (0.2ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE (content LIKE '%33%')[0m
+  ↳ app/controllers/courses_controller.rb:84:in `map'
+  [1m[36mArticle Load (0.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/courses_controller.rb:85:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1495)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 1587)
+Completed 500 Internal Server Error in 158ms (ActiveRecord: 10.3ms | Allocations: 26711)
+
+
+  
+ActionView::Template::Error (undefined method `title' for "{\"id\":4,\"course_id\":1,\"user_id\":13,\"title\":\"ss\",\"content\":\"ss\",\"created_at\":\"2023-11-23T03:18:58.307Z\",\"updated_at\":\"2023-11-23T03:18:58.307Z\"}":String):
+    3:     <% @articles.each do |article| %>  
+    4:       <p>
+    5:     <strong>标题:</strong>
+    6:     <%= article.title %>
+    7:   </p>
+    8: 
+    9:   <p>
+  
+app/views/courses/search_by_tag.html.erb:6
+app/views/courses/search_by_tag.html.erb:3:in `each'
+app/views/courses/search_by_tag.html.erb:3
+Started GET "/courses/1/search_by_tag?query=33" for 127.0.0.1 at 2023-11-23 17:23:22 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"33", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  [1m[36mArticleTag Load (0.4ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE (content LIKE '%33%')[0m
+  ↳ app/controllers/courses_controller.rb:84:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  [1m[36mArticle Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/courses/search_by_tag.html.erb:1
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  ↳ app/views/courses/search_by_tag.html.erb:3
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 36.0ms | Allocations: 4792)
+  Rendered layout layouts/application.html.erb (Duration: 39.4ms | Allocations: 4884)
+Completed 500 Internal Server Error in 179ms (ActiveRecord: 7.4ms | Allocations: 26751)
+
+
+  
+ActionView::Template::Error (undefined method `article_path' for #<ActionView::Base:0x000000004a2888>):
+    1: <% if @articles.any? %>  
+    2:   <ul>  
+    3:     <% @articles.each do |article| %>  
+    4:       <%= link_to article%> 
+    5:     <% end %>  
+    6:   </ul>  
+    7: <% else %>  
+  
+app/views/courses/search_by_tag.html.erb:4
+app/views/courses/search_by_tag.html.erb:3
+Started GET "/courses/1/search_by_tag?query=33" for 127.0.0.1 at 2023-11-23 17:23:37 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"33", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  [1m[36mArticleTag Load (0.2ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE (content LIKE '%33%')[0m
+  ↳ app/controllers/courses_controller.rb:84:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  [1m[36mArticle Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/courses/search_by_tag.html.erb:1
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  ↳ app/views/courses/search_by_tag.html.erb:3
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:17
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:24
+  [1m[36mArticleTag Load (0.2ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:30
+  Rendered articles/_article.html.erb (Duration: 59.2ms | Allocations: 14591)
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 80.2ms | Allocations: 18614)
+  Rendered layout layouts/application.html.erb (Duration: 110.3ms | Allocations: 32061)
+Completed 200 OK in 223ms (Views: 124.3ms | ActiveRecord: 21.6ms | Allocations: 53969)
+
+
+Started GET "/courses/1/search_by_tag?query=33" for 127.0.0.1 at 2023-11-23 17:24:17 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"33", "id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  [1m[36mArticleTag Load (0.3ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE (content LIKE '%33%')[0m
+  ↳ app/controllers/courses_controller.rb:84:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  [1m[36mArticle Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/courses/search_by_tag.html.erb:6
+  [1m[36mArticle Load (0.5ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  ↳ app/views/courses/search_by_tag.html.erb:8
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:17
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:19
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:24
+  [1m[36mArticleTag Load (0.2ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:30
+  Rendered articles/_article.html.erb (Duration: 79.9ms | Allocations: 14546)
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 104.5ms | Allocations: 18788)
+  Rendered layout layouts/application.html.erb (Duration: 131.2ms | Allocations: 32235)
+Completed 200 OK in 222ms (Views: 134.5ms | ActiveRecord: 11.9ms | Allocations: 54099)
+
+
+Started GET "/courses/1/search_by_tag?query=33" for 127.0.0.1 at 2023-11-23 17:24:24 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"33", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  [1m[36mArticleTag Load (1.2ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE (content LIKE '%33%')[0m
+  ↳ app/controllers/courses_controller.rb:84:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  [1m[36mArticle Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/courses/search_by_tag.html.erb:8
+  [1m[36mArticle Load (1.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  ↳ app/views/courses/search_by_tag.html.erb:10
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:12
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:17
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:19
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:24
+  [1m[36mArticleTag Load (2.3ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:30
+  Rendered articles/_article.html.erb (Duration: 55.6ms | Allocations: 14542)
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 78.3ms | Allocations: 18784)
+  Rendered layout layouts/application.html.erb (Duration: 160.1ms | Allocations: 32114)
+Completed 200 OK in 226ms (Views: 156.8ms | ActiveRecord: 24.2ms | Allocations: 53921)
+
+
+Started GET "/courses/1/search_by_tag?query=33" for 127.0.0.1 at 2023-11-23 17:24:35 +0800
+Processing by CoursesController#search_by_tag as HTML
+  Parameters: {"query"=>"33", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:91:in `set_course'
+  [1m[36mArticleTag Load (0.3ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE (content LIKE '%33%')[0m
+  ↳ app/controllers/courses_controller.rb:84:in `map'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/search_by_tag.html.erb within layouts/application
+  [1m[36mArticle Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/courses/search_by_tag.html.erb:8
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 4]]
+  ↳ app/views/courses/search_by_tag.html.erb:10
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:12
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:17
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 4], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:24
+  [1m[36mArticleTag Load (0.5ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 4]]
+  ↳ app/views/articles/_article.html.erb:30
+  Rendered articles/_article.html.erb (Duration: 68.2ms | Allocations: 14549)
+  Rendered courses/search_by_tag.html.erb within layouts/application (Duration: 86.0ms | Allocations: 18795)
+  Rendered layout layouts/application.html.erb (Duration: 169.7ms | Allocations: 32139)
+Completed 200 OK in 289ms (Views: 176.8ms | ActiveRecord: 16.0ms | Allocations: 54077)
+
+

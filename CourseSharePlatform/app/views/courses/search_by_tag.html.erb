@@ -1,0 +1,16 @@
+<p>搜索结果</p>
+
+
+<%= form_tag search_by_tag_course_path(@course), method: :get do %>  
+  <%= text_field_tag 'query', nil, placeholder: 'Search...' %>  
+  <%= submit_tag 'Search', name: nil %>  
+<% end %>
+<% if @articles.any? %>  
+  <ul>  
+    <% @articles.each do |article| %>  
+      <%= render article%> 
+    <% end %>  
+  </ul>  
+<% else %>  
+  <p>未找到 <%= params[:query] %> 的相关文章.</p>
+<% end %>

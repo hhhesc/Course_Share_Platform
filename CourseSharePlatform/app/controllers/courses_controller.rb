@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_course, only: %i[ show edit update destroy list_comments list_articles add_score
-  list_course_files list_questions]
+  list_course_files list_questions search_by_tag]
 
   # GET /courses or /courses.json
   def index
@@ -76,6 +76,13 @@ class CoursesController < ApplicationController
     @course.course_scores << @course_score
     current_user.scored_courses << @course
     redirect_to @course, notice: "评分完成"
+  end
+
+  def search_by_tag
+    query = params[:query]
+    tags = ArticleTag.where("content LIKE ?", "%#{query}%")
+    articles = Article.where(id: tags.map(&:article_id))
+    @articles = articles
   end
 
   private

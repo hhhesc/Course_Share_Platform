@@ -1,3 +1,8 @@
+<%= form_tag search_by_tag_course_path(@course), method: :get do %>  
+  <%= text_field_tag 'query', nil, placeholder: 'Search...' %>  
+  <%= submit_tag 'Search', name: nil %>  
+<% end %>
+
 <div id="articles">
 <%= render @course.articles %>
 </div>

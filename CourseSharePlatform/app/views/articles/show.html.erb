@@ -23,7 +23,7 @@
   <%end%>|
   <%= link_to "Back to articles", list_articles_course_path(@course) %>
   <%if current_user.admin==1%>
-    <%= button_to "删除文章", @article, method: :delete %>
+    <%= button_to "删除文章", course_article_path(@course,@article), method: :delete %>
   <%end%>
 
 

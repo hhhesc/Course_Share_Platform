@@ -51,6 +51,7 @@ Rails.application.routes.draw do
       get 'list_articles'
       get 'list_course_files'
       get 'list_questions'
+      get 'search_by_tag'
     end
   end
 
