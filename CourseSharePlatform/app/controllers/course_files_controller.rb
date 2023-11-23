@@ -56,7 +56,8 @@ class CourseFilesController < ApplicationController
     @course_file.destroy!
 
     respond_to do |format|
-      format.html { redirect_to course_files_url, notice: "Course file was successfully destroyed." }
+      format.html { redirect_to list_course_files_course_url(@course_file.course),
+      notice: "Course file was successfully destroyed." }
       format.json { head :no_content }
     end
   end

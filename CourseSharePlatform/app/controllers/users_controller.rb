@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: %i[ show edit update destroy student_certificate follow unfollow
-  list_followers list_followings list_favor_articles edit_personal_sign]
+  list_followers list_followings list_favor_articles edit_personal_sign list_questions]
 
   # GET /users or /users.json
   def index
@@ -93,6 +93,9 @@ class UsersController < ApplicationController
     if @user==current_user || current_user.admin==1
     @user.personal_sign = params[ :personal_sign]
     end
+  end
+
+  def list_questions
   end
 
   private

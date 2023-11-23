@@ -1,0 +1,24 @@
+<div id="<%= dom_id question_reply %>">
+  <p>
+    <strong>User:</strong>
+    <%= question_reply.user_id %>
+  </p>
+
+  <p>
+    <strong>Content:</strong>
+    <%= question_reply.content %>
+  </p>
+
+  <p>
+    <% if question_reply.accepted==1 %>
+      <strong>已采纳</strong><%=link_to "取消采纳", 
+      change_ac_course_question_question_reply_path(question_reply.question.course,question_reply.question,
+      question_reply)%>
+    <% else %>
+      <strong>未采纳</strong><%=link_to "采纳", 
+      change_ac_course_question_question_reply_path(question_reply.question.course,question_reply.question,
+      question_reply)%>
+    <% end %>
+  </p>
+
+</div>

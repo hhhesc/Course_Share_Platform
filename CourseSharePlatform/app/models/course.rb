@@ -6,4 +6,6 @@ class Course < ApplicationRecord
   has_many :course_scores
 
   has_many :course_files
+
+  has_many :questions
 end

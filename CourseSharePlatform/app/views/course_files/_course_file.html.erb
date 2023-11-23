@@ -15,7 +15,7 @@
   </p>
 
   <%if current_user.admin==1%>
-    <%= button_to "删除文件", @course_file, method: :delete %>
+    <%= button_to "删除文件", course_course_file_path(@course,course_file), method: :delete %>
   <%end%>
 
 </div>

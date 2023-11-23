@@ -24,4 +24,7 @@ class User < ApplicationRecord
 
   has_many :article_favors, foreign_key: "favor_user_id"
   has_many :favor_articles, through: :article_favors
+
+  has_many :questions
+  has_many :question_replies
 end

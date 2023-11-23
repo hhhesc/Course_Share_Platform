@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_22_011820) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_23_041034) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -130,6 +130,29 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_011820) do
     t.index ["user_id"], name: "index_followships_on_user_id"
   end
 
+  create_table "question_replies", force: :cascade do |t|
+    t.integer "question_id", null: false
+    t.integer "user_id", null: false
+    t.string "content"
+    t.integer "accepted", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_replies_on_question_id"
+    t.index ["user_id"], name: "index_question_replies_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "course_id", null: false
+    t.integer "user_id", null: false
+    t.string "title"
+    t.string "content"
+    t.integer "solved", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_questions_on_course_id"
+    t.index ["user_id"], name: "index_questions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
@@ -167,4 +190,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_011820) do
   add_foreign_key "course_scores", "users"
   add_foreign_key "followships", "users"
   add_foreign_key "followships", "users", column: "following_user_id"
+  add_foreign_key "question_replies", "questions"
+  add_foreign_key "question_replies", "users"
+  add_foreign_key "questions", "courses"
+  add_foreign_key "questions", "users"
 end

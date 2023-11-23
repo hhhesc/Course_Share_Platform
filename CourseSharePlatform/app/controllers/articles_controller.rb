@@ -61,11 +61,11 @@ class ArticlesController < ApplicationController
     @article.destroy!
 
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
+      format.html { redirect_to list_articles_course_path(@article.course), notice: "Article was successfully destroyed." }
       format.json { head :no_content }
     end
   else
-    redirect_to articles_url, notice: "无权限"
+    redirect_to list_articles_course_path(@article.course), notice: "无权限"
   end
   end
 

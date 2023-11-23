@@ -1,0 +1,20 @@
+<div id="<%= dom_id question %>">
+
+  <p>
+    <strong>求助用户:</strong>
+    <%=link_to question.user.username, user_path(question.user)  %>
+  </p>
+
+  <p>
+    <strong>标题:</strong>
+    <%= question.title %>
+  </p>
+
+  <p>
+    <% if question.solved == 0%><strong>未解决</strong>
+    <%else%> <strong>已解决</strong>
+    <%end%>
+  </p>
+
+  <%= link_to "详细内容", question_path(question), method: :get%>
+</div>

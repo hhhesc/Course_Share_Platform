@@ -1,0 +1,48 @@
+<p style="color: green"><%= notice %></p>
+
+  <p>
+    <strong>求助用户:</strong>
+    <%=link_to @question.user.username, user_path(@question.user)  %>
+  </p>
+
+  <p>
+    <strong>标题:</strong>
+    <%= @question.title %>
+  </p>
+
+  <p>
+    <% if @question.solved == 0%><strong>未解决</strong>
+    <%else%> <strong>已解决</strong>
+    <%end%>
+    <%if @question.solved==0 %>
+  <%= link_to "设为解决", change_solved_course_question_path(@question.course,@question)%>
+<%else%>
+  <%= link_to "设为未解决", change_solved_course_question_path(@question.course,@question)%>
+<%end%>
+  </p>
+
+<div><strong>正文</strong>
+  <%=@question.content%>
+</div>
+
+<div>
+  <%if @question.user==current_user || current_user.admin==1%>
+  <%= link_to "Edit this question", edit_question_path(@question)%>|<%end%>
+  <%= link_to "Back to questions", list_questions_course_path(@question.course) %>
+
+  <%if @question.user==current_user || current_user.admin==1%>
+  <%= button_to "Destroy this question", @question, method: :delete %><%end%>
+</div>
+
+<div id="question_replies">
+<%= render @question.question_replies %>
+</div>
+
+
+<%= form_for [@question.course, @question , QuestionReply.new] do |f| %>
+  <p>
+    <%= f.label :content, "发表回答" %> <br />
+    <%= f.text_area :content, :rows => 5 %>
+  </p>
+  <p><%= f.submit "发布" %></p>
+<% end %>

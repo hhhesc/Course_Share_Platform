@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :question_replies
+  resources :questions
   resources :course_files
 
   devise_for :users, controllers: { sessions: 'users/sessions' ,users: 'users'}, sign_out: :destroy
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
       get 'list_followers'
       get 'list_followings'
       get 'list_favor_articles'
+      get 'list_questions'
       get 'edit_personal_sign'
     end
   end
@@ -33,12 +36,25 @@ Rails.application.routes.draw do
       end
     end
     resources :course_files
+    resources :questions do
+      resources :question_replies do
+        member do
+          get 'change_ac'
+        end
+      end
+      member do
+        get 'change_solved'
+      end
+    end
     member do
       get 'list_comments'
       get 'list_articles'
       get 'list_course_files'
+      get 'list_questions'
     end
   end
+
+  # delete '/courses/:id/list_course_files' => 'course_files'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

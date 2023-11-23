@@ -42,7 +42,8 @@ class CourseCommentsController < ApplicationController
   def update
     respond_to do |format|
       if @course_comment.update(course_comment_params)
-        format.html { redirect_to course_comment_url(@course_comment), notice: "Course comment was successfully updated." }
+        format.html { redirect_to list_comments_course_path(@course_comment.course),
+        notice: "Course comment was successfully updated." }
         format.json { render :show, status: :ok, location: @course_comment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +57,8 @@ class CourseCommentsController < ApplicationController
     @course_comment.destroy!
 
     respond_to do |format|
-      format.html { redirect_to course_comments_url, notice: "Course comment was successfully destroyed." }
+      format.html { redirect_to list_comments_course_path(@course_comment.course),
+      notice: "Course comment was successfully destroyed." }
       format.json { head :no_content }
     end
   end

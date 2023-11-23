@@ -1,0 +1,19 @@
+<div id="articles">
+<%= render @course.questions %>
+</div>
+
+<%= form_for [@course,@user , Question.new] do |f| %>
+  <p>
+  <div>
+    <%= f.label :title, "标题" %> <br />
+    <%= f.text_area :title, :rows => 1 %>
+  </div>
+  <div>
+    <%= f.label :content, "内容" %> <br />
+    <%= f.text_area :content, :rows => 5 %>
+  </p>
+  <p><%= f.submit "发布" %></p>
+<% end %>
+
+
+<%= link_to "返回课程页面",course_path(@course) %>

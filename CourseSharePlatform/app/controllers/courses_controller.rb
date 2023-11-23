@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_course, only: %i[ show edit update destroy list_comments list_articles add_score
-  list_course_files]
+  list_course_files list_questions]
 
   # GET /courses or /courses.json
   def index
@@ -66,6 +66,9 @@ class CoursesController < ApplicationController
   end
 
   def list_course_files
+  end
+
+  def list_questions
   end
 
   def add_score

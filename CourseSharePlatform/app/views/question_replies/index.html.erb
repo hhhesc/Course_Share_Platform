@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Question replies</h1>
+
+<div id="question_replies">
+  <% @question_replies.each do |question_reply| %>
+    <%= render question_reply %>
+    <p>
+      <%= link_to "Show this question reply", question_reply %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New question reply", new_question_reply_path %>
