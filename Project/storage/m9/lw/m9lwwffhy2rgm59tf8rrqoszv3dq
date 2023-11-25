@@ -1,0 +1,38 @@
+<div class="col">
+
+  <% if current_user.followings.include? @user %>
+    <%= link_to 'Unfollow', unfollow_user_path(@user), class: "btn btn-danger" %>
+  <% else %>
+    <%= link_to 'Follow', follow_user_path(@user), class: "btn btn-success" %>
+  <% end %>
+
+<h1><%= @user.username %></h1>
+<h3>Email: <%= @user.email %></h3>
+<hr>
+<h3>Following users</h3>
+<div class="container-fluid">
+  <div id="users" class="row">
+    <%= render @user.followings %>
+  </div>
+</div>
+<hr>
+
+<h3>Followed by users</h3>
+<div class="container-fluid">
+  <div id="users" class="row">
+    <%= render @user.followers %>
+  </div>
+</div>
+<hr>
+
+<div>
+  <% if @user == current_user %>
+    <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary" %>
+    <%= link_to 'Destroy', @user, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: "btn btn-danger" %>
+  <% end %>
+
+  <%= link_to "Back to users", users_path, class: "btn btn-secondary" %>
+</div>
+
+</div>
+
