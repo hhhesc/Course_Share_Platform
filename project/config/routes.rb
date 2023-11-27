@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'list_favor_articles'
       get 'list_questions'
       get 'edit_personal_sign'
+      get 'certainfy'
     end
   end
 

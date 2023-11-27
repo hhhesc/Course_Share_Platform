@@ -1,6 +1,7 @@
 class CourseFilesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_course_file, only: %i[ show edit update destroy ]
+  before_action :permisson!, only: %i[edit update destroy]
 
   # GET /course_files or /course_files.json
   def index
@@ -29,7 +30,7 @@ class CourseFilesController < ApplicationController
     respond_to do |format|
       if @course_file.save
         format.html { redirect_to list_course_files_course_url(@course),
-        notice: "Course file was successfully created." }
+        notice: "资料上传成功" }
         format.json { render :show, status: :created, location: @course_file }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +43,7 @@ class CourseFilesController < ApplicationController
   def update
     respond_to do |format|
       if @course_file.update(course_file_params)
-        format.html { redirect_to course_file_url(@course_file), notice: "Course file was successfully updated." }
+        format.html { redirect_to course_file_url(@course_file), notice: "资料更新成功" }
         format.json { render :show, status: :ok, location: @course_file }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -57,7 +58,7 @@ class CourseFilesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to list_course_files_course_url(@course_file.course),
-      notice: "Course file was successfully destroyed." }
+      notice: "资料删除成功" }
       format.json { head :no_content }
     end
   end
@@ -71,5 +72,11 @@ class CourseFilesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def course_file_params
       params.require(:course_file).permit(:course_id, :title, :description, :file)
+    end
+
+    def permisson!
+      if !(current_user==@course_file.user || current_user.admin==1)
+        redirect_to user_url(current_user), notice: '非法行为：无权限！'
+      end
     end
 end

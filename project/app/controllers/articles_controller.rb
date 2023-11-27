@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy
   beLiked beUnliked beFavored beUnfavored addTag]
   before_action :set_course
+  before_action :permisson!, only: %i[edit update destroy addTag]
 
   # GET /articles or /articles.json
   def index
@@ -33,7 +34,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to course_url(@course), notice: "Article was successfully created." }
+        format.html { redirect_to course_url(@course), notice: "文章创建成功" }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +47,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
+        format.html { redirect_to article_url(@article), notice: "文章更新成功" }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,7 +62,7 @@ class ArticlesController < ApplicationController
     @article.destroy!
 
     respond_to do |format|
-      format.html { redirect_to list_articles_course_path(@article.course), notice: "Article was successfully destroyed." }
+      format.html { redirect_to list_articles_course_path(@article.course), notice: "文章删除成功" }
       format.json { head :no_content }
     end
   else
@@ -121,5 +122,11 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:course_id, :user_id, :title, :content)
+    end
+
+    def permisson!
+      if !(current_user==@article.user || current_user.admin==1)
+        redirect_to user_url(current_user), notice: '非法行为：无权限！'
+      end
     end
 end

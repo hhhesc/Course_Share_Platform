@@ -1,5 +1,7 @@
 class QuestionRepliesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_question_reply, only: %i[ show edit update destroy change_ac ]
+  before_action :permisson!, only: %i[edit update destroy]
 
   # GET /question_replies or /question_replies.json
   def index
@@ -29,7 +31,7 @@ class QuestionRepliesController < ApplicationController
 
     respond_to do |format|
       if @question_reply.save
-        format.html { redirect_to question_url(@question_reply.question), notice: "Question reply was successfully created." }
+        format.html { redirect_to question_url(@question_reply.question), notice: "回答创建成功" }
         format.json { render :show, status: :created, location: @question_reply }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +44,7 @@ class QuestionRepliesController < ApplicationController
   def update
     respond_to do |format|
       if @question_reply.update(question_reply_params)
-        format.html { redirect_to question_url(@question_reply.question), notice: "Question reply was successfully updated." }
+        format.html { redirect_to question_url(@question_reply.question), notice: "回答上传成功" }
         format.json { render :show, status: :ok, location: @question_reply }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,25 +58,29 @@ class QuestionRepliesController < ApplicationController
     @question_reply.destroy!
 
     respond_to do |format|
-      format.html { redirect_to question_url(@question_reply.question), notice: "Question reply was successfully destroyed." }
+      format.html { redirect_to question_url(@question_reply.question), notice: "回答删除成功" }
       format.json { head :no_content }
     end
   end
 
   def change_ac
-    if @question_reply.accepted == 0
-      @question_reply.accepted = 1
-    else
-      @question_reply.accepted = 0
-    end
-    respond_to do |format|
-      if @question_reply.save
-        format.html { redirect_to question_url(@question_reply.question) }
-        format.json { render :show, status: :created, location: @question_reply }
+    if current_user==@question.user
+      if @question_reply.accepted == 0
+        @question_reply.accepted = 1
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @question_reply.errors, status: :unprocessable_entity }
+        @question_reply.accepted = 0
       end
+      respond_to do |format|
+        if @question_reply.save
+          format.html { redirect_to question_url(@question_reply.question) }
+          format.json { render :show, status: :created, location: @question_reply }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @question_reply.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      redirect_to user_url(current_user), notice: "非法行为：无权限！"
     end
   end
 
@@ -87,5 +93,11 @@ class QuestionRepliesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def question_reply_params
       params.require(:question_reply).permit(:question_id, :user_id, :content, :accepted)
+    end
+
+    def permisson!
+      if !(current_user==@question_reply.user || current_user.admin==1)
+        redirect_to user_url(current_user), notice: '非法行为：无权限！'
+      end
     end
 end

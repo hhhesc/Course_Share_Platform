@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_question, only: %i[ show edit update destroy change_solved]
+  before_action :permisson!, only: %i[edit update destroy change_solved]
 
   # GET /questions or /questions.json
   def index
@@ -42,7 +44,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to question_url(@question), notice: "Question was successfully updated." }
+        format.html { redirect_to question_url(@question), notice: "问题更新成功" }
         format.json { render :show, status: :ok, location: @question }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +58,7 @@ class QuestionsController < ApplicationController
     @question.destroy!
 
     respond_to do |format|
-      format.html { redirect_to questions_url, notice: "Question was successfully destroyed." }
+      format.html { redirect_to questions_url, notice: "问题删除成功" }
       format.json { head :no_content }
     end
   end
@@ -88,5 +90,11 @@ class QuestionsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def question_params
       params.require(:question).permit(:course_id, :user_id, :title, :content, :solved)
+    end
+
+    def permisson!
+      if !(current_user==@question.user || current_user.admin==1)
+        redirect_to user_url(current_user), notice: '非法行为：无权限！'
+      end
     end
 end

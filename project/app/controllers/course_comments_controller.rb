@@ -1,6 +1,7 @@
 class CourseCommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_course_comment, only: %i[ show edit update destroy beLiked beUnliked]
+  before_action :permisson!, only: %i[edit update destroy]
 
   # GET /course_comments or /course_comments.json
   def index
@@ -43,7 +44,7 @@ class CourseCommentsController < ApplicationController
     respond_to do |format|
       if @course_comment.update(course_comment_params)
         format.html { redirect_to list_comments_course_path(@course_comment.course),
-        notice: "Course comment was successfully updated." }
+        notice: "评论更新成功" }
         format.json { render :show, status: :ok, location: @course_comment }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,7 +59,7 @@ class CourseCommentsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to list_comments_course_path(@course_comment.course),
-      notice: "Course comment was successfully destroyed." }
+      notice: "评论删除成功" }
       format.json { head :no_content }
     end
   end
@@ -86,5 +87,11 @@ class CourseCommentsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def course_comment_params
       params.require(:course_comment).permit(:course_id, :content)
+    end
+
+    def permisson!
+      if !(current_user==@course_comment.user || current_user.admin==1)
+        redirect_to user_url(current_user), notice: '非法行为：无权限！'
+      end
     end
 end

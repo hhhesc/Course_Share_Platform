@@ -1,6 +1,7 @@
 class ArticleTagsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_article_tag, only: %i[ show edit update destroy ]
+  before_action :permisson!, only: %i[edit update destroy]
 
   # GET /article_tags or /article_tags.json
   def index
@@ -47,7 +48,7 @@ class ArticleTagsController < ApplicationController
   def update
     respond_to do |format|
       if @article_tag.update(article_tag_params)
-        format.html { redirect_to course_articles_url(@article.course ,@article), notice: "Course article_tag was successfully updated." }
+        format.html { redirect_to course_articles_url(@article.course ,@article), notice: "标签信息更新成功" }
         format.json { render :show, status: :ok, location: @article_tag }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,7 +62,7 @@ class ArticleTagsController < ApplicationController
     @article_tag.destroy!
 
     respond_to do |format|
-      format.html { redirect_to article_tags_url, notice: "Course article_tag was successfully destroyed." }
+      format.html { redirect_to article_tags_url, notice: "标签删除成功" }
       format.json { head :no_content }
     end
   end
@@ -75,5 +76,11 @@ class ArticleTagsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_tag_params
       params.require(:article_tag).permit(:id, :content)
+    end
+
+    def permisson!
+      if !(current_user==@article_tag.user || current_user.admin==1)
+        redirect_to user_url(current_user), notice: '非法行为：无权限！'
+      end
     end
 end

@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: %i[ show edit update destroy student_certificate follow unfollow
   list_followers list_followings list_favor_articles edit_personal_sign list_questions]
+  before_action :permisson!, only: %i[edit update destroy student_certificate follow unfollow list_followers
+  list_followings list_favor_articles edit_personal_sign list_questions]
 
   # GET /users or /users.json
   def index
@@ -27,7 +29,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
+        format.html { redirect_to user_url(@user), notice: "用户创建成功" }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +43,7 @@ class UsersController < ApplicationController
     if @user==current_user || current_user.admin==1
       respond_to do |format|
         if @user.update(user_params)
-          format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
+          format.html { redirect_to user_url(@user), notice: "用户更新成功" }
           format.json { render :show, status: :ok, location: @user }
         else
           format.html { render :edit, status: :unprocessable_entity }
@@ -58,7 +60,7 @@ class UsersController < ApplicationController
     @user.destroy!
 
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to users_url, notice: "用户删除成功." }
       format.json { head :no_content }
     end
   end
@@ -98,6 +100,16 @@ class UsersController < ApplicationController
   def list_questions
   end
 
+  def certainfy
+    if params[:code] == 'zzzzz'
+      current_user.update_attribute(:admin,1)
+      redirect_to user_url(current_user), notice: "管理员权限认证成功"
+    else
+      redirect_to user_url(current_user), notice: "管理员权限认证失败"
+    end
+
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -112,10 +124,15 @@ class UsersController < ApplicationController
   # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:username, :password, :email, :img_path, :realname,
-    :studentcode, :personal_sign)
+    :studentcode, :personal_sign, :admin)
   end
 
   # def authenticate
   #   redirect_to login_users_url, alert: 'Must login!' unless current_user
   # end
+  def permisson!
+    if !(current_user==@user || current_user.admin==1)
+      redirect_to user_url(current_user), notice: '非法行为：无权限！'
+    end
+  end
 end

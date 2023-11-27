@@ -1,5 +1,7 @@
 class CourseScoresController < ApplicationController
     before_action :authenticate_user!
+    before_action :permisson!, only: %i[edit update destroy]
+    
     def new
         @course_score = CourseScore.new
     end
@@ -27,5 +29,11 @@ class CourseScoresController < ApplicationController
 
     def course_score_params
         params.require(:course_score).permit(:course_id,:user_id,:course_score)
+    end
+
+    def permisson!
+        if !(current_user==@course_score.user || current_user.admin==1)
+          redirect_to user_url(current_user), notice: '非法行为：无权限！'
+        end
     end
 end
