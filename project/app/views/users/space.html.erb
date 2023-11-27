@@ -1,7 +1,8 @@
 <h3>空间</h3>
+<%if !@user.followings.map(&:articles).reduce(:concat).nil?%>
 <%articles = @user.followings.map(&:articles).reduce(:concat).order(created_at: :desc)%>
 
     <%articles.each do |article|%>
         <%=link_to "#{article.title} by #{article.user.username}" , course_article_path(article.course,article)%>
     <%end%>
-
+<%end%>
