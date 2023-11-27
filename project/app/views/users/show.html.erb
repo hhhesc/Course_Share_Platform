@@ -17,10 +17,10 @@
   <% end %>
 <%end%>
 <% if current_user==@user|| current_user.admin==1%> 
-<%= link_to "我的关注", list_followers_user_path(current_user)%>
-<%= link_to "关注我的", list_followings_user_path(current_user)%>
-<%= link_to "我的收藏", list_favor_articles_user_path(current_user)%>
-<%= link_to "我的问题", list_questions_user_path(current_user)%>
+<%= link_to "我的关注", list_followers_user_path(@user)%>
+<%= link_to "关注我的", list_followings_user_path(@user)%>
+<%= link_to "我的收藏", list_favor_articles_user_path(@userr)%>
+<%= link_to "我的问题", list_questions_user_path(@user)%>
 <%end%>
 
 <p>个性签名：

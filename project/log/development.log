@@ -46331,3 +46331,310 @@ Processing by CoursesController#show as HTML
 Completed 200 OK in 124ms (Views: 101.2ms | ActiveRecord: 4.2ms | Allocations: 14133)
 
 
+Started GET "/courses" for 127.0.0.1 at 2023-11-27 12:28:27 +0800
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered courses/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 571)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 2589)
+Completed 200 OK in 34ms (Views: 19.8ms | ActiveRecord: 2.8ms | Allocations: 4433)
+
+
+Started GET "/courses/2" for 127.0.0.1 at 2023-11-27 12:28:28 +0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.4ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:92:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 2.4ms | Allocations: 18)
+  [1m[36mCourseScore Load (0.3ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/views/courses/show.html.erb:21
+  [1m[36mCourse Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" INNER JOIN "course_scores" ON "courses"."id" = "course_scores"."course_id" WHERE "course_scores"."user_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["user_id", 22], ["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:33
+  Rendered courses/show.html.erb within layouts/application (Duration: 37.6ms | Allocations: 1975)
+  Rendered layout layouts/application.html.erb (Duration: 47.5ms | Allocations: 3979)
+Completed 200 OK in 69ms (Views: 47.8ms | ActiveRecord: 1.1ms | Allocations: 5913)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-27 12:28:30 +0800
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered courses/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 546)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 2564)
+Completed 200 OK in 36ms (Views: 21.5ms | ActiveRecord: 0.2ms | Allocations: 4107)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-27 12:28:31 +0800
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered courses/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 546)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 2569)
+Completed 200 OK in 18ms (Views: 13.8ms | ActiveRecord: 0.2ms | Allocations: 4142)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-27 12:28:36 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.4ms | Allocations: 52)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered users/_user.html.erb (Duration: 0.7ms | Allocations: 37)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/index.html.erb within layouts/application (Duration: 14.3ms | Allocations: 3433)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 5451)
+Completed 200 OK in 33ms (Views: 22.0ms | ActiveRecord: 0.3ms | Allocations: 7081)
+
+
+Started GET "/users/14" for 127.0.0.1 at 2023-11-27 12:28:37 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:120:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.4ms | Allocations: 52)
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followships" ON "users"."id" = "followships"."following_user_id" WHERE "followships"."user_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["user_id", 22], ["id", 14], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1070)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 3076)
+Completed 200 OK in 34ms (Views: 16.0ms | ActiveRecord: 1.1ms | Allocations: 5055)
+
+
+Started GET "/users/22/list_favor_articles" for 127.0.0.1 at 2023-11-27 12:28:38 +0800
+Processing by UsersController#list_favor_articles as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:120:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/list_favor_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_favors" ON "articles"."id" = "article_favors"."favor_article_id" WHERE "article_favors"."favor_user_id" = ?[0m  [["favor_user_id", 22]]
+  ↳ app/views/users/list_favor_articles.html.erb:4
+  Rendered users/list_favor_articles.html.erb within layouts/application (Duration: 79.6ms | Allocations: 14089)
+  Rendered layout layouts/application.html.erb (Duration: 83.1ms | Allocations: 16141)
+Completed 200 OK in 92ms (Views: 83.1ms | ActiveRecord: 1.1ms | Allocations: 18135)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-27 12:28:39 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 52)
+  Rendered users/_user.html.erb (Duration: 0.5ms | Allocations: 37)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/index.html.erb within layouts/application (Duration: 21.1ms | Allocations: 1624)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 3642)
+Completed 200 OK in 47ms (Views: 34.5ms | ActiveRecord: 0.8ms | Allocations: 5191)
+
+
+Started GET "/courses" for 127.0.0.1 at 2023-11-27 12:29:18 +0800
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:6
+  Rendered courses/_course.html.erb (Duration: 0.3ms | Allocations: 18)
+  Rendered courses/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 547)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 2570)
+Completed 200 OK in 48ms (Views: 40.2ms | ActiveRecord: 0.3ms | Allocations: 4159)
+
+
+Started GET "/courses/2" for 127.0.0.1 at 2023-11-27 12:29:19 +0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:92:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 0.1ms | Allocations: 18)
+  [1m[36mCourseScore Load (0.5ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/views/courses/show.html.erb:21
+  [1m[36mCourse Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" INNER JOIN "course_scores" ON "courses"."id" = "course_scores"."course_id" WHERE "course_scores"."user_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["user_id", 22], ["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:33
+  Rendered courses/show.html.erb within layouts/application (Duration: 19.4ms | Allocations: 1948)
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 3952)
+Completed 200 OK in 40ms (Views: 32.7ms | ActiveRecord: 0.9ms | Allocations: 5850)
+
+
+Started GET "/courses/2/list_articles" for 127.0.0.1 at 2023-11-27 12:29:20 +0800
+Processing by CoursesController#list_articles as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.1ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:92:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/list_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles" WHERE "articles"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/views/courses/list_articles.html.erb:7
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["like_article_id", 2], ["id", 22], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_likes" ON "users"."id" = "article_likes"."like_user_id" WHERE "article_likes"."like_article_id" = ?[0m  [["like_article_id", 2]]
+  ↳ app/views/articles/_article.html.erb:17
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["favor_article_id", 2], ["id", 22], ["LIMIT", 1]]
+  ↳ app/views/articles/_article.html.erb:19
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "article_favors" ON "users"."id" = "article_favors"."favor_user_id" WHERE "article_favors"."favor_article_id" = ?[0m  [["favor_article_id", 2]]
+  ↳ app/views/articles/_article.html.erb:24
+  [1m[36mArticleTag Load (0.1ms)[0m  [1m[34mSELECT "article_tags".* FROM "article_tags" WHERE "article_tags"."article_id" = ?[0m  [["article_id", 2]]
+  ↳ app/views/articles/_article.html.erb:30
+  Rendered collection of articles/_article.html.erb [1 times] (Duration: 46.8ms | Allocations: 21485)
+  Rendered courses/list_articles.html.erb within layouts/application (Duration: 71.2ms | Allocations: 27521)
+  Rendered layout layouts/application.html.erb (Duration: 75.1ms | Allocations: 29525)
+Completed 200 OK in 81ms (Views: 73.8ms | ActiveRecord: 2.3ms | Allocations: 31481)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-27 12:29:24 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.2ms | Allocations: 52)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 37)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 37)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 36)
+  Rendered users/index.html.erb within layouts/application (Duration: 20.0ms | Allocations: 1624)
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 3643)
+Completed 200 OK in 37ms (Views: 32.3ms | ActiveRecord: 0.2ms | Allocations: 5204)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2023-11-27 12:29:25 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:120:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.4ms | Allocations: 52)
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followships" ON "users"."id" = "followships"."following_user_id" WHERE "followships"."user_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["user_id", 22], ["id", 13], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1076)
+  Rendered layout layouts/application.html.erb (Duration: 13.4ms | Allocations: 3114)
+Completed 200 OK in 28ms (Views: 15.8ms | ActiveRecord: 1.1ms | Allocations: 5021)
+
+
+Started GET "/users/22/list_favor_articles" for 127.0.0.1 at 2023-11-27 12:29:26 +0800
+Processing by UsersController#list_favor_articles as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:120:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/list_favor_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_favors" ON "articles"."id" = "article_favors"."favor_article_id" WHERE "article_favors"."favor_user_id" = ?[0m  [["favor_user_id", 22]]
+  ↳ app/views/users/list_favor_articles.html.erb:4
+  Rendered users/list_favor_articles.html.erb within layouts/application (Duration: 3.8ms | Allocations: 697)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 2716)
+Completed 200 OK in 57ms (Views: 28.3ms | ActiveRecord: 0.8ms | Allocations: 4631)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-27 12:29:28 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 0.4ms | Allocations: 52)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 36)
+  Rendered users/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1624)
+  Rendered layout layouts/application.html.erb (Duration: 23.3ms | Allocations: 3674)
+Completed 200 OK in 32ms (Views: 25.1ms | ActiveRecord: 0.3ms | Allocations: 5242)
+
+
+Started GET "/users/14" for 127.0.0.1 at 2023-11-27 12:29:31 +0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:120:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 52)
+  [1m[36mUser Exists? (4.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" INNER JOIN "followships" ON "users"."id" = "followships"."following_user_id" WHERE "followships"."user_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["user_id", 22], ["id", 14], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:13
+  Rendered users/show.html.erb within layouts/application (Duration: 10.8ms | Allocations: 1068)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | Allocations: 3073)
+Completed 200 OK in 27ms (Views: 15.3ms | ActiveRecord: 5.1ms | Allocations: 4955)
+
+
+Started GET "/users/22/list_favor_articles" for 127.0.0.1 at 2023-11-27 12:29:33 +0800
+Processing by UsersController#list_favor_articles as HTML
+  Parameters: {"id"=>"22"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:120:in `set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/list_favor_articles.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles" INNER JOIN "article_favors" ON "articles"."id" = "article_favors"."favor_article_id" WHERE "article_favors"."favor_user_id" = ?[0m  [["favor_user_id", 22]]
+  ↳ app/views/users/list_favor_articles.html.erb:4
+  Rendered users/list_favor_articles.html.erb within layouts/application (Duration: 6.5ms | Allocations: 695)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 2714)
+Completed 200 OK in 42ms (Views: 24.0ms | ActiveRecord: 0.4ms | Allocations: 4644)
+
+
+Started GET "/users" for 127.0.0.1 at 2023-11-27 12:29:34 +0800
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:6
+  Rendered users/_user.html.erb (Duration: 1.1ms | Allocations: 52)
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 37)
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 37)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.4ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 0.5ms | Allocations: 36)
+  Rendered users/_user.html.erb (Duration: 1.4ms | Allocations: 36)
+  Rendered users/index.html.erb within layouts/application (Duration: 32.2ms | Allocations: 1625)
+  Rendered layout layouts/application.html.erb (Duration: 38.6ms | Allocations: 3643)
+Completed 200 OK in 47ms (Views: 37.2ms | ActiveRecord: 4.0ms | Allocations: 5189)
+
+
