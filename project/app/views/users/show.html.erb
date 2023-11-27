@@ -21,6 +21,7 @@
 <%= link_to "关注我的", list_followings_user_path(@user)%>
 <%= link_to "我的收藏", list_favor_articles_user_path(@user)%>
 <%= link_to "我的问题", list_questions_user_path(@user)%>
+<%= link_to "我的动态", space_user_path(@user)%>
 <%end%>
 
 <p>个性签名：
@@ -37,7 +38,7 @@
 <% if @user.realname != nil %>
   <p> 个人认证信息</p>
   <p>姓名：<%= @user.realname %></p>
-  <p>密码：<%= @user.studentcode %></p>
+  <p>学号：<%= @user.studentcode %></p>
 <% else %>
 <% if current_user==@user%> 
   <%= link_to "学生认证", student_certificate_user_path %>

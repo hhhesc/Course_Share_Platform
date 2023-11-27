@@ -28,4 +28,6 @@ class User < ApplicationRecord
 
   has_many :questions, dependent: :destroy
   has_many :question_replies, dependent: :destroy
+
+  has_many :articles
 end

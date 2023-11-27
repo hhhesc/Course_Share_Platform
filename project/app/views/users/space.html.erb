@@ -1,0 +1,6 @@
+<h3>空间</h3>
+<% @user.followings.each do |following|%>
+    <%following.articles.each do |article|%>
+        <%=link_to "#{article.title} by #{article.user.username}" , course_article_path(article.course,article)%>
+    <%end%>
+<%end%>

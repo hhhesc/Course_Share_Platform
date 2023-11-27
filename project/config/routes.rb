@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'list_questions'
       get 'edit_personal_sign'
       get 'certainfy'
+      get 'space'
     end
   end
 

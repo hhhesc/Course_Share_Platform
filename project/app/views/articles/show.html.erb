@@ -1,8 +1,8 @@
 <p style="color: green"><%= notice %></p>
 
   <p>
-    <strong>用户:</strong>
-    <%= @article.user.username %>
+  <strong>用户：</strong>
+    <%=link_to @article.user.username,user_path(@article.user)%>
   </p>
 
 <%= render @article %>

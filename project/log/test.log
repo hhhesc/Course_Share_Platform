@@ -1,0 +1,1238 @@
+  [1m[35m (1.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "article_favors"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "article_favors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "favor_user_id" integer NOT NULL, "favor_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_article_id" ON "article_favors" ("favor_article_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_user_id" ON "article_favors" ("favor_user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "article_likes"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "article_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_article_id" ON "article_likes" ("like_article_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_user_id" ON "article_likes" ("like_user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "article_tags"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "article_tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer NOT NULL, "content" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_article_tags_on_article_id" ON "article_tags" ("article_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar, "content" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_articles_on_course_id" ON "articles" ("course_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "course_comment_likes"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "course_comment_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_course_comment_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_course_comment_id" ON "course_comment_likes" ("like_course_comment_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_user_id" ON "course_comment_likes" ("like_user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "course_comments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "course_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "content" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_course_id" ON "course_comments" ("course_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_user_id" ON "course_comments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "course_files"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "course_files" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "title" varchar, "description" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_course_files_on_course_id" ON "course_files" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "course_scores"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "course_scores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_score" float, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_course_id" ON "course_scores" ("course_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_user_id" ON "course_scores" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "courses"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_name" varchar, "course_description" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "followships"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "followships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "following_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_followships_on_following_user_id" ON "followships" ("following_user_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_followships_on_user_id" ON "followships" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "question_replies"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "question_replies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "content" varchar, "accepted" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_question_id" ON "question_replies" ("question_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_user_id" ON "question_replies" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "questions"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar, "content" varchar, "solved" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_questions_on_course_id" ON "questions" ("course_id")[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password" varchar, "email" varchar, "img_path" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "realname" varchar, "studentcode" varchar, "personal_sign" varchar, "admin" integer DEFAULT 0)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticle_favors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "favor_user_id" integer NOT NULL, "favor_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_favors_on_favor_user_id" ON "aarticle_favors" ("favor_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_favors_on_favor_article_id" ON "aarticle_favors" ("favor_article_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aarticle_favors" ("id","favor_user_id","favor_article_id","created_at","updated_at")
+                     SELECT "id","favor_user_id","favor_article_id","created_at","updated_at" FROM "article_favors"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "article_favors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "article_favors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "favor_user_id" integer NOT NULL, "favor_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2f0d3f3727"
+FOREIGN KEY ("favor_article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_article_id" ON "article_favors" ("favor_article_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_user_id" ON "article_favors" ("favor_user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "article_favors" ("id","favor_user_id","favor_article_id","created_at","updated_at")
+                     SELECT "id","favor_user_id","favor_article_id","created_at","updated_at" FROM "aarticle_favors"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aarticle_favors"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticle_favors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "favor_user_id" integer NOT NULL, "favor_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_favors_on_favor_user_id" ON "aarticle_favors" ("favor_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_favors_on_favor_article_id" ON "aarticle_favors" ("favor_article_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aarticle_favors" ("id","favor_user_id","favor_article_id","created_at","updated_at")
+                     SELECT "id","favor_user_id","favor_article_id","created_at","updated_at" FROM "article_favors"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "article_favors"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "article_favors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "favor_user_id" integer NOT NULL, "favor_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2f0d3f3727"
+FOREIGN KEY ("favor_article_id")
+  REFERENCES "articles" ("id")
+, CONSTRAINT "fk_rails_6fa96a795b"
+FOREIGN KEY ("favor_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_article_id" ON "article_favors" ("favor_article_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_user_id" ON "article_favors" ("favor_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "article_favors" ("id","favor_user_id","favor_article_id","created_at","updated_at")
+                     SELECT "id","favor_user_id","favor_article_id","created_at","updated_at" FROM "aarticle_favors"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aarticle_favors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticle_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_likes_on_like_user_id" ON "aarticle_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_likes_on_like_article_id" ON "aarticle_likes" ("like_article_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aarticle_likes" ("id","like_user_id","like_article_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_article_id","created_at","updated_at" FROM "article_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "article_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "article_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_02107609a7"
+FOREIGN KEY ("like_article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_article_id" ON "article_likes" ("like_article_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_user_id" ON "article_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "article_likes" ("id","like_user_id","like_article_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_article_id","created_at","updated_at" FROM "aarticle_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aarticle_likes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticle_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_likes_on_like_user_id" ON "aarticle_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_likes_on_like_article_id" ON "aarticle_likes" ("like_article_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aarticle_likes" ("id","like_user_id","like_article_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_article_id","created_at","updated_at" FROM "article_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "article_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "article_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_02107609a7"
+FOREIGN KEY ("like_article_id")
+  REFERENCES "articles" ("id")
+, CONSTRAINT "fk_rails_f39e051864"
+FOREIGN KEY ("like_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_article_id" ON "article_likes" ("like_article_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_user_id" ON "article_likes" ("like_user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "article_likes" ("id","like_user_id","like_article_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_article_id","created_at","updated_at" FROM "aarticle_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aarticle_likes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticle_tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer NOT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_tags_on_article_id" ON "aarticle_tags" ("article_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aarticle_tags" ("id","article_id","content","created_at","updated_at")
+                     SELECT "id","article_id","content","created_at","updated_at" FROM "article_tags"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "article_tags"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "article_tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer NOT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_646e8d3122"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_article_tags_on_article_id" ON "article_tags" ("article_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "article_tags" ("id","article_id","content","created_at","updated_at")
+                     SELECT "id","article_id","content","created_at","updated_at" FROM "aarticle_tags"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aarticle_tags"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticles_on_user_id" ON "aarticles" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticles_on_course_id" ON "aarticles" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aarticles" ("id","course_id","user_id","title","content","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","created_at","updated_at" FROM "articles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "articles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f7fde6d497"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_articles_on_course_id" ON "articles" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "articles" ("id","course_id","user_id","title","content","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","created_at","updated_at" FROM "aarticles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aarticles"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticles_on_user_id" ON "aarticles" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aarticles_on_course_id" ON "aarticles" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aarticles" ("id","course_id","user_id","title","content","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","created_at","updated_at" FROM "articles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "articles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f7fde6d497"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_3d31dad1cc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_articles_on_course_id" ON "articles" ("course_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "articles" ("id","course_id","user_id","title","content","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","created_at","updated_at" FROM "aarticles"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aarticles"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_comment_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_course_comment_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comment_likes_on_like_user_id" ON "acourse_comment_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comment_likes_on_like_course_comment_id" ON "acourse_comment_likes" ("like_course_comment_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acourse_comment_likes" ("id","like_user_id","like_course_comment_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_course_comment_id","created_at","updated_at" FROM "course_comment_likes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "course_comment_likes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "course_comment_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_course_comment_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ab04cb1fb4"
+FOREIGN KEY ("like_course_comment_id")
+  REFERENCES "course_comments" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_course_comment_id" ON "course_comment_likes" ("like_course_comment_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_user_id" ON "course_comment_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "course_comment_likes" ("id","like_user_id","like_course_comment_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_course_comment_id","created_at","updated_at" FROM "acourse_comment_likes"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "acourse_comment_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_comment_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_course_comment_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comment_likes_on_like_user_id" ON "acourse_comment_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comment_likes_on_like_course_comment_id" ON "acourse_comment_likes" ("like_course_comment_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acourse_comment_likes" ("id","like_user_id","like_course_comment_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_course_comment_id","created_at","updated_at" FROM "course_comment_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "course_comment_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "course_comment_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_course_comment_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ab04cb1fb4"
+FOREIGN KEY ("like_course_comment_id")
+  REFERENCES "course_comments" ("id")
+, CONSTRAINT "fk_rails_aaa90190b6"
+FOREIGN KEY ("like_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_course_comment_id" ON "course_comment_likes" ("like_course_comment_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_user_id" ON "course_comment_likes" ("like_user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "course_comment_likes" ("id","like_user_id","like_course_comment_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_course_comment_id","created_at","updated_at" FROM "acourse_comment_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acourse_comment_likes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "content" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comments_on_user_id" ON "acourse_comments" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comments_on_course_id" ON "acourse_comments" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acourse_comments" ("id","course_id","content","created_at","updated_at","user_id")
+                     SELECT "id","course_id","content","created_at","updated_at","user_id" FROM "course_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "course_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "course_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "content" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, CONSTRAINT "fk_rails_7564a6400a"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_course_id" ON "course_comments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_user_id" ON "course_comments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "course_comments" ("id","course_id","content","created_at","updated_at","user_id")
+                     SELECT "id","course_id","content","created_at","updated_at","user_id" FROM "acourse_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acourse_comments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "content" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comments_on_user_id" ON "acourse_comments" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comments_on_course_id" ON "acourse_comments" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acourse_comments" ("id","course_id","content","created_at","updated_at","user_id")
+                     SELECT "id","course_id","content","created_at","updated_at","user_id" FROM "course_comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "course_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "course_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "content" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, CONSTRAINT "fk_rails_7564a6400a"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_7c01c33a87"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_course_id" ON "course_comments" ("course_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_user_id" ON "course_comments" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "course_comments" ("id","course_id","content","created_at","updated_at","user_id")
+                     SELECT "id","course_id","content","created_at","updated_at","user_id" FROM "acourse_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acourse_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_files" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "title" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_files_on_course_id" ON "acourse_files" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acourse_files" ("id","course_id","title","description","created_at","updated_at")
+                     SELECT "id","course_id","title","description","created_at","updated_at" FROM "course_files"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "course_files"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "course_files" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "title" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_3a40628be7"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_files_on_course_id" ON "course_files" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "course_files" ("id","course_id","title","description","created_at","updated_at")
+                     SELECT "id","course_id","title","description","created_at","updated_at" FROM "acourse_files"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acourse_files"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_scores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_score" float DEFAULT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_scores_on_user_id" ON "acourse_scores" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_scores_on_course_id" ON "acourse_scores" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acourse_scores" ("id","course_score","course_id","user_id","created_at","updated_at")
+                     SELECT "id","course_score","course_id","user_id","created_at","updated_at" FROM "course_scores"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "course_scores"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "course_scores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_score" float DEFAULT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_55d557b509"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_course_id" ON "course_scores" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_user_id" ON "course_scores" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "course_scores" ("id","course_score","course_id","user_id","created_at","updated_at")
+                     SELECT "id","course_score","course_id","user_id","created_at","updated_at" FROM "acourse_scores"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acourse_scores"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_scores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_score" float DEFAULT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_scores_on_user_id" ON "acourse_scores" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_scores_on_course_id" ON "acourse_scores" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acourse_scores" ("id","course_score","course_id","user_id","created_at","updated_at")
+                     SELECT "id","course_score","course_id","user_id","created_at","updated_at" FROM "course_scores"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "course_scores"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "course_scores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_score" float DEFAULT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_55d557b509"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_de431e111d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_course_id" ON "course_scores" ("course_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_user_id" ON "course_scores" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "course_scores" ("id","course_score","course_id","user_id","created_at","updated_at")
+                     SELECT "id","course_score","course_id","user_id","created_at","updated_at" FROM "acourse_scores"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "acourse_scores"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afollowships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "following_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afollowships_on_user_id" ON "afollowships" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afollowships_on_following_user_id" ON "afollowships" ("following_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "afollowships" ("id","user_id","following_user_id","created_at","updated_at")
+                     SELECT "id","user_id","following_user_id","created_at","updated_at" FROM "followships"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "followships"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "followships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "following_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_458330adae"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_followships_on_following_user_id" ON "followships" ("following_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_followships_on_user_id" ON "followships" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "followships" ("id","user_id","following_user_id","created_at","updated_at")
+                     SELECT "id","user_id","following_user_id","created_at","updated_at" FROM "afollowships"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afollowships"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afollowships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "following_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afollowships_on_user_id" ON "afollowships" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afollowships_on_following_user_id" ON "afollowships" ("following_user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "afollowships" ("id","user_id","following_user_id","created_at","updated_at")
+                     SELECT "id","user_id","following_user_id","created_at","updated_at" FROM "followships"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "followships"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "followships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "following_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_458330adae"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_44c6833ef9"
+FOREIGN KEY ("following_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_followships_on_following_user_id" ON "followships" ("following_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_followships_on_user_id" ON "followships" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "followships" ("id","user_id","following_user_id","created_at","updated_at")
+                     SELECT "id","user_id","following_user_id","created_at","updated_at" FROM "afollowships"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afollowships"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquestion_replies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "content" varchar DEFAULT NULL, "accepted" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestion_replies_on_user_id" ON "aquestion_replies" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestion_replies_on_question_id" ON "aquestion_replies" ("question_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aquestion_replies" ("id","question_id","user_id","content","accepted","created_at","updated_at")
+                     SELECT "id","question_id","user_id","content","accepted","created_at","updated_at" FROM "question_replies"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "question_replies"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "question_replies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "content" varchar DEFAULT NULL, "accepted" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_93f143075c"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_question_id" ON "question_replies" ("question_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_user_id" ON "question_replies" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "question_replies" ("id","question_id","user_id","content","accepted","created_at","updated_at")
+                     SELECT "id","question_id","user_id","content","accepted","created_at","updated_at" FROM "aquestion_replies"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aquestion_replies"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquestion_replies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "content" varchar DEFAULT NULL, "accepted" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aquestion_replies_on_user_id" ON "aquestion_replies" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestion_replies_on_question_id" ON "aquestion_replies" ("question_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aquestion_replies" ("id","question_id","user_id","content","accepted","created_at","updated_at")
+                     SELECT "id","question_id","user_id","content","accepted","created_at","updated_at" FROM "question_replies"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "question_replies"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "question_replies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "content" varchar DEFAULT NULL, "accepted" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_93f143075c"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+, CONSTRAINT "fk_rails_1683a7783a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_question_id" ON "question_replies" ("question_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_user_id" ON "question_replies" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "question_replies" ("id","question_id","user_id","content","accepted","created_at","updated_at")
+                     SELECT "id","question_id","user_id","content","accepted","created_at","updated_at" FROM "aquestion_replies"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aquestion_replies"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquestions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "solved" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aquestions_on_user_id" ON "aquestions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestions_on_course_id" ON "aquestions" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aquestions" ("id","course_id","user_id","title","content","solved","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","solved","created_at","updated_at" FROM "questions"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "questions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "solved" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c73562d5b6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_questions_on_course_id" ON "questions" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "questions" ("id","course_id","user_id","title","content","solved","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","solved","created_at","updated_at" FROM "aquestions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aquestions"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquestions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "solved" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestions_on_user_id" ON "aquestions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestions_on_course_id" ON "aquestions" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aquestions" ("id","course_id","user_id","title","content","solved","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","solved","created_at","updated_at" FROM "questions"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "questions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "solved" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c73562d5b6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_047ab75908"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_questions_on_course_id" ON "questions" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "questions" ("id","course_id","user_id","title","content","solved","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","solved","created_at","updated_at" FROM "aquestions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aquestions"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231123041034)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231123034400),
+(20231122011820),
+(20231122003750),
+(20231122000903),
+(20231120104732),
+(20231120084156),
+(20231116041241),
+(20231116034928),
+(20231116025229),
+(20231115011120),
+(20231114152553),
+(20231114070438),
+(20231114063216),
+(20231114063131),
+(20231114031628),
+(20231113134339),
+(20231113122330),
+(20231113100629),
+(20231113090549);[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2023-11-27 12:51:46.768820', '2023-11-27 12:51:46.768827') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'ff808b26cb89092c0e565a20fd102de57191a411', '2023-11-27 12:51:46.772082', '2023-11-27 12:51:46.772085') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (1.9ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments"[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records"[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "article_favors"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "article_favors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "favor_user_id" integer NOT NULL, "favor_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_article_id" ON "article_favors" ("favor_article_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_user_id" ON "article_favors" ("favor_user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "article_likes"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "article_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_article_id" ON "article_likes" ("like_article_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_user_id" ON "article_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "article_tags"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "article_tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer NOT NULL, "content" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_article_tags_on_article_id" ON "article_tags" ("article_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "articles"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar, "content" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_articles_on_course_id" ON "articles" ("course_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "course_comment_likes"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "course_comment_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_course_comment_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_course_comment_id" ON "course_comment_likes" ("like_course_comment_id")[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_user_id" ON "course_comment_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "course_comments"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "course_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "content" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_course_id" ON "course_comments" ("course_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_user_id" ON "course_comments" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "course_files"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "course_files" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "title" varchar, "description" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_course_files_on_course_id" ON "course_files" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "course_scores"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "course_scores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_score" float, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_course_id" ON "course_scores" ("course_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_user_id" ON "course_scores" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "courses"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "courses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_name" varchar, "course_description" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "followships"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "followships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "following_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_followships_on_following_user_id" ON "followships" ("following_user_id")[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE INDEX "index_followships_on_user_id" ON "followships" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "question_replies"[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "question_replies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "content" varchar, "accepted" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_question_id" ON "question_replies" ("question_id")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_user_id" ON "question_replies" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "questions"[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar, "content" varchar, "solved" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE INDEX "index_questions_on_course_id" ON "questions" ("course_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "password" varchar, "email" varchar, "img_path" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "realname" varchar, "studentcode" varchar, "personal_sign" varchar, "admin" integer DEFAULT 0)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments"[0m
+  [1m[35m (1.8ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticle_favors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "favor_user_id" integer NOT NULL, "favor_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_favors_on_favor_user_id" ON "aarticle_favors" ("favor_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_favors_on_favor_article_id" ON "aarticle_favors" ("favor_article_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aarticle_favors" ("id","favor_user_id","favor_article_id","created_at","updated_at")
+                     SELECT "id","favor_user_id","favor_article_id","created_at","updated_at" FROM "article_favors"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "article_favors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "article_favors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "favor_user_id" integer NOT NULL, "favor_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2f0d3f3727"
+FOREIGN KEY ("favor_article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_article_id" ON "article_favors" ("favor_article_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_user_id" ON "article_favors" ("favor_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "article_favors" ("id","favor_user_id","favor_article_id","created_at","updated_at")
+                     SELECT "id","favor_user_id","favor_article_id","created_at","updated_at" FROM "aarticle_favors"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aarticle_favors"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticle_favors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "favor_user_id" integer NOT NULL, "favor_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_favors_on_favor_user_id" ON "aarticle_favors" ("favor_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_favors_on_favor_article_id" ON "aarticle_favors" ("favor_article_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aarticle_favors" ("id","favor_user_id","favor_article_id","created_at","updated_at")
+                     SELECT "id","favor_user_id","favor_article_id","created_at","updated_at" FROM "article_favors"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "article_favors"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "article_favors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "favor_user_id" integer NOT NULL, "favor_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2f0d3f3727"
+FOREIGN KEY ("favor_article_id")
+  REFERENCES "articles" ("id")
+, CONSTRAINT "fk_rails_6fa96a795b"
+FOREIGN KEY ("favor_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_article_id" ON "article_favors" ("favor_article_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_article_favors_on_favor_user_id" ON "article_favors" ("favor_user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "article_favors" ("id","favor_user_id","favor_article_id","created_at","updated_at")
+                     SELECT "id","favor_user_id","favor_article_id","created_at","updated_at" FROM "aarticle_favors"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aarticle_favors"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticle_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_likes_on_like_user_id" ON "aarticle_likes" ("like_user_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_likes_on_like_article_id" ON "aarticle_likes" ("like_article_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aarticle_likes" ("id","like_user_id","like_article_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_article_id","created_at","updated_at" FROM "article_likes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "article_likes"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "article_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_02107609a7"
+FOREIGN KEY ("like_article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_article_id" ON "article_likes" ("like_article_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_user_id" ON "article_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "article_likes" ("id","like_user_id","like_article_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_article_id","created_at","updated_at" FROM "aarticle_likes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aarticle_likes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticle_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_likes_on_like_user_id" ON "aarticle_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_likes_on_like_article_id" ON "aarticle_likes" ("like_article_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aarticle_likes" ("id","like_user_id","like_article_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_article_id","created_at","updated_at" FROM "article_likes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "article_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "article_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_article_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_02107609a7"
+FOREIGN KEY ("like_article_id")
+  REFERENCES "articles" ("id")
+, CONSTRAINT "fk_rails_f39e051864"
+FOREIGN KEY ("like_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_article_id" ON "article_likes" ("like_article_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_article_likes_on_like_user_id" ON "article_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "article_likes" ("id","like_user_id","like_article_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_article_id","created_at","updated_at" FROM "aarticle_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aarticle_likes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticle_tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer NOT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticle_tags_on_article_id" ON "aarticle_tags" ("article_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aarticle_tags" ("id","article_id","content","created_at","updated_at")
+                     SELECT "id","article_id","content","created_at","updated_at" FROM "article_tags"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "article_tags"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "article_tags" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "article_id" integer NOT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_646e8d3122"
+FOREIGN KEY ("article_id")
+  REFERENCES "articles" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_article_tags_on_article_id" ON "article_tags" ("article_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "article_tags" ("id","article_id","content","created_at","updated_at")
+                     SELECT "id","article_id","content","created_at","updated_at" FROM "aarticle_tags"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aarticle_tags"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticles_on_user_id" ON "aarticles" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticles_on_course_id" ON "aarticles" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aarticles" ("id","course_id","user_id","title","content","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","created_at","updated_at" FROM "articles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "articles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f7fde6d497"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_articles_on_course_id" ON "articles" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "articles" ("id","course_id","user_id","title","content","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","created_at","updated_at" FROM "aarticles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aarticles"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aarticles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticles_on_user_id" ON "aarticles" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aarticles_on_course_id" ON "aarticles" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aarticles" ("id","course_id","user_id","title","content","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","created_at","updated_at" FROM "articles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "articles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "articles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_f7fde6d497"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_3d31dad1cc"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_articles_on_course_id" ON "articles" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_articles_on_user_id" ON "articles" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "articles" ("id","course_id","user_id","title","content","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","created_at","updated_at" FROM "aarticles"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aarticles"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_comment_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_course_comment_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comment_likes_on_like_user_id" ON "acourse_comment_likes" ("like_user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comment_likes_on_like_course_comment_id" ON "acourse_comment_likes" ("like_course_comment_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acourse_comment_likes" ("id","like_user_id","like_course_comment_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_course_comment_id","created_at","updated_at" FROM "course_comment_likes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "course_comment_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "course_comment_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_course_comment_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ab04cb1fb4"
+FOREIGN KEY ("like_course_comment_id")
+  REFERENCES "course_comments" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_course_comment_id" ON "course_comment_likes" ("like_course_comment_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_user_id" ON "course_comment_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "course_comment_likes" ("id","like_user_id","like_course_comment_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_course_comment_id","created_at","updated_at" FROM "acourse_comment_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acourse_comment_likes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_comment_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_course_comment_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comment_likes_on_like_user_id" ON "acourse_comment_likes" ("like_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comment_likes_on_like_course_comment_id" ON "acourse_comment_likes" ("like_course_comment_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acourse_comment_likes" ("id","like_user_id","like_course_comment_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_course_comment_id","created_at","updated_at" FROM "course_comment_likes"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "course_comment_likes"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "course_comment_likes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "like_user_id" integer NOT NULL, "like_course_comment_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ab04cb1fb4"
+FOREIGN KEY ("like_course_comment_id")
+  REFERENCES "course_comments" ("id")
+, CONSTRAINT "fk_rails_aaa90190b6"
+FOREIGN KEY ("like_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_course_comment_id" ON "course_comment_likes" ("like_course_comment_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_comment_likes_on_like_user_id" ON "course_comment_likes" ("like_user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "course_comment_likes" ("id","like_user_id","like_course_comment_id","created_at","updated_at")
+                     SELECT "id","like_user_id","like_course_comment_id","created_at","updated_at" FROM "acourse_comment_likes"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acourse_comment_likes"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "content" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comments_on_user_id" ON "acourse_comments" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comments_on_course_id" ON "acourse_comments" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acourse_comments" ("id","course_id","content","created_at","updated_at","user_id")
+                     SELECT "id","course_id","content","created_at","updated_at","user_id" FROM "course_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "course_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "course_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "content" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, CONSTRAINT "fk_rails_7564a6400a"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_course_id" ON "course_comments" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_user_id" ON "course_comments" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "course_comments" ("id","course_id","content","created_at","updated_at","user_id")
+                     SELECT "id","course_id","content","created_at","updated_at","user_id" FROM "acourse_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acourse_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "content" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comments_on_user_id" ON "acourse_comments" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_comments_on_course_id" ON "acourse_comments" ("course_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "acourse_comments" ("id","course_id","content","created_at","updated_at","user_id")
+                     SELECT "id","course_id","content","created_at","updated_at","user_id" FROM "course_comments"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "course_comments"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "course_comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "content" text DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "user_id" integer NOT NULL, CONSTRAINT "fk_rails_7564a6400a"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_7c01c33a87"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_course_id" ON "course_comments" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_course_comments_on_user_id" ON "course_comments" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "course_comments" ("id","course_id","content","created_at","updated_at","user_id")
+                     SELECT "id","course_id","content","created_at","updated_at","user_id" FROM "acourse_comments"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acourse_comments"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_files" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "title" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_files_on_course_id" ON "acourse_files" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acourse_files" ("id","course_id","title","description","created_at","updated_at")
+                     SELECT "id","course_id","title","description","created_at","updated_at" FROM "course_files"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "course_files"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "course_files" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "title" varchar DEFAULT NULL, "description" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_3a40628be7"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_files_on_course_id" ON "course_files" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "course_files" ("id","course_id","title","description","created_at","updated_at")
+                     SELECT "id","course_id","title","description","created_at","updated_at" FROM "acourse_files"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acourse_files"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_scores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_score" float DEFAULT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_scores_on_user_id" ON "acourse_scores" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_scores_on_course_id" ON "acourse_scores" ("course_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "acourse_scores" ("id","course_score","course_id","user_id","created_at","updated_at")
+                     SELECT "id","course_score","course_id","user_id","created_at","updated_at" FROM "course_scores"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "course_scores"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "course_scores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_score" float DEFAULT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_55d557b509"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_course_id" ON "course_scores" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_user_id" ON "course_scores" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "course_scores" ("id","course_score","course_id","user_id","created_at","updated_at")
+                     SELECT "id","course_score","course_id","user_id","created_at","updated_at" FROM "acourse_scores"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "acourse_scores"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acourse_scores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_score" float DEFAULT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_scores_on_user_id" ON "acourse_scores" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_acourse_scores_on_course_id" ON "acourse_scores" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "acourse_scores" ("id","course_score","course_id","user_id","created_at","updated_at")
+                     SELECT "id","course_score","course_id","user_id","created_at","updated_at" FROM "course_scores"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "course_scores"[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "course_scores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_score" float DEFAULT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_55d557b509"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_de431e111d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_course_id" ON "course_scores" ("course_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_course_scores_on_user_id" ON "course_scores" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "course_scores" ("id","course_score","course_id","user_id","created_at","updated_at")
+                     SELECT "id","course_score","course_id","user_id","created_at","updated_at" FROM "acourse_scores"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acourse_scores"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afollowships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "following_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afollowships_on_user_id" ON "afollowships" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_afollowships_on_following_user_id" ON "afollowships" ("following_user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "afollowships" ("id","user_id","following_user_id","created_at","updated_at")
+                     SELECT "id","user_id","following_user_id","created_at","updated_at" FROM "followships"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "followships"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "followships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "following_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_458330adae"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_followships_on_following_user_id" ON "followships" ("following_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_followships_on_user_id" ON "followships" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "followships" ("id","user_id","following_user_id","created_at","updated_at")
+                     SELECT "id","user_id","following_user_id","created_at","updated_at" FROM "afollowships"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afollowships"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "afollowships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "following_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_afollowships_on_user_id" ON "afollowships" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_afollowships_on_following_user_id" ON "afollowships" ("following_user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "afollowships" ("id","user_id","following_user_id","created_at","updated_at")
+                     SELECT "id","user_id","following_user_id","created_at","updated_at" FROM "followships"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "followships"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "followships" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "following_user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_458330adae"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_44c6833ef9"
+FOREIGN KEY ("following_user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_followships_on_following_user_id" ON "followships" ("following_user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_followships_on_user_id" ON "followships" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "followships" ("id","user_id","following_user_id","created_at","updated_at")
+                     SELECT "id","user_id","following_user_id","created_at","updated_at" FROM "afollowships"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "afollowships"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquestion_replies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "content" varchar DEFAULT NULL, "accepted" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestion_replies_on_user_id" ON "aquestion_replies" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestion_replies_on_question_id" ON "aquestion_replies" ("question_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aquestion_replies" ("id","question_id","user_id","content","accepted","created_at","updated_at")
+                     SELECT "id","question_id","user_id","content","accepted","created_at","updated_at" FROM "question_replies"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "question_replies"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "question_replies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "content" varchar DEFAULT NULL, "accepted" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_93f143075c"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_question_id" ON "question_replies" ("question_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_user_id" ON "question_replies" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "question_replies" ("id","question_id","user_id","content","accepted","created_at","updated_at")
+                     SELECT "id","question_id","user_id","content","accepted","created_at","updated_at" FROM "aquestion_replies"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aquestion_replies"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquestion_replies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "content" varchar DEFAULT NULL, "accepted" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestion_replies_on_user_id" ON "aquestion_replies" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestion_replies_on_question_id" ON "aquestion_replies" ("question_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "aquestion_replies" ("id","question_id","user_id","content","accepted","created_at","updated_at")
+                     SELECT "id","question_id","user_id","content","accepted","created_at","updated_at" FROM "question_replies"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "question_replies"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "question_replies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "question_id" integer NOT NULL, "user_id" integer NOT NULL, "content" varchar DEFAULT NULL, "accepted" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_93f143075c"
+FOREIGN KEY ("question_id")
+  REFERENCES "questions" ("id")
+, CONSTRAINT "fk_rails_1683a7783a"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_question_id" ON "question_replies" ("question_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_question_replies_on_user_id" ON "question_replies" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "question_replies" ("id","question_id","user_id","content","accepted","created_at","updated_at")
+                     SELECT "id","question_id","user_id","content","accepted","created_at","updated_at" FROM "aquestion_replies"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aquestion_replies"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquestions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "solved" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestions_on_user_id" ON "aquestions" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aquestions_on_course_id" ON "aquestions" ("course_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aquestions" ("id","course_id","user_id","title","content","solved","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","solved","created_at","updated_at" FROM "questions"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "questions"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "solved" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c73562d5b6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_questions_on_course_id" ON "questions" ("course_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "questions" ("id","course_id","user_id","title","content","solved","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","solved","created_at","updated_at" FROM "aquestions"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aquestions"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aquestions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "solved" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "tindex_aquestions_on_user_id" ON "aquestions" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aquestions_on_course_id" ON "aquestions" ("course_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aquestions" ("id","course_id","user_id","title","content","solved","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","solved","created_at","updated_at" FROM "questions"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "questions"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "questions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "course_id" integer NOT NULL, "user_id" integer NOT NULL, "title" varchar DEFAULT NULL, "content" varchar DEFAULT NULL, "solved" integer DEFAULT 0, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c73562d5b6"
+FOREIGN KEY ("course_id")
+  REFERENCES "courses" ("id")
+, CONSTRAINT "fk_rails_047ab75908"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_questions_on_course_id" ON "questions" ("course_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_questions_on_user_id" ON "questions" ("user_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "questions" ("id","course_id","user_id","title","content","solved","created_at","updated_at")
+                     SELECT "id","course_id","user_id","title","content","solved","created_at","updated_at" FROM "aquestions"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "aquestions"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231127125716)[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231123041034),
+(20231123034400),
+(20231122011820),
+(20231122003750),
+(20231122000903),
+(20231120104732),
+(20231120084156),
+(20231116041241),
+(20231116034928),
+(20231116025229),
+(20231115011120),
+(20231114152553),
+(20231114070438),
+(20231114063216),
+(20231114063131),
+(20231114031628),
+(20231113134339),
+(20231113122330),
+(20231113100629),
+(20231113090549);[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2023-11-27 12:57:33.020258', '2023-11-27 12:57:33.020263') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '6e2469c89207c6c717f9d9b858936a3f2a5cf789', '2023-11-27 12:57:33.022123', '2023-11-27 12:57:33.022125') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

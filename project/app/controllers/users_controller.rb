@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, only: %i[ show edit update destroy student_certificate follow unfollow
-  list_followers list_followings list_favor_articles edit_personal_sign list_questions]
-  before_action :permisson!, only: %i[edit update destroy student_certificate follow unfollow list_followers
-  list_followings list_favor_articles edit_personal_sign list_questions]
+  list_followers list_followings list_favor_articles edit_personal_sign list_questions space]
+  before_action :permisson!, only: %i[edit update destroy student_certificate list_followers
+  list_followings list_favor_articles edit_personal_sign list_questions space]
 
   # GET /users or /users.json
   def index
@@ -108,6 +108,9 @@ class UsersController < ApplicationController
       redirect_to user_url(current_user), notice: "管理员权限认证失败"
     end
 
+  end
+
+  def space
   end
 
   private
