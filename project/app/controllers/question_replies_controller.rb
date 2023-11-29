@@ -1,7 +1,7 @@
 class QuestionRepliesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_question_reply, only: %i[ show edit update destroy change_ac ]
-  before_action :permisson!, only: %i[edit update destroy]
+  before_action :permisson!, only: %i[edit update destroy change_ac]
 
   # GET /question_replies or /question_replies.json
   def index

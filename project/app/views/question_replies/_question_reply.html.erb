@@ -11,13 +11,19 @@
 
   <p>
     <% if question_reply.accepted==1 %>
-      <strong>已采纳</strong><%=link_to "取消采纳", 
+      <strong>已采纳</strong>
+      <%if current_user==@question_reply.user || current_user.admin==1%>
+      <%=link_to "取消采纳", 
       change_ac_course_question_question_reply_path(question_reply.question.course,question_reply.question,
       question_reply)%>
+      <%end%>
     <% else %>
-      <strong>未采纳</strong><%=link_to "采纳", 
+      <strong>未采纳</strong>
+      <%if current_user==@question_reply.user || current_user.admin==1%>
+      <%=link_to "采纳", 
       change_ac_course_question_question_reply_path(question_reply.question.course,question_reply.question,
       question_reply)%>
+      <%end%>
     <% end %>
   </p>
   <hr>

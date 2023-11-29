@@ -13,10 +13,12 @@
     <% if @question.solved == 0%><strong>未解决</strong>
     <%else%> <strong>已解决</strong>
     <%end%>
+    <%if current_user==@question_reply.user || current_user.admin==1%>
     <%if @question.solved==0 %>
   <%= link_to "设为解决", change_solved_course_question_path(@question.course,@question)%>
 <%else%>
   <%= link_to "设为未解决", change_solved_course_question_path(@question.course,@question)%>
+<%end%>
 <%end%>
   </p>
 
