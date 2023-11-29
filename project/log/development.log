@@ -50787,3 +50787,37 @@ Processing by UsersController#list_followings as HTML
 Completed 200 OK in 155ms (Views: 92.8ms | ActiveRecord: 5.1ms | Allocations: 6353)
 
 
+Started GET "/courses" for 127.0.0.1 at 2023-11-29 08:33:46 +0800
+Processing by CoursesController#index as HTML
+  [1m[36mUser Load (46.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.9ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:5
+  Rendered courses/_course.html.erb (Duration: 3.3ms | Allocations: 18)
+  Rendered courses/_course.html.erb (Duration: 0.3ms | Allocations: 17)
+  Rendered courses/index.html.erb within layouts/application (Duration: 38.2ms | Allocations: 684)
+  Rendered layout layouts/application.html.erb (Duration: 153.5ms | Allocations: 2739)
+Completed 200 OK in 344ms (Views: 170.0ms | ActiveRecord: 70.6ms | Allocations: 4615)
+
+
+Started GET "/courses/2" for 127.0.0.1 at 2023-11-29 08:33:47 +0800
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:92:in `set_course'
+  Rendering layout layouts/application.html.erb
+  Rendering courses/show.html.erb within layouts/application
+  Rendered courses/_course.html.erb (Duration: 1.9ms | Allocations: 18)
+  [1m[36mCourseScore Load (0.4ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."course_id" = ?[0m  [["course_id", 2]]
+  ↳ app/views/courses/show.html.erb:21
+  [1m[36mCourse Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "courses" INNER JOIN "course_scores" ON "courses"."id" = "course_scores"."course_id" WHERE "course_scores"."user_id" = ? AND "courses"."id" = ? LIMIT ?[0m  [["user_id", 13], ["id", 2], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:33
+  [1m[36mCourseScore Load (1.5ms)[0m  [1m[34mSELECT "course_scores".* FROM "course_scores" WHERE "course_scores"."user_id" = ? AND "course_scores"."course_id" = ? ORDER BY "course_scores"."id" ASC LIMIT ?[0m  [["user_id", 13], ["course_id", 2], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:45
+  Rendered courses/show.html.erb within layouts/application (Duration: 200.8ms | Allocations: 2401)
+  Rendered layout layouts/application.html.erb (Duration: 225.4ms | Allocations: 4422)
+Completed 200 OK in 294ms (Views: 225.1ms | ActiveRecord: 2.8ms | Allocations: 6359)
+
+

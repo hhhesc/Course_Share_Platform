@@ -102,28 +102,28 @@
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\  |
 |username|string|非空且唯一|用户名|
 |email|string|非空且唯一|邮箱，支持忘记密码时邮箱验证|
 |passwrod|string|非空|密码|
-|realname|string|\|真实姓名|
+|realname|string|\  |真实姓名|
 |studentcode|string|唯一|学号|
-|personalsign|string|\|个性签名|
+|personalsign|string|\  |个性签名|
 |admin|integer|0或1|管理员(1)或普通用户(0)|
 
 ### Course
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |course_name|string|非空|课程名|
-|description|string|\|课程描述|
+|description|string|\ |课程描述|
 
 ### CourseComment
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |content|string|非空|评论内容|
 |course|integer|外键|对应的课程|
 |user|integer|外键|对应的发表用户|
@@ -132,7 +132,7 @@
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |course|integer|外键|对应的课程|
 |user|integer|外键|对应的发表用户|
 |title|string|非空|标题|
@@ -142,7 +142,7 @@
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |follower|integer|外键|关注者|
 |following|integer|外键|被关注者|
 
@@ -150,7 +150,7 @@
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |user|integer|外键|评分的用户|
 |course|integer|外键|评分的课程|
 |course_score|float|非空|分数|
@@ -159,7 +159,7 @@
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |like_user|integer|外键|点赞的用户|
 |like_course_comment|integer|外键|点赞的评论|
 
@@ -167,7 +167,7 @@
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |like_user|integer|外键|点赞的用户|
 |like_article|integer|外键|点赞的课程|
 
@@ -175,7 +175,7 @@
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |favor_user|integer|外键|收藏文章的用户|
 |favor_article|integer|外键|被收藏的文章|
 
@@ -183,16 +183,16 @@
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |course|integer|外键|资料所属的课程|
 |title|string|非空|资料的名称|
-|description|string|\|资料的描述|
+|description|string|\ |资料的描述|
 
 ### ArticleTag
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |article|integer|外键|标签所属的文章|
 |content|string|非空|标签的内容|
 
@@ -200,7 +200,7 @@
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |course|integer|外键|问题对应的课程|
 |user|integer|外键|问题的发布者|
 |title|string|非空|标题|
@@ -211,7 +211,7 @@
 
 |列名|类型|约束|描述|
 |-|-|-|-|
-|id|integer|主键|\|
+|id|integer|主键|\ |
 |question|integer|外键|回答对应的问题|
 |user|integer|外键|回答的发布者|
 |content|string|非空|回答的内容|
