@@ -11,4 +11,8 @@ class Article < ApplicationRecord
   has_many :favor_users, through: :article_favors, dependent: :destroy
 
   has_many :article_tags, dependent: :destroy
+
+  def set_updated_at(timestamp)
+    write_attribute(:updated_at, timestamp) if timestamp
+  end 
 end

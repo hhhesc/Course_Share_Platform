@@ -1,4 +1,36 @@
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<% if user_signed_in? %>
+    <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <% if current_user==@user|| current_user.admin==1%> 
+        <li class="nav-item">
+          <%= link_to '我的关注', list_followers_user_path(@user), class: "nav-link#{" active" if controller_name == "blogs"}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '我的粉丝', list_followings_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '我的收藏', list_favor_articles_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '我的问题', list_questions_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '我的空间', space_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+        </li>
+        <%end%>
+      </ul>
+    </div>
+<% end %>
+</nav>
+</div>
 
+
+
+
+<%= render @user %>
 
 <%if current_user.admin!=1%>
 <p>提交验证码以获得管理员权限</p>
@@ -8,12 +40,10 @@
   <%end%>
 <% end %>
 
-<%= render @user %>
-
 
 <% if current_user==@user|| current_user.admin==1%> 
 <div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> 
+  <%= link_to "编辑资料", edit_user_path(@user) %> 
 </div>
 <%end%>
 
@@ -24,13 +54,6 @@
     <%= link_to 'Follow', follow_user_path(@user), class: "btn btn-success" %>
   <% end %>
 <%end%>
-<% if current_user==@user|| current_user.admin==1%> 
-<%= link_to "我的关注", list_followers_user_path(@user)%>
-<%= link_to "关注我的", list_followings_user_path(@user)%>
-<%= link_to "我的收藏", list_favor_articles_user_path(@user)%>
-<%= link_to "我的问题", list_questions_user_path(@user)%>
-<%= link_to "我的空间", space_user_path(@user)%>
-<%end%>
 
 <p>个性签名：
   <%if @user.personal_sign!=nil %>
@@ -39,7 +62,8 @@
     <p>暂无个性签名</p>
   <%end%>
 <% if current_user==@user|| current_user.admin==1%> 
-</p><%=link_to "编辑个性签名", edit_personal_sign_user_path%>
+</p>
+  <p><%=link_to "编辑个性签名", edit_personal_sign_user_path%></p>
 <%end%>
 
 

@@ -27,14 +27,14 @@
     <%= button_to "删除文章", course_article_path(@course,article), method: :delete %>
   <%end%>
 
-  <p>文章标签</p>
+  <p>文章标签:
   <%if article.article_tags ==nil || article.article_tags.length==0%>
-    <p>无标签</p>
+    无标签
   <%else%>
     <%article.article_tags.each do |tag|%>
      <%=tag.content%>
     <%end%>
-  <%end%>
+  <%end%></p>
 
   <%=link_to "详细内容", course_article_path(@course,article)%>
 

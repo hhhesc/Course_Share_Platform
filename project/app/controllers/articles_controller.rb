@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to course_url(@course), notice: "文章创建成功" }
+        format.html { redirect_to course_article_url(@course,@article), notice: "文章创建成功" }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,8 +46,8 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
     respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to article_url(@article), notice: "文章更新成功" }
+      if @article.update(params.require(:article).permit(:title, :content))
+        format.html { redirect_to course_article_url(@course,@article), notice: "文章更新成功" }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit, status: :unprocessable_entity }

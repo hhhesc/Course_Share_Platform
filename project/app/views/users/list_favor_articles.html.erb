@@ -1,3 +1,32 @@
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<% if user_signed_in? %>
+    <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <% if current_user==@user|| current_user.admin==1%> 
+        <li class="nav-item">
+          <%= link_to '我的关注', list_followers_user_path(@user), class: "nav-link#{" active" if controller_name == "blogs"}" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '我的粉丝', list_followings_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '我的收藏', list_favor_articles_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '我的问题', list_questions_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '我的空间', space_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+        </li>
+        <%end%>
+      </ul>
+    </div>
+<% end %>
+</nav>
+</div>
+
 <h3>收藏的文章</h3>
 <div class="container-fluid">
   <div id="users" class="row">

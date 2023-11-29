@@ -4,8 +4,41 @@
   <strong>用户：</strong>
     <%=link_to @article.user.username,user_path(@article.user)%>
   </p>
+  <p>
+    <strong>标题:</strong>
+    <%= @article.title %>
+  </p>
 
-<%= render @article %>
+  <p>
+    <strong>正文:</strong>
+    <%= @article.content %>
+  </p>
+
+  <%if not @article.like_users.include? current_user%>
+    <%= link_to "点赞",beLiked_course_article_path(@course,@article)%>
+  <%else%>
+    <%=link_to "取消点赞",beUnliked_course_article_path(@course,@article)%>
+  <%end%>
+  <%= @article.like_users.length%>
+
+  <%if not @article.favor_users.include? current_user%>
+    <%= link_to "收藏",beFavored_course_article_path(@course,@article)%>
+  <%else%>
+    <%=link_to "取消收藏",beUnfavored_course_article_path(@course,@article)%>
+  <%end%>
+  <%= @article.favor_users.length%>
+  <%if current_user.admin==1%>
+    <%= button_to "删除文章", course_article_path(@course,@article), method: :delete %>
+  <%end%>
+
+  <p>文章标签:
+  <%if @article.article_tags ==nil || @article.article_tags.length==0%>
+    无标签
+  <%else%>
+    <%@article.article_tags.each do |tag|%>
+     <%=tag.content%>
+    <%end%>
+  <%end%></p>
 
 
   <%= form_for [@course, @article,ArticleTag.new] do |f| %>
@@ -19,9 +52,9 @@
     
 <div>
   <%if current_user==@article.user|| current_user.admin==1%>
-  <%= link_to "Edit this article", edit_course_article_path(@course,@article) %> 
+  <%= link_to "编辑", edit_course_article_path(@course,@article) %> 
   <%end%>|
-  <%= link_to "Back to articles", list_articles_course_path(@course) %>
+  <%= link_to "返回", list_articles_course_path(@course) %>
   <%if current_user.admin==1%>
     <%= button_to "删除文章", course_article_path(@course,@article), method: :delete %>
   <%end%>
