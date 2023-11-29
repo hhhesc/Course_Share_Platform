@@ -11,9 +11,11 @@
 </head>
 
 <body>
+<p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
+
 <% if user_signed_in? %>
   <%= link_to "用户首页", user_path(current_user) %>
-  <p></p>
   <%= link_to "课程列表", courses_path %>
   <%= link_to "用户登出", destroy_user_session_path, method: :delete %>
   <%if current_user.admin==1%>
@@ -21,18 +23,10 @@
     <h3> 您是管理员</h3>
   <%end%>
 
-
-<%if current_user.admin!=1%>
-<p>提交验证码以获得管理员权限</p>
-<%= form_tag certainfy_user_path(current_user), method: :get do %>  
-  <%= text_field_tag 'code', nil %>  
-  <%= submit_tag '提交', name: nil %>  
-  <%end%>
-<% end %>
     
-
-
 <% end %>
 <%= yield %>
 </body>
 </html>
+
+

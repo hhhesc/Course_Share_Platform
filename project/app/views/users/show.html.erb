@@ -1,4 +1,12 @@
-<p style="color: green"><%= notice %></p>
+
+
+<%if current_user.admin!=1%>
+<p>提交验证码以获得管理员权限</p>
+<%= form_tag certainfy_user_path(current_user), method: :get do %>  
+  <%= text_field_tag 'code', nil %>  
+  <%= submit_tag '提交', name: nil %>  
+  <%end%>
+<% end %>
 
 <%= render @user %>
 

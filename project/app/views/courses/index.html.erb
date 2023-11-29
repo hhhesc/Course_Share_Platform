@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
 
 <h1>所有课程</h1>
 
 <div id="courses">
   <% @courses.each do |course| %>
+  <hr>
     <%= render course %>
     <p>
       <%= link_to "课程详细信息", course %>
     </p>
   <% end %>
 </div>
-
+<hr>
 <%= link_to "新增课程", new_course_path %>

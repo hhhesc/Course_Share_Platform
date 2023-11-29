@@ -5,7 +5,7 @@
 
 <div id="articles">
 <%= render @course.articles %>
-</div>
+<hr>
 
 <%= form_for [@course,@user , Article.new] do |f| %>
   <p>
