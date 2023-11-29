@@ -78,7 +78,7 @@ class CourseFilesController < ApplicationController
     end
 
     def permisson!
-      if !(current_user==@course_file.user || current_user.admin==1)
+      if !(current_user.admin==1)
         redirect_to user_url(current_user), notice: '非法行为：无权限！'
       end
     end
