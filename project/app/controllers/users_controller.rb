@@ -111,14 +111,12 @@ class UsersController < ApplicationController
   end
 
   def space
-    user = User.find(params[:id]) # 获取指定的用户
-  followers = user.followers # 获取用户的所有关注者
-  followers_articles = followers.map(&:articles).flatten # 获取所有关注者的文章
-  user_articles = user.articles # 获取用户的所有文章
-  articles = followers_articles + user_articles # 将关注者的文章和用户的文章合并到一个数组中
+    followers = @user.followings #命名失误了
+    followers_articles = followers.map(&:articles).flatten
+    user_articles = @user.articles
+    articles = followers_articles + user_articles
 
-  # 将文章传递给视图
-  @articles = articles.sort_by(&:created_at).reverse  
+    @articles = articles.sort_by(&:created_at).reverse
   end
 
   private

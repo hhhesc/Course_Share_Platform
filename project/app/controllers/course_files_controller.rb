@@ -26,17 +26,20 @@ class CourseFilesController < ApplicationController
     @course = Course.find(params[:course_id])
     @course_file = CourseFile.new(course_file_params)
     @course_file.course = @course
-
+    if @course_file.file.nil?
+      redirect_to list_course_files_course_url(@course),alert: "资料不能为空"
+    else
     respond_to do |format|
       if @course_file.save
         format.html { redirect_to list_course_files_course_url(@course),
         notice: "资料上传成功" }
         format.json { render :show, status: :created, location: @course_file }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { redirect_to list_course_files_course_url(@course), status: :unprocessable_entity }
         format.json { render json: @course_file.errors, status: :unprocessable_entity }
       end
     end
+  end
   end
 
   # PATCH/PUT /course_files/1 or /course_files/1.json

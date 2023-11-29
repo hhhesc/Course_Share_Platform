@@ -1,10 +1,11 @@
 class CourseScoresController < ApplicationController
     before_action :authenticate_user!
-    before_action :permisson!, only: %i[edit update destroy]
-    
+    before_action :permisson!, only: %i[]
+
     def new
         @course_score = CourseScore.new
     end
+
     def create
         @course = Course.find(params[:course_id])
         @course_score = CourseScore.new(course_score_params)

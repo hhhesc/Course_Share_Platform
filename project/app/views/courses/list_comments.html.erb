@@ -34,6 +34,7 @@
 <div id="comments">
 <%= render @course.course_comments %>
 </div>
+<hr>
 
 <%= form_for [@course , CourseComment.new] do |f| %>
   <p>
