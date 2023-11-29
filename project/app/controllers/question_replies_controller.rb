@@ -64,7 +64,6 @@ class QuestionRepliesController < ApplicationController
   end
 
   def change_ac
-    if current_user==@question.user
       if @question_reply.accepted == 0
         @question_reply.accepted = 1
       else
@@ -79,9 +78,6 @@ class QuestionRepliesController < ApplicationController
           format.json { render json: @question_reply.errors, status: :unprocessable_entity }
         end
       end
-    else
-      redirect_to user_url(current_user), notice: "非法行为：无权限！"
-    end
   end
 
   private

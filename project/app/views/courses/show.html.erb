@@ -7,7 +7,6 @@
         <%if current_user.admin==1%>
         <li class="nav-item">
           <%= link_to '编辑课程', edit_course_path(@course), class: "nav-link#{" active" if controller_name == "blogs"}" %>
-          <%= button_to "删除课程", @course, method: :delete %>
         </li>
         <%end%>
         <li class="nav-item">
@@ -22,6 +21,9 @@
         <li class="nav-item">
           <%= link_to '问题求助', list_questions_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
         </li>
+        <%if current_user.admin==1%>
+        <%= button_to "删除课程", @course, method: :delete , class: "btn btn-secondary d-flex" %>
+        <%end%>
       </ul>
     </div>
 <% end %>
