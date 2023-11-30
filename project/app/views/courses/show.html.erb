@@ -1,10 +1,15 @@
+
 <div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<% if user_signed_in? %>
-    <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <%if current_user.admin==1%>
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav">
+                  <%if current_user.admin==1%>
         <li class="nav-item">
           <%= link_to '编辑课程', edit_course_path(@course), class: "nav-link#{" active" if controller_name == "blogs"}" %>
         </li>
@@ -26,10 +31,14 @@
         <%end%>
       </ul>
     </div>
-<% end %>
-</nav>
+                <!-- Mobile button -->
+                <div class="d-lg-none text-center">
+                    <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-sm btn-warning">See more details</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 </div>
-
 <%= render @course %>
 <div>
   <p>课程评分：

@@ -28,11 +28,11 @@
 
 <div>
   <%if @question.user==current_user || current_user.admin==1%>
-  <%= link_to "Edit this question", edit_question_path(@question)%>|<%end%>
-  <%= link_to "Back to questions", list_questions_course_path(@question.course) %>
+  <%= link_to "编辑问题", edit_question_path(@question)%>|<%end%>
+  <%= link_to "返回", list_questions_course_path(@question.course) %>
 
   <%if @question.user==current_user || current_user.admin==1%>
-  <%= button_to "Destroy this question", @question, method: :delete %><%end%>
+  <%= button_to "删除问题", @question, method: :delete %><%end%>
 </div>
 
 <div id="question_replies">
