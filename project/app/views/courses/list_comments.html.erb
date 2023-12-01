@@ -1,56 +1,61 @@
-
 <div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container">
-            <!-- Toggler -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Collapse -->
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav">
-                  <%if current_user.admin==1%>
-        <li class="nav-item">
-          <%= link_to '编辑课程', edit_course_path(@course), class: "nav-link#{" active" if controller_name == "blogs"}" %>
-        </li>
-        <%end%>
-        <li class="nav-item">
-          <%= link_to '课程评论', list_comments_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '课程文章', list_articles_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '课程资料', list_course_files_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '问题求助', list_questions_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <%if current_user.admin==1%>
-        <%= button_to "删除课程", @course, method: :delete , class: "btn btn-secondary d-flex" %>
-        <%end%>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <% if current_user.admin == 1 %>
+            <li class="nav-item">
+              <%= link_to '编辑课程', edit_course_path(@course), class: "nav-link#{" active" if controller_name == "blogs"}" %>
+            </li>
+          <% end %>
+          <li class="nav-item">
+            <%= link_to '课程评论', list_comments_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '课程文章', list_articles_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '课程资料', list_course_files_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '问题求助', list_questions_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <% if current_user.admin == 1 %>
+            <%= button_to "删除课程", @course, method: :delete, class: "btn btn-secondary d-flex" %>
+          <% end %>
+        </ul>
+      </div>
+      <!-- Mobile button -->
+      <div class="d-lg-none text-center">
+        <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-sm btn-warning">See more
+          details</a>
+      </div>
     </div>
-                <!-- Mobile button -->
-                <div class="d-lg-none text-center">
-                    <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-sm btn-warning">See more details</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+  </nav>
 </div>
 
-<div id="comments">
-<%= render @course.course_comments %>
-</div>
-<hr>
+<section class="slice py-7">
+  <div class="container">
+    <div class="row row-grid align-items-center">
+      <div id="comments">
+        <%= render @course.course_comments %>
+      </div>
+      <hr>
 
-<%= form_for [@course , CourseComment.new] do |f| %>
-  <p>
-    <%= f.label :content, "发表评论" %> <br />
-<%= f.text_area :content, :rows => 5 %>
-  </p>
-  <p><%= f.submit "发布" %></p>
-<% end %>
+      <%= form_for [@course, CourseComment.new] do |f| %>
+        <p>
+          <%= f.label :content, "发表评论" %> <br/>
+          <%= f.text_area :content, :rows => 5, class: "form-control" %>
+        </p>
+        <p><%= f.submit "发布", class: "btn btn-primary" %></p>
+      <% end %>
 
-<%= link_to "返回课程页面",course_path(@course) %>
+      <%= link_to "返回课程页面", course_path(@course), class: "btn btn-secondary" %>
+    </div>
+  </div>
+</section>

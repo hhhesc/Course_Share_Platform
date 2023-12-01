@@ -1,12 +1,11 @@
 <div id="<%= dom_id user %>">
   <p>
     <strong>用户名:</strong>
-    <%=link_to user.username,user_path(user) %>
+    <%=link_to user.username,user_path(user),class: "my-link" %>
   </p>
 
   <p>
     <strong>邮箱:</strong>
     <%= user.email %>
   </p>
-
 </div>

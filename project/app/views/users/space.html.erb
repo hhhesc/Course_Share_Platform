@@ -1,45 +1,57 @@
 <div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<% if user_signed_in? %>
-    <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <% if current_user==@user|| current_user.admin==1%> 
-        <li class="nav-item">
-          <%= link_to '我的关注', list_followers_user_path(@user), class: "nav-link#{" active" if controller_name == "blogs"}" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '我的粉丝', list_followings_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '我的收藏', list_favor_articles_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '我的问题', list_questions_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '我的空间', space_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <%end%>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <% if current_user == @user || current_user.admin == 1 %>
+            <li class="nav-item">
+              <%= link_to '我的关注', list_followers_user_path(@user), class: "nav-link#{" active" if controller_name == "blogs"}" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '我的粉丝', list_followings_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '我的收藏', list_favor_articles_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '我的问题', list_questions_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '我的空间', space_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+            </li>
+          <% end %></ul>
+      </div>
+      <!-- Mobile button -->
+      <div class="d-lg-none text-center">
+        <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-sm btn-warning">See more
+          details</a>
+      </div>
     </div>
-<% end %>
-</nav>
+  </nav>
 </div>
+<section>
+  <div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center min-vh-80">
+      <h3>我的空间</h3>
+      <% ActiveRecord::Base.record_timestamps = false %>
+      <% begin %>
 
-<h3>我的空间</h3>
-<%ActiveRecord::Base.record_timestamps = false %>
-<% begin %>
+        <% @articles.each do |article| %>
+          <%= link_to article.title, course_article_path(article.course, article) %>
+          <strong>用户
+            <%= link_to article.user.username, user_url(article.user) %> 发布于
+            <%= article.created_at %>
+          </strong><br/>
+          <hr>
+        <% end %>
 
-    <%@articles.each do |article|%>
-    <%=link_to article.title,course_article_path(article.course,article)%>
-    <strong>用户
-      <%= link_to article.user.username, user_url(article.user) %> 发布于
-      <%= time_ago_in_words(article.created_at) %>前
-    </strong><br/>
-        <hr>
-    <%end%>
-
-<%ensure%>
-<%ActiveRecord::Base.record_timestamps = true%>
-<%end%>
+      <% ensure %>
+        <% ActiveRecord::Base.record_timestamps = true %>
+      <% end %></div>
+  </div>
+</section>

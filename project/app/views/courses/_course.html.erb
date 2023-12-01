@@ -1,10 +1,9 @@
-<div class="col-md-4">
-  <div class="card">
-    <div class="card-body pb-5">
-            
-        <h5 class="h4 lh-130 mb-3"><%= course.course_name %></h5>
-       <p class="text-muted mb-0"><%= course.course_description %></p>
-       <%= link_to "课程详细信息", course %>
+<div class="col-md-4 mb-4">
+  <div class="card d-flex ">
+    <div class="card-body pb-5 d-flex align-items-start flex-column">
+      <h5 class="h4 lh-130 mb-auto p-2"><%= course.course_name %></h5>
+      <p class="text-muted p-2"><%= course.course_description %></p>
+      <%= link_to "课程详细信息", course, class: "btn btn-primary p-2" %>
     </div>
   </div>
 </div>

@@ -1,22 +1,16 @@
-<div id="<%= dom_id course_file %>">
+<div class="col-md-4 mb-4">
+  <div class="card d-flex ">
+    <div class="card-body pb-5 d-flex align-items-start flex-column">
 
-  <p>
-    <strong>Title:</strong>
-    <%= course_file.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= course_file.description %>
-  </p>
-
-  <p>
-    <%= link_to "文件下载",url_for(course_file.file)%>
-  </p>
-
-  <%if current_user.admin==1%>
-    <%= button_to "删除文件", course_course_file_path(@course,course_file), method: :delete %>
-  <%end%>
-
+      <% if current_user.admin == 1 %>
+        <%= button_to "删除文件", course_course_file_path(@course, course_file),
+                      method: :delete, class: "btn btn-danger p-2" %>
+      <% end %>
+      <h5 class="h4 lh-130 mb-auto p-2"><%= course_file.title %></h5>
+      <p class="text-muted p-2"><%= course_file.description %></p>
+      <p>
+        <%= link_to "文件下载", url_for(course_file.file), class: "btn btn-primary p-2" %>
+      </p>
+    </div>
+  </div>
 </div>
-<hr>

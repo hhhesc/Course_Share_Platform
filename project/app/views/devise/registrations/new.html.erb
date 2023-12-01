@@ -1,34 +1,153 @@
-<h2>注册</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Webpixels">
+  <title>Quick – Website UI Kit (FREE)</title>
+  <!-- Preloader -->
+  <style>
+      @keyframes hidePreloader {
+          0% {
+              width: 100%;
+              height: 100%;
+          }
 
-  <div class="field">
-    <%= f.label :username %><br/>
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
+          100% {
+              width: 0;
+              height: 0;
+          }
+      }
+
+      body > div.preloader {
+          position: fixed;
+          background: white;
+          width: 100%;
+          height: 100%;
+          z-index: 1071;
+          opacity: 0;
+          transition: opacity .5s ease;
+          overflow: hidden;
+          pointer-events: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+
+      body:not(.loaded) > div.preloader {
+          opacity: 1;
+      }
+
+      body:not(.loaded) {
+          overflow: hidden;
+      }
+
+      body.loaded > div.preloader {
+          animation: hidePreloader .5s linear .5s forwards;
+      }
+  </style>
+  <script>
+      window.addEventListener("load", function () {
+          setTimeout(function () {
+              document.querySelector('body').classList.add('loaded');
+          }, 300);
+      });
+  </script>
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/brand/favicon.png" type="image/png"><!-- Font Awesome -->
+  <link rel="stylesheet" href="/assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
+  <!-- Quick CSS -->
+  <link rel="stylesheet" href="/assets/quick-website.css" id="stylesheet">
+</head>
+
+<body>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-cookies" data-backdrop="false" aria-labelledby="modal-cookies" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-aside left-4 right-4 bottom-4">
+    <div class="modal-content bg-dark-dark">
+      <div class="modal-body">
+        <!-- Text -->
+        <p class="text-sm text-white mb-3">
+          We use cookies so that our themes work for you. By using our website, you agree to our use of cookies.
+        </p>
+        <!-- Buttons -->
+        <a href="pages/utility/terms.html" class="btn btn-sm btn-white" target="_blank">Learn more</a>
+        <button type="button" class="btn btn-sm btn-primary mr-2" data-dismiss="modal">OK</button>
+      </div>
+    </div>
   </div>
+</div>
+<!-- Main content -->
+<section>
+  <div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center min-vh-100">
+      <div class="col-md-6 col-lg-5 col-xl-5 py-6 py-md-0">
+        <div class="card shadow zindex-100 mb-0">
+          <div class="card-body px-md-5 py-5">
+            <div class="mb-5">
+              <h6 class="h3">注册</h6>
 
-  <div class="field">
-    <%= f.label :email %><br/>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+            </div>
+
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <div class="form-group">
+                <label class="form-control-label">用户名</label>
+                <div class="input-group">
+                  <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-group mb-0">
+                <div class="d-flex align-items-center justify-content-between">
+                  <div>
+                    <label class="form-control-label">邮箱</label>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between">
+                  <div>
+                    <label class="form-control-label">密码
+                      <% if @minimum_password_length %>
+                        <em>(<%= @minimum_password_length %> characters minimum)</em>
+                      <% end %><br/>
+                    </label>
+                  </div>
+                </div>
+                <div class="input-group">
+
+                  <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-between">
+                  <div>
+                    <label class="form-control-label">确认密码</label>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+                </div>
+              </div>
+              <div class="mt-4">
+                <%= f.submit "注册", class: "btn btn-block btn-primary" %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br/>
-    <%= f.password_field :password, autocomplete: "new-password" , class: "form-control"%>
-  </div>
+<!-- Feather Icons -->
+<script>
+    feather.replace({
+        'width': '1em',
+        'height': '1em'
+    })
+</script>
+</body>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br/>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" , class: "form-control"%>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</html>

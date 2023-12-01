@@ -2,74 +2,75 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Webpixels">
-    <title>Quick – Website UI Kit (FREE)</title>
-    <!-- Preloader -->
-    
-    <script>
-        window.addEventListener("load", function() {
-            setTimeout(function() {
-                document.querySelector('body').classList.add('loaded');
-            }, 300);
-        });
-    </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Webpixels">
+  <title>Quick – Website UI Kit (FREE)</title>
+  <!-- Preloader -->
+
+  <script>
+      window.addEventListener("load", function () {
+          setTimeout(function () {
+              document.querySelector('body').classList.add('loaded');
+          }, 300);
+      });
+  </script>
 </head>
 
 <body>
 
-    <div class="modal fade" tabindex="-1" role="dialog" id="modal-cookies" data-backdrop="false" aria-labelledby="modal-cookies" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-aside left-4 right-4 bottom-4">
-            <div class="modal-content bg-dark-dark">
-                <div class="modal-body">
-                    <!-- Text -->
-                    <p class="text-sm text-white mb-3">
-                        We use cookies so that our themes work for you. By using our website, you agree to our use of cookies.
-                    </p>
-                    <!-- Buttons -->
-                    <a href="pages/utility/terms.html" class="btn btn-sm btn-white" target="_blank">Learn more</a>
-                    <button type="button" class="btn btn-sm btn-primary mr-2" data-dismiss="modal">OK</button>
-                </div>
-            </div>
-        </div>
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-cookies" data-backdrop="false" aria-labelledby="modal-cookies" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-aside left-4 right-4 bottom-4">
+    <div class="modal-content bg-dark-dark">
+      <div class="modal-body">
+        <!-- Text -->
+        <p class="text-sm text-white mb-3">
+          We use cookies so that our themes work for you. By using our website, you agree to our use of cookies.
+        </p>
+        <!-- Buttons -->
+        <a href="pages/utility/terms.html" class="btn btn-sm btn-white" target="_blank">Learn more</a>
+        <button type="button" class="btn btn-sm btn-primary mr-2" data-dismiss="modal">OK</button>
+      </div>
     </div>
-    <!-- Go Pro -->
-    <!-- Navbar -->
-    
-    <!-- Main content -->
-    <section class="slice py-7">
-        <div class="container">
-            <div class="row row-grid align-items-center">
-                <div class="col-12 col-md-5 col-lg-6 order-md-2 text-center">
-                    <!-- Image -->
-                    <figure class="w-100">
-                        <img alt="Image placeholder" src="/assets/svg/illustrations/illustration-3.svg" class="img-fluid mw-md-120">
-                    </figure>
-                </div>
-                <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
-                    <!-- Heading -->
-                    <h1 class="display-4 text-center text-md-left mb-3">
-                        欢迎访问 <strong class="text-primary">课程资料共享平台</strong>
-                    </h1>
-                    <!-- Text -->
-                    <p class="lead text-center text-md-left text-muted">
-                        在这里分享课程学习的知识，收获更多的心得
-                    </p>
-                    <!-- Buttons -->
-                    <% if !user_signed_in? %>
-                    <div class="text-center text-md-left mt-5">
-                        <a href="users/sign_in" class="btn btn-primary btn-icon" target="_blank">
-                            <span class="btn-inner--text">登录</span>
-                            <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
-                        </a>
-                        <a href="users/sign_up" class="btn btn-neutral btn-icon d-none d-lg-inline-block" target="_blank"> 注册</a>
-                    </div>
-                    <%end%>
-                </div>
-            </div>
-        </div>
-</body>
+  </div>
+</div>
+<!-- Go Pro -->
+<!-- Navbar -->
 
+<!-- Main content -->
+<section class="slice py-7">
+  <div class="container">
+    <div class="row row-grid align-items-center">
+      <div class="col-12 col-md-5 col-lg-6 order-md-2 text-center">
+        <!-- Image -->
+        <figure class="w-100">
+          <img alt="Image placeholder" src="/assets/svg/illustrations/illustration-3.svg" class="img-fluid mw-md-120">
+        </figure>
+      </div>
+      <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
+        <!-- Heading -->
+        <h1 class="display-4 text-center text-md-left mb-3">
+          欢迎访问 <strong class="text-primary">课程资料共享平台</strong>
+        </h1>
+        <!-- Text -->
+        <p class="lead text-center text-md-left text-muted">
+          在这里分享课程学习的知识，收获更多的心得
+        </p>
+        <!-- Buttons -->
+        <% unless user_signed_in? %>
+          <div class="text-center text-md-left mt-5">
+            <a href="users/sign_in" class="btn btn-primary btn-icon" target="_blank">
+              <span class="btn-inner--text">登录</span>
+              <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
+            </a>
+            <a href="users/sign_up" class="btn btn-neutral btn-icon d-none d-lg-inline-block" target="_blank"> 注册</a>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
 </html>

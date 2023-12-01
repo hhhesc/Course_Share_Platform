@@ -1,68 +1,33 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Webpixels">
-    <title>Quick – Website UI Kit (FREE)</title>
-    <!-- Preloader -->
-    
-    <script>
-        window.addEventListener("load", function() {
-            setTimeout(function() {
-                document.querySelector('body').classList.add('loaded');
-            }, 300);
-        });
-    </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Webpixels">
+  <title>Quick – Website UI Kit (FREE)</title>
+  <!-- Preloader -->
 </head>
 
 <body>
-
-    <div class="modal fade" tabindex="-1" role="dialog" id="modal-cookies" data-backdrop="false" aria-labelledby="modal-cookies" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-aside left-4 right-4 bottom-4">
-            <div class="modal-content bg-dark-dark">
-                <div class="modal-body">
-                    <!-- Text -->
-                    <p class="text-sm text-white mb-3">
-                        We use cookies so that our themes work for you. By using our website, you agree to our use of cookies.
-                    </p>
-                    <!-- Buttons -->
-                    <a href="pages/utility/terms.html" class="btn btn-sm btn-white" target="_blank">Learn more</a>
-                    <button type="button" class="btn btn-sm btn-primary mr-2" data-dismiss="modal">OK</button>
-                </div>
-            </div>
+<!-- Main content -->
+<section class="slice py-7">
+  <div class="container">
+    <div class="row row-grid align-items-center">
+      <h1>所有课程</h1>
+      <hr>
+      <div class="container-fluid">
+        <div id="courses" class="row">
+          <%= render @courses %>
         </div>
-    </div>
-    <!-- Go Pro -->
-    <!-- Navbar -->
-    
-    <!-- Main content -->
-    <section class="slice py-7">
-        <div class="container">
-            <div class="row row-grid align-items-center">
-                
-<h1>所有课程</h1>
-  <hr>
-<div class="container-fluid">
-  <div id="courses" class="row">
-  <%= render @courses%>
-</div>
-<hr>
-          <%= link_to "新增课程", new_course_path %>
-                
-            </div>
+        <hr>
+        <%= link_to "新增课程", new_course_path, class: "btn btn-success" %>
+      </div>
 
-    <!-- Feather Icons -->
-    <script>
-        feather.replace({
-            'width': '1em',
-            'height': '1em'
-        })
-    </script>
+    </div>
+  </div>
+</section>
 </body>
 
 </html>

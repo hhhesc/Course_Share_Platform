@@ -1,90 +1,114 @@
-
-
-
 <div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container">
-            <!-- Toggler -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Collapse -->
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav">
-                  <% if current_user==@user|| current_user.admin==1%> 
-        <li class="nav-item">
-          <%= link_to '我的关注', list_followers_user_path(@user), class: "nav-link#{" active" if controller_name == "blogs"}" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '我的粉丝', list_followings_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '我的收藏', list_favor_articles_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '我的问题', list_questions_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '我的空间', space_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <%end%>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <% if current_user == @user || current_user.admin == 1 %>
+            <li class="nav-item">
+              <%= link_to '我的关注', list_followers_user_path(@user), class: "nav-link#{" active" if controller_name == "blogs"}" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '我的粉丝', list_followings_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '我的收藏', list_favor_articles_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '我的问题', list_questions_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '我的空间', space_user_path(@user), class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+            </li>
+          <% end %></ul>
+      </div>
+      <!-- Mobile button -->
+      <div class="d-lg-none text-center">
+        <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-sm btn-warning">See more
+          details</a>
+      </div>
     </div>
-                <!-- Mobile button -->
-                <div class="d-lg-none text-center">
-                    <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-sm btn-warning">See more details</a>
-                </div>
-            </div>
+  </nav>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-cookies" data-backdrop="false" aria-labelledby="modal-cookies" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-aside left-4 right-4 bottom-4">
+    <div class="modal-content bg-dark-dark">
+      <div class="modal-body">
+        <!-- Text -->
+        <p class="text-sm text-white mb-2">
+          We use cookies so that our themes work for you. By using our website, you agree to our use of cookies.
+        </p>
+        <!-- Buttons -->
+        <a href="pages/utility/terms.html" class="btn btn-sm btn-white" target="_blank">Learn more</a>
+        <button type="button" class="btn btn-sm btn-primary mr-2" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<section>
+  <div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center min-vh-80">
+      <div class="col-md-6 col-lg-5 col-xl-5 py-6 py-md-0">
+        <div class="card shadow zindex-100 mb-0">
+          <div class="card-body px-md-5 py-5">
+            <%= render @user %>
+
+            <% if current_user.admin != 1 %>
+              <p>提交验证码以获得管理员权限</p>
+              <%= form_tag certainfy_user_path(current_user), method: :get do %>
+                <%= text_field_tag 'code', nil %>
+                <%= submit_tag '提交', name: nil %>
+              <% end %>
+            <% end %>
+
+
+            <% if current_user == @user || current_user.admin == 1 %>
+              <p></p>
+              <div>
+                <%= link_to "编辑资料", edit_user_path(@user), class: "btn btn-secondary btn-sm" %>
+              </div>
+            <% end %>
+
+            <% if current_user != @user %>
+              <% if current_user.followings.include? @user %>
+                <%= link_to '取消关注', unfollow_user_path(@user), class: "btn btn-danger" %>
+              <% else %>
+                <%= link_to '关注', follow_user_path(@user), class: "btn btn-success" %>
+              <% end %>
+            <% end %>
+
+            <p>个性签名：
+              <% if !@user.personal_sign.nil? %>
+                <%= @user.personal_sign %>
+              <% else %>
+                暂无个性签名
+              <% end %>
+              <% if current_user == @user || current_user.admin == 1 %>
+
+                <%= link_to "编辑个性签名", edit_personal_sign_user_path, class: "btn btn-secondary btn-sm" %>
+              <% end %>
+            </p>
+
+
+            <% if @user.realname != nil %>
+              <p> 个人认证信息</p>
+              <p>姓名：<%= @user.realname %></p>
+              <p>学号：<%= @user.studentcode %></p>
+            <% else %>
+              <% if current_user == @user %>
+                <%= link_to "学生认证", student_certificate_user_path, class: "btn btn-secondary btn-sm" %>
+              <% end %>
+            <% end %>
+          </div>
         </div>
-    </nav>
-</div>
-
-
-
-
-<%= render @user %>
-
-<%if current_user.admin!=1%>
-<p>提交验证码以获得管理员权限</p>
-<%= form_tag certainfy_user_path(current_user), method: :get do %>  
-  <%= text_field_tag 'code', nil %>  
-  <%= submit_tag '提交', name: nil %>  
-  <%end%>
-<% end %>
-
-
-<% if current_user==@user|| current_user.admin==1%> 
-<div>
-  <%= link_to "编辑资料", edit_user_path(@user) %> 
-</div>
-<%end%>
-
-<% if current_user!=@user%>  
-  <% if current_user.followings.include? @user %>
-    <%= link_to '取消关注', unfollow_user_path(@user), class: "btn btn-danger" %>
-  <% else %>
-    <%= link_to '关注', follow_user_path(@user), class: "btn btn-success" %>
-  <% end %>
-<%end%>
-
-<p>个性签名：
-  <%if @user.personal_sign!=nil %>
-    <%=@user.personal_sign%>
-  <%else%>
-    <p>暂无个性签名</p>
-  <%end%>
-<% if current_user==@user|| current_user.admin==1%> 
-</p>
-  <p><%=link_to "编辑个性签名", edit_personal_sign_user_path%></p>
-<%end%>
-
-
-<% if @user.realname != nil %>
-  <p> 个人认证信息</p>
-  <p>姓名：<%= @user.realname %></p>
-  <p>学号：<%= @user.studentcode %></p>
-<% else %>
-<% if current_user==@user%> 
-  <%= link_to "学生认证", student_certificate_user_path %>
-  <%end%>
-<% end %>
-
+      </div>
+    </div>
+  </div>
+</section>

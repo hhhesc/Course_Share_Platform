@@ -1,72 +1,106 @@
-
 <div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-        <div class="container">
-            <!-- Toggler -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- Collapse -->
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav">
-                  <%if current_user.admin==1%>
-        <li class="nav-item">
-          <%= link_to '编辑课程', edit_course_path(@course), class: "nav-link#{" active" if controller_name == "blogs"}" %>
-        </li>
-        <%end%>
-        <li class="nav-item">
-          <%= link_to '课程评论', list_comments_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '课程文章', list_articles_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '课程资料', list_course_files_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <li class="nav-item">
-          <%= link_to '问题求助', list_questions_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
-        </li>
-        <%if current_user.admin==1%>
-        <%= button_to "删除课程", @course, method: :delete , class: "btn btn-secondary d-flex" %>
-        <%end%>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <% if current_user.admin == 1 %>
+            <li class="nav-item">
+              <%= link_to '编辑课程', edit_course_path(@course), class: "nav-link#{" active" if controller_name == "blogs"}" %>
+            </li>
+          <% end %>
+          <li class="nav-item">
+            <%= link_to '课程评论', list_comments_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '课程文章', list_articles_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '课程资料', list_course_files_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '问题求助', list_questions_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <% if current_user.admin == 1 %>
+            <%= button_to "删除课程", @course, method: :delete, class: "btn btn-secondary d-flex" %>
+          <% end %>
+        </ul>
+      </div>
+      <!-- Mobile button -->
+      <div class="d-lg-none text-center">
+        <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-sm btn-warning">See more
+          details</a>
+      </div>
     </div>
-                <!-- Mobile button -->
-                <div class="d-lg-none text-center">
-                    <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-sm btn-warning">See more details</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+  </nav>
 </div>
-<%= render @course %>
-<div>
-  <p>课程评分：
-    <%ave=0%>
-    <%n=0%>
-    <% @course.course_scores.each do |score|%>
-      <%ave=ave+score.course_score%>
-      <%n=n+1%>
-    <% end%> 
-    <%if n==0 %>
-      目前无人进行过评分
-    <%else%>
-      <p><%=ave/n%>(共有<%=n%>位用户进行了评分)</p>
-    <%end%>
-  </p>
-  <% if not current_user.courses.include? @course%> 
-    <p>我要评分
-    <%= form_for [@course,CourseScore.new] do |f| %>
-       <p>
-      <div>
-        <%= f.label :分数, "分数" %> <br />
-        <%= f.number_field :course_score %>
-      </p>
-      <p><%= f.submit "提交" %></p>
-    <% end %>
-    </p>
-  <%else%>
-    <%my_score = current_user.course_scores.where(course_id: @course.id).first.course_score%>
-    <p>您的评分：<%=my_score%></p>
-  <%end%>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" id="modal-cookies" data-backdrop="false" aria-labelledby="modal-cookies" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-aside left-4 right-4 bottom-4">
+    <div class="modal-content bg-dark-dark">
+      <div class="modal-body">
+        <!-- Text -->
+        <p class="text-sm text-white mb-2">
+          We use cookies so that our themes work for you. By using our website, you agree to our use of cookies.
+        </p>
+        <!-- Buttons -->
+        <a href="pages/utility/terms.html" class="btn btn-sm btn-white" target="_blank">Learn more</a>
+        <button type="button" class="btn btn-sm btn-primary mr-2" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main content -->
+<section>
+  <div class="container d-flex flex-column">
+    <div class="row align-items-center justify-content-center min-vh-80">
+      <div class="col-md-6 col-lg-5 col-xl-5 py-6 py-md-0">
+        <div class="card shadow zindex-100 mb-0">
+          <div class="card-body px-md-5 py-5">
+            <h5 class="h2"><%= @course.course_name %></h5>
+            <p class="text-muted"><%= @course.course_description %></p>
+            <p>课程评分：
+              <% ave = 0 %>
+              <% n = 0 %>
+              <% @course.course_scores.each do |score| %>
+                <% ave = ave + score.course_score %>
+                <% n = n + 1 %>
+              <% end %>
+              <% if n == 0 %>
+                目前无人进行过评分
+              <% else %>
+                <%= (ave / n).round(2) %>(共有<%= n %>位用户进行了评分)
+              <% end %>
+            </p>
+            <% if not current_user.courses.include? @course %>
+              <p>我要评分
+                <%= form_for [@course, CourseScore.new] do |f| %>
+                <p>
+                <div>
+
+                  <%= f.number_field :course_score, class: "form-control" %>
+                  </p>
+                  <p><%= f.submit "提交", class: "btn btn-primary" %></p>
+              <% end %>
+              </p>
+            <% else %>
+              <% my_score = current_user.course_scores.where(course_id: @course.id).first.course_score %>
+              <p>您的评分：<%= my_score %></p>
+            <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 </div>

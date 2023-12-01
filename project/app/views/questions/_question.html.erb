@@ -1,20 +1,17 @@
-<div id="<%= dom_id question %>">
+<div class="col-md-4 mb-4">
+  <div class="card d-flex ">
+    <div class="card-body pb-5 d-flex align-items-start flex-column">
 
-  <p>
-    <strong>求助用户:</strong>
-    <%=link_to question.user.username, user_path(question.user)  %>
-  </p>
-
-  <p>
-    <strong>标题:</strong>
-    <%= question.title %>
-  </p>
-
-  <p>
-    <% if question.solved == 0%><strong>未解决</strong>
-    <%else%> <strong>已解决</strong>
-    <%end%>
-  </p>
-
-  <%= link_to "详细内容", question_path(question), method: :get%>
+      <h5 class="h4 lh-130 mb-auto p-2">
+        <%= link_to question.user.username, user_path(question.user), class: "my-link" %></h5>
+      <p class="text-muted p-2"><%= question.title %></p>
+      <p class="p-2">
+        <% if question.solved == 0 %><strong>未解决</strong>
+        <% else %> <strong>已解决</strong>
+        <% end %>
+      </p>
+      <%= link_to "详细内容", question_path(question), method: :get, class: "btn btn-primary p-2" %>
+    </div>
+  </div>
 </div>
+
