@@ -11,7 +11,7 @@
       暂无个性签名
     <% end %>
     <% if current_user == user || current_user.admin == 1 %>
-      <%= link_to "编辑个性签名", edit_personal_sign_user_path, class: "btn btn-secondary btn-sm" %>
+      <%= link_to "编辑个性签名", edit_personal_sign_user_path(user), class: "btn btn-secondary btn-sm" %>
     <% end %>
   </p>
 </div>
