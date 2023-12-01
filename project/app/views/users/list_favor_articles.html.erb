@@ -39,15 +39,20 @@
   <div class="container d-flex flex-column">
     <div class="row align-items-center justify-content-center min-vh-80">
 
-        <h3>收藏的文章</h3>
-        <div class="container-fluid">
-          <div id="users" class="row">
-            <% @user.favor_articles.each do |article| %>
-              <%= link_to article.user.username << " " << article.title, list_articles_course_path(article.course) %>
-            <% end %>
-          </div>
+      <h3>收藏的文章</h3>
+      <hr>
+      <div class="container-fluid">
+        <div id="users" class="row">
+          <% @user.favor_articles.each do |article| %>
+            <%= link_to article.title, course_article_path(article.course, article),class: "my-link" %>
+            <strong>用户
+              <%= link_to article.user.username, user_url(article.user),class: "my-link" %> 发布于
+              <%= article.created_at %>
+            </strong><br/>
+          <% end %>
         </div>
-        <hr>
+      </div>
+      <hr>
 
     </div>
   </div>

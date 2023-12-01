@@ -4,8 +4,14 @@
     <%=link_to user.username,user_path(user),class: "my-link" %>
   </p>
 
-  <p>
-    <strong>邮箱:</strong>
-    <%= user.email %>
+  <p>个性签名：
+    <% if !user.personal_sign.nil? %>
+      <%= user.personal_sign %>
+    <% else %>
+      暂无个性签名
+    <% end %>
+    <% if current_user == user || current_user.admin == 1 %>
+      <%= link_to "编辑个性签名", edit_personal_sign_user_path, class: "btn btn-secondary btn-sm" %>
+    <% end %>
   </p>
 </div>

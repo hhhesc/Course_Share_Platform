@@ -38,13 +38,14 @@
   <div class="container d-flex flex-column">
     <div class="row align-items-center justify-content-center min-vh-80">
       <h3>我的空间</h3>
+      <hr>
       <% ActiveRecord::Base.record_timestamps = false %>
       <% begin %>
 
         <% @articles.each do |article| %>
-          <%= link_to article.title, course_article_path(article.course, article) %>
+          <%= link_to article.title, course_article_path(article.course, article), class: "my-link" %>
           <strong>用户
-            <%= link_to article.user.username, user_url(article.user) %> 发布于
+            <%= link_to article.user.username, user_url(article.user), class: "my-link" %> 发布于
             <%= article.created_at %>
           </strong><br/>
           <hr>

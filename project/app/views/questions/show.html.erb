@@ -1,49 +1,62 @@
+<hr>
+<section class="slice py-7">
+  <div class="container">
+    <div class="row row-grid align-items-center">
+      <h1>问题详情</h1>
+      <p>
+        <strong>求助用户:</strong>
+        <%= link_to @question.user.username, user_path(@question.user),class: "my-link" %>
+      </p>
 
-  <p>
-    <strong>求助用户:</strong>
-    <%=link_to @question.user.username, user_path(@question.user)  %>
-  </p>
+      <p>
+        <strong>标题:</strong>
+        <%= @question.title %>
+      </p>
 
-  <p>
-    <strong>标题:</strong>
-    <%= @question.title %>
-  </p>
+      <p>
+        <% if @question.solved == 0 %><strong>未解决</strong>
+        <% else %> <strong>已解决</strong>
+        <% end %>
+        <% if current_user == @question.user || current_user.admin == 1 %>
+          <% if @question.solved == 0 %>
+            <%= link_to "设为解决", change_solved_course_question_path(@question.course, @question) %>
+          <% else %>
+            <%= link_to "设为未解决", change_solved_course_question_path(@question.course, @question) %>
+          <% end %>
+        <% end %>
+      </p>
 
-  <p>
-    <% if @question.solved == 0%><strong>未解决</strong>
-    <%else%> <strong>已解决</strong>
-    <%end%>
-    <%if current_user==@question.user || current_user.admin==1%>
-    <%if @question.solved==0 %>
-  <%= link_to "设为解决", change_solved_course_question_path(@question.course,@question)%>
-<%else%>
-  <%= link_to "设为未解决", change_solved_course_question_path(@question.course,@question)%>
-<%end%>
-<%end%>
-  </p>
+      <div><strong>正文</strong>
+        <%= @question.content %>
+      </div><p></p>
+      <p><%=@question.created_at %></p>
 
-<div><strong>正文</strong>
-  <%=@question.content%>
-</div>
-
-<div>
-  <%if @question.user==current_user || current_user.admin==1%>
-  <%= link_to "编辑问题", edit_question_path(@question)%>|<%end%>
-  <%= link_to "返回", list_questions_course_path(@question.course) %>
-
-  <%if @question.user==current_user || current_user.admin==1%>
-  <%= button_to "删除问题", @question, method: :delete %><%end%>
-</div>
-
-<div id="question_replies">
-<%= render @question.question_replies %>
-</div>
+      <p></p><p></p>
+      <h3>回复</h3><hr>
 
 
-<%= form_for [@question.course, @question , QuestionReply.new] do |f| %>
-  <p>
-    <%= f.label :content, "发表回答" %> <br />
-    <%= f.text_area :content, :rows => 5 %>
-  </p>
-  <p><%= f.submit "发布" %></p>
-<% end %>
+      <div id="question_replies">
+        <%= render @question.question_replies %>
+      </div>
+
+
+      <%= form_for [@question.course, @question, QuestionReply.new] do |f| %>
+        <p>
+          <%= f.label :content, "发表回答" %> <br/>
+          <%= f.text_area :content, :rows => 5,class: "form-control" %>
+        </p>
+        <p><%= f.submit "发布",class: "btn btn-primary" %></p>
+      <% end %>
+      <div>
+        <% if @question.user == current_user || current_user.admin == 1 %>
+          <%= link_to "编辑问题", edit_question_path(@question) %>|
+        <% end %>
+
+        <% if @question.user == current_user || current_user.admin == 1 %>
+          <%= button_to "删除问题", @question, method: :delete %>
+        <% end %>
+      </div>
+      <%= link_to "返回", list_questions_course_path(@question.course), class: "btn btn-secondary" %>
+    </div>
+  </div>
+</section>

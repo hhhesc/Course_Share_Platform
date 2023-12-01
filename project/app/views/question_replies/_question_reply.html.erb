@@ -1,7 +1,8 @@
 <div id="<%= dom_id question_reply %>">
   <p>
     <strong>用户:</strong>
-    <%= question_reply.user.username %>
+    <%= link_to question_reply.user.username, user_path(question_reply.user.username),
+                class: "my-link" %>
   </p>
 
   <p>
@@ -10,22 +11,24 @@
   </p>
 
   <p>
-    <% if question_reply.accepted==1 %>
+    <% if question_reply.accepted == 1 %>
       <strong>已采纳</strong>
-      <%if current_user==question_reply.user || current_user.admin==1%>
-      <%=link_to "取消采纳", 
-      change_ac_course_question_question_reply_path(question_reply.question.course,question_reply.question,
-      question_reply)%>
-      <%end%>
+      <% if current_user == question_reply.user || current_user.admin == 1 %>
+        <%= link_to "取消采纳",
+                    change_ac_course_question_question_reply_path(question_reply.question.course, question_reply.question,
+                                                                  question_reply) %>
+      <% end %>
     <% else %>
-      <strong>未采纳</strong>
-      <%if current_user==question_reply.user || current_user.admin==1%>
-      <%=link_to "采纳", 
-      change_ac_course_question_question_reply_path(question_reply.question.course,question_reply.question,
-      question_reply)%>
-      <%end%>
+      未采纳
+      <% if current_user == question_reply.user || current_user.admin == 1 %>
+        <%= link_to "采纳",
+                    change_ac_course_question_question_reply_path(question_reply.question.course, question_reply.question,
+                                                                  question_reply) %>
+      <% end %>
     <% end %>
   </p>
+
+  <p><%=question_reply.created_at %></p>
   <hr>
 
 </div>

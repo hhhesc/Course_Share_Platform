@@ -84,19 +84,8 @@
               <% end %>
             <% end %>
 
-            <p>个性签名：
-              <% if !@user.personal_sign.nil? %>
-                <%= @user.personal_sign %>
-              <% else %>
-                暂无个性签名
-              <% end %>
-              <% if current_user == @user || current_user.admin == 1 %>
-
-                <%= link_to "编辑个性签名", edit_personal_sign_user_path, class: "btn btn-secondary btn-sm" %>
-              <% end %>
-            </p>
-
-
+            <p></p>
+            <p></p>
             <% if @user.realname != nil %>
               <p> 个人认证信息</p>
               <p>姓名：<%= @user.realname %></p>

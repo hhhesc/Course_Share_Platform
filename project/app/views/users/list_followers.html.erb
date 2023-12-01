@@ -37,11 +37,14 @@
 <section>
   <div class="container d-flex flex-column">
     <div class="row align-items-center justify-content-center min-vh-80">
-<h3>我的关注</h3>
-<div class="container-fluid">
-  <div id="users" class="row">
-    <%= render @user.followings %>
+      <h3>我的关注</h3>
+      <hr>
+      <div class="container-fluid">
+        <div id="users" class="row">
+          <%= render @user.followings %>
+        </div>
+      </div>
+      <hr>
+    </div>
   </div>
-</div>
-<hr>
-    </div></div></section>
+</section>
