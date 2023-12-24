@@ -37,7 +37,11 @@
 <section>
   <div class="container d-flex flex-column">
     <div class="row align-items-center justify-content-center min-vh-80">
-      <h3>我的问题</h3>
+      <h3><% if current_user == @user %>
+          我
+        <% else %>
+          <%=@user.username %>
+        <% end %>的问题</h3><span class="my-cnt">共<%=@user.questions.length %>条记录</span>
       <hr>
       <section class="slice py-7">
         <div class="container">

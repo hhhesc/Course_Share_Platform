@@ -1,13 +1,8 @@
-
-
-<h1>Users</h1>
-
+<h1>用户列表</h1><span class="my-cnt">共<%= @users.length %>条记录</span>
+<hr>
 <div id="users">
   <% @users.each do |user| %>
     <%= render user %>
-    <p>
-      <%= link_to "详细信息", user %>
-    </p>
   <% end %>
 </div>
 

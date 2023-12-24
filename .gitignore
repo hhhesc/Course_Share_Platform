@@ -2,3 +2,4 @@
 project/tmp
 project/storage
 doc
+.gitignore

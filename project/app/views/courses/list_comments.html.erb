@@ -42,6 +42,7 @@
 <section class="slice py-7">
   <div class="container">
     <div class="row row-grid align-items-center">
+      <h2>课程评论</h2><span class="my-cnt">共<%=@course.course_comments.length %>条记录</span>
       <div id="comments">
         <%= render @course.course_comments %>
       </div>

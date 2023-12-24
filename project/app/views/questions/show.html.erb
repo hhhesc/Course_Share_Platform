@@ -3,9 +3,10 @@
   <div class="container">
     <div class="row row-grid align-items-center">
       <h1>问题详情</h1>
+      <hr>
       <p>
         <strong>求助用户:</strong>
-        <%= link_to @question.user.username, user_path(@question.user),class: "my-link" %>
+        <%= link_to @question.user.username, user_path(@question.user), class: "my-link" %>
       </p>
 
       <p>
@@ -13,26 +14,33 @@
         <%= @question.title %>
       </p>
 
+      <div>
+        <%= @question.content %>
+      </div>
+      <p></p>
+      <p class="my-sign"><%= @question.created_at %></p>
+
       <p>
-        <% if @question.solved == 0 %><strong>未解决</strong>
-        <% else %> <strong>已解决</strong>
+        <% if @question.solved == 0 %><a style="color: blue">未解决</a>
+        <% else %> <a style="color: green;">已解决</a>
         <% end %>
+
         <% if current_user == @question.user || current_user.admin == 1 %>
           <% if @question.solved == 0 %>
-            <%= link_to "设为解决", change_solved_course_question_path(@question.course, @question) %>
+            <%= link_to "设为解决", change_solved_course_question_path(@question.course, @question),
+                        class: "btn btn-secondary btn-sm" %>
           <% else %>
-            <%= link_to "设为未解决", change_solved_course_question_path(@question.course, @question) %>
+            <%= link_to "设为未解决", change_solved_course_question_path(@question.course, @question),
+                        class: "btn btn-secondary btn-sm" %>
           <% end %>
         <% end %>
       </p>
 
-      <div><strong>正文</strong>
-        <%= @question.content %>
-      </div><p></p>
-      <p><%=@question.created_at %></p>
 
-      <p></p><p></p>
-      <h3>回复</h3><hr>
+      <p></p>
+      <p></p>
+      <h3>回复</h3>
+      <hr>
 
 
       <div id="question_replies">
@@ -43,20 +51,21 @@
       <%= form_for [@question.course, @question, QuestionReply.new] do |f| %>
         <p>
           <%= f.label :content, "发表回答" %> <br/>
-          <%= f.text_area :content, :rows => 5,class: "form-control" %>
+          <%= f.text_area :content, :rows => 5, class: "form-control" %>
         </p>
-        <p><%= f.submit "发布",class: "btn btn-primary" %></p>
+        <p><%= f.submit "发布", class: "btn btn-primary" %></p>
       <% end %>
-      <div>
+      <p>
         <% if @question.user == current_user || current_user.admin == 1 %>
-          <%= link_to "编辑问题", edit_question_path(@question) %>|
+          <%= link_to "编辑问题", edit_question_path(@question), class: "btn btn-primary" %>
         <% end %>
 
         <% if @question.user == current_user || current_user.admin == 1 %>
-          <%= button_to "删除问题", @question, method: :delete %>
+          <%= button_to "删除问题", @question, method: :delete, class: "btn btn-danger" %>
         <% end %>
-      </div>
+      </p>
       <%= link_to "返回", list_questions_course_path(@question.course), class: "btn btn-secondary" %>
     </div>
   </div>
+
 </section>

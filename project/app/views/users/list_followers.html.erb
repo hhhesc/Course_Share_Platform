@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <!-- Toggler -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,14 +37,17 @@
 <section>
   <div class="container d-flex flex-column">
     <div class="row align-items-center justify-content-center min-vh-80">
-      <h3>我的关注</h3>
+      <h3><% if current_user == @user %>
+          我
+        <% else %>
+          <%=@user.username %>
+        <% end %>的关注</h3><span class="my-cnt">共<%= @user.followings.length %>条记录</span>
       <hr>
       <div class="container-fluid">
         <div id="users" class="row">
           <%= render @user.followings %>
         </div>
       </div>
-      <hr>
     </div>
   </div>
 </section>

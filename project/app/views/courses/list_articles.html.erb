@@ -41,12 +41,21 @@
 <section class="slice py-7">
   <div class="container">
     <div class="row row-grid align-items-center">
-      <%= form_tag search_by_tag_course_path(@course), method: :get do %>
-        <%= text_field_tag 'query', nil, placeholder: 'Search...' %>
-        <%= submit_tag 'Search', name: nil %>
+      <h2>课程文章</h2><span class="my-cnt">共<%=@course.articles.length %>条记录</span>
+      <span><%= form_tag search_by_tag_course_path(@course), method: :get do %>
+        <%= text_field_tag 'query', nil, placeholder: '根据标签搜索...' %>
+        <%= submit_tag '搜索', name: nil %>
       <% end %>
+        <p></p>
 
-      <%= render @course.articles %>
+      <%= form_tag search_by_content_course_path(@course), method: :get do %>
+        <%= text_field_tag 'query', nil, placeholder: '根据内容或标题搜索...' %>
+        <%= submit_tag '搜索', name: nil %>
+      <% end %></span>
+
+      <%= render @course.articles.sort_by {
+        |article| article.like_users.size + article.favor_users.size }.reverse %>
+
       <p></p>
       <hr>
 

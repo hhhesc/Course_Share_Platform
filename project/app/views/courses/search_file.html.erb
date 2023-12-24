@@ -1,0 +1,91 @@
+<div class="container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <!-- Toggler -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav">
+          <% if current_user.admin == 1 %>
+            <li class="nav-item">
+              <%= link_to '编辑课程', edit_course_path(@course), class: "nav-link#{" active" if controller_name == "blogs"}" %>
+            </li>
+          <% end %>
+          <li class="nav-item">
+            <%= link_to '课程评论', list_comments_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '课程文章', list_articles_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '课程资料', list_course_files_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <li class="nav-item">
+            <%= link_to '问题求助', list_questions_course_path, class: "nav-link#{" active" if controller_name == "users"}" if current_user %>
+          </li>
+          <% if current_user.admin == 1 %>
+            <%= button_to "删除课程", @course, method: :delete, class: "btn btn-secondary d-flex" %>
+          <% end %>
+        </ul>
+      </div>
+      <!-- Mobile button -->
+      <div class="d-lg-none text-center">
+        <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-sm btn-warning">See more
+          details</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+<!-- Main content -->
+<section class="slice py-7">
+  <div class="container">
+    <div class="row row-grid align-items-center">
+      <h2>课程资料</h2><span class="my-cnt">共<%= @course_files.length %>条记录</span>
+      <%= form_tag search_file_course_path(@course), method: :get do %>
+        <%= text_field_tag 'query', nil, placeholder: '搜索...' %>
+        <%= submit_tag '搜索', name: nil %>
+      <% end %>
+      <p></p>
+      <hr>
+
+      <strong>搜索结果</strong>
+      <% if @course_files.any? %>
+        <div class="container-fluid">
+          <div id="courses" class="row">
+            <%= render @course_files %>
+          </div>
+        </div>
+      <% else %>
+        <p>未找到 <%= params[:query] %> 的相关资料.</p>
+      <% end %>
+
+
+
+      <hr>
+      <%= form_for [@course, CourseFile.new] do |f| %>
+        <p>
+        <div>
+          <%= f.label :title, "标题" %> <br/>
+          <%= f.text_area :title, :rows => 1, class: "form-control" %>
+        </div>
+        <div>
+          <%= f.label :description, "描述" %> <br/>
+          <%= f.text_area :description, :rows => 5, class: "form-control" %>
+          <div>
+            <%= f.label :file, "文件" %><br/>
+            <%= f.file_field :file, class: "form-control" %>
+          </div>
+          <p></p>
+          <p></p>
+          <p><%= f.submit "发布", class: "btn btn-primary" %></p>
+      <% end %>
+
+      </div>
+      <%= link_to "返回课程页面", course_path(@course), class: "btn btn-secondary" %>
+    </div>
+  </div>
+</section>

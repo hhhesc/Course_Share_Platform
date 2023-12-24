@@ -11,11 +11,21 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "bootstrap";
+@import "bootstrap";
 
 
- .my-link {  
-    color: black; /* 设置文本颜色为蓝色 */
-    font-weight: bold; /* 设置文本加粗 */  
-    text-decoration: none; /* 去除下划线 */  
-  }
+.my-link {
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.my-cnt {
+  color: grey;
+  font-size: 14px;
+}
+
+.my-sign {
+  color: grey;
+  font-size: 15px;
+}

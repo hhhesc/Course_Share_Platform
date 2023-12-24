@@ -1,17 +1,15 @@
 <div class="col-md-4 mb-4">
   <div class="card d-flex ">
     <div class="card-body pb-5 d-flex align-items-start flex-column">
-
       <h5 class="h4 lh-130 mb-auto p-2">
-        <%= link_to question.user.username, user_path(question.user), class: "my-link" %></h5>
-      <p class="text-muted p-2"><%= question.title %></p>
+        <%= question.title %></h5>
+      <p class="text-muted p-2"><%= question.content %></p>
       <p class="p-2">
-        <% if question.solved == 0 %><strong>未解决</strong>
-        <% else %> <strong>已解决</strong>
-        <% end %>
+      <% if question.solved == 0 %><p style="color: blue">未解决</p>
+      <% else %> <p style="color: green;">已解决</p>
+      <% end %>
       </p>
       <%= link_to "详细内容", question_path(question), method: :get, class: "btn btn-primary p-2" %>
     </div>
   </div>
 </div>
-

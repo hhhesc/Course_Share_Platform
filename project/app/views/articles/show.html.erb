@@ -6,7 +6,7 @@
         <h3>
           <%= @article.title %></h3><p></p>
         <p>
-          <%= @article.content %>
+          <%= markdown(@article.content) %>
         </p>
         <div class="btn btn-light mr-3">
           <% if not @article.like_users.include? current_user %>
@@ -37,9 +37,7 @@
           <%= @article.favor_users.length %>
 
         </div>
-        <% if current_user.admin == 1 %>
-          <%= button_to "删除文章", course_article_path(@course, @article), method: :delete, class: "btn btn-danger" %>
-        <% end %>
+
 
         <p></p>
         <p class="text-muted">文章标签:

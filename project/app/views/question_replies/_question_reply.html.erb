@@ -6,29 +6,29 @@
   </p>
 
   <p>
-    <strong>正文:</strong>
     <%= question_reply.content %>
   </p>
 
-  <p>
+  <span>
     <% if question_reply.accepted == 1 %>
-      <strong>已采纳</strong>
-      <% if current_user == question_reply.user || current_user.admin == 1 %>
-        <%= link_to "取消采纳",
-                    change_ac_course_question_question_reply_path(question_reply.question.course, question_reply.question,
-                                                                  question_reply) %>
-      <% end %>
-    <% else %>
-      未采纳
-      <% if current_user == question_reply.user || current_user.admin == 1 %>
-        <%= link_to "采纳",
-                    change_ac_course_question_question_reply_path(question_reply.question.course, question_reply.question,
-                                                                  question_reply) %>
-      <% end %>
+    <span style="color: red">已采纳</span>
+    <% if current_user == question_reply.user || current_user.admin == 1 %>
+      <%= link_to "取消采纳",
+                  change_ac_course_question_question_reply_path(question_reply.question.course, question_reply.question,
+                                                                question_reply),
+                  class: "btn btn-secondary btn-sm" %>
     <% end %>
-  </p>
+  <% else %>
+    <span style="color: blue">未采纳</span>
+    <% if current_user == question_reply.user || current_user.admin == 1 %>
+      <%= link_to "采纳",
+                  change_ac_course_question_question_reply_path(question_reply.question.course, question_reply.question,
+                                                                question_reply),
+                  class: "btn btn-secondary btn-sm" %>
+    <% end %>
+  <% end %>
+  </span>
 
-  <p><%=question_reply.created_at %></p>
+  <p class="my-sign"><%= question_reply.created_at %></p>
   <hr>
-
 </div>

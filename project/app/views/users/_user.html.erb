@@ -1,10 +1,9 @@
 <div id="<%= dom_id user %>">
   <p>
-    <strong>用户名:</strong>
-    <%=link_to user.username,user_path(user),class: "my-link" %>
+    <%= link_to user.username, user_path(user), class: "my-link" %>
   </p>
 
-  <p>个性签名：
+  <p class="my-sign">
     <% if !user.personal_sign.nil? %>
       <%= user.personal_sign %>
     <% else %>
@@ -14,4 +13,5 @@
       <%= link_to "编辑个性签名", edit_personal_sign_user_path(user), class: "btn btn-secondary btn-sm" %>
     <% end %>
   </p>
+  <hr>
 </div>

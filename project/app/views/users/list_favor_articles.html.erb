@@ -38,21 +38,27 @@
 <section>
   <div class="container d-flex flex-column">
     <div class="row align-items-center justify-content-center min-vh-80">
-
-      <h3>收藏的文章</h3>
+      <h3><% if current_user == @user %>
+         我
+      <% else %>
+        <%=@user.username %>
+      <% end %>
+      收藏的文章</h3><span class="my-cnt">共<%= @user.favor_articles.length %>条记录</span>
       <hr>
       <div class="container-fluid">
         <div id="users" class="row">
           <% @user.favor_articles.each do |article| %>
-            <%= link_to article.title, course_article_path(article.course, article),class: "my-link" %>
-            <strong>用户
-              <%= link_to article.user.username, user_url(article.user),class: "my-link" %> 发布于
+            <%= link_to article.title, course_article_path(article.course, article), class: "my-link" %>
+            <p class="my-sign">用户
+              <%= link_to article.user.username, user_url(article.user), class: "my-link" %> 发布于
               <%= article.created_at %>
-            </strong><br/>
+            </p><br/>
+            <hr>
           <% end %>
+
         </div>
       </div>
-      <hr>
+
 
     </div>
   </div>

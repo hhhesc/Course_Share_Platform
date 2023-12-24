@@ -70,3 +70,8 @@ end
 gem 'devise'
 gem 'sassc-rails'
 gem 'bootstrap'
+
+gem "jquery-rails"
+
+gem 'redcarpet'
+gem 'coderay'

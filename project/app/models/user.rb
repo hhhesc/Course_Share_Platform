@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :email,:username, uniqueness: true
   validates :studentcode, uniqueness: true, allow_blank: true
-  validates :email,:username,:password, presence: true
+  validates :email,:username, presence: true
 
   has_many :course_comments, dependent: :destroy
 

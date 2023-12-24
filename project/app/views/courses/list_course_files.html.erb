@@ -44,6 +44,16 @@
 <section class="slice py-7">
   <div class="container">
     <div class="row row-grid align-items-center">
+      <h2>课程资料</h2><span class="my-cnt">共<%=@course.course_files.length %>条记录</span>
+
+      <%= form_tag search_file_course_path(@course), method: :get do %>
+        <%= text_field_tag 'query', nil, placeholder: '搜索...' %>
+        <%= submit_tag '搜索', name: nil %>
+      <% end %>
+      <p></p>
+      <hr>
+
+
       <div class="container-fluid">
         <div id="courses" class="row">
           <%= render @course.course_files %>

@@ -60,20 +60,12 @@
           <div class="card-body px-md-5 py-5">
             <%= render @user %>
 
-            <% if current_user.admin != 1 %>
+            <% if current_user.admin != 1 and current_user == @user %>
               <p>提交验证码以获得管理员权限</p>
               <%= form_tag certainfy_user_path(current_user), method: :get do %>
                 <%= text_field_tag 'code', nil %>
                 <%= submit_tag '提交', name: nil %>
               <% end %>
-            <% end %>
-
-
-            <% if current_user == @user || current_user.admin == 1 %>
-              <p></p>
-              <div>
-                <%= link_to "编辑资料", edit_user_path(@user), class: "btn btn-secondary btn-sm" %>
-              </div>
             <% end %>
 
             <% if current_user != @user %>
@@ -84,16 +76,30 @@
               <% end %>
             <% end %>
 
+            <p><strong>粉丝数：<%= @user.followers.length %></strong></p>
+            <p><strong>获得点赞：<%= @user.articles.map { |article| article.article_likes.length }.sum +
+                                      @user.course_comments.map { |comment| comment.course_comment_likes.length }.sum %></strong>
+            </p>
+            <p></p>
+            <strong>获得收藏：<%= @user.articles.map { |article| article.article_favors.length }.sum %></strong></p>
             <p></p>
             <p></p>
             <% if @user.realname != nil %>
+              <hr>
               <p> 个人认证信息</p>
-              <p>姓名：<%= @user.realname %></p>
-              <p>学号：<%= @user.studentcode %></p>
+              <strong>姓名：<%= @user.realname %></strong>
+              <strong>学号：<%= @user.studentcode %></strong>
             <% else %>
               <% if current_user == @user %>
                 <%= link_to "学生认证", student_certificate_user_path, class: "btn btn-secondary btn-sm" %>
               <% end %>
+            <% end %>
+
+            <% if current_user == @user || current_user.admin == 1 %>
+              <p></p>
+              <div>
+                <%= link_to "编辑资料", edit_user_path(@user), class: "btn btn-secondary btn-sm" %>
+              </div>
             <% end %>
           </div>
         </div>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Webpixels">
+  <title>Quick – Website UI Kit (FREE)</title>
+  <!-- Preloader -->
+</head>
+
+<body>
+<!-- Main content -->
+<section class="slice py-7">
+  <div class="container">
+    <div class="row row-grid align-items-center">
+      <h1>所有课程</h1><span class="my-cnt">共<%=@courses.length %>条记录</span>
+      <%= form_tag search_course_courses_path, method: :get do %>
+        <%= text_field_tag 'query', nil, placeholder: '搜索课程...' %>
+        <%= submit_tag '搜索', name: nil %>
+      <% end %>
+      <p></p>
+      <hr>
+      <div class="container-fluid">
+        <div id="courses" class="row">
+          <%= render @courses %>
+        </div>
+        <hr>
+        <%= link_to "新增课程", new_course_path, class: "btn btn-success" %>
+      </div>
+
+    </div>
+  </div>
+</section>
+</body>
+
+</html>

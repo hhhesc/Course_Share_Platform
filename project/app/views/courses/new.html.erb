@@ -1,9 +1,13 @@
-<h1>新增课程</h1>
-
-<%= render "form", course: @course %>
-
-<br>
-
-<div>
-  <%= link_to "返回", courses_path %>
-</div>
+<section class="slice py-7">
+  <div class="container">
+    <div class="row row-grid align-items-center">
+      <h1>新增课程</h1>
+      <hr>
+      <%= render "form", course: @course %>
+      <br>
+      <div>
+        <%= link_to "返回", courses_path , class: "btn btn-secondary"%>
+      </div>
+    </div>
+  </div>
+</section>

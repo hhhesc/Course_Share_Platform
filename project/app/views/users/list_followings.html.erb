@@ -37,10 +37,15 @@
 <section>
   <div class="container d-flex flex-column">
     <div class="row align-items-center justify-content-center min-vh-80">
-<h3>我的粉丝</h3>
+<h3><% if current_user == @user %>
+    我
+  <% else %>
+    <%=@user.username %>
+  <% end %>的粉丝</h3><span class="my-cnt">共<%=@user.followers.length %>条记录</span>
+      <hr>
 <div class="container-fluid">
   <div id="users" class="row">
-    <%= render @user.followers %>
+    <%= render  @user.followers%>
   </div>
 </div>
-      <hr></div></div></section>
+      </div></div></section>
