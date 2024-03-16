@@ -2,7 +2,7 @@
 
 本项目名为北航课程资料共享平台，是一个面向大学学生的课程资料分享、讨论和求助平台，以供各届学生交流、分享学习经验，减轻学生间信息不共享的问题
 
-项目后端基于Ruby On Rails框架和Sqlite3数据库
+项目后端基于Ruby On Rails框架和Mysql数据库
 
 
 
@@ -16,7 +16,7 @@
 
 - ruby 3.2.2 (2023-03-30 revision e51014f9c0) [x86_64-linux]
 
-- sqlite3 3.37.2
+- Mysql 8.0.35-0ubuntu0.22.04.1 for Linux on x86_64 ((Ubuntu))
 
 # 设计文档
 
